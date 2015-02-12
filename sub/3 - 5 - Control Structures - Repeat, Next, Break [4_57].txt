@@ -1,0 +1,161 @@
+Repeat is a construct that basically
+intiali, initiates and infinite loop.
+This is not a what I would characterize as
+a commonly used control structure in R but
+it does have its use occasionally.
+So the only way to exit a repeat
+loop is to call break, so
+obviously you are going to have
+to call break at some point,
+unless you feel like running your program,
+you know, forever.
+So here is a pretty simple example, here
+I am initializing a value of x 0 to be 1,
+and I am saying what I think of as
+a tolerance to be 10 to the minus 8, and
+then I am going to repeat
+the following structure.
+Basically, I'm going to,
+I imagine that some function that keep
+computing estimate for x and
+I'm going to call that x1.
+And basically if,
+if the new value of x that is x1,
+is, is, if the absolute value
+of the difference between x1 and
+x0 is less than some tolerance,
+in this case 10 to the minus 8,
+then I'm going to stop the loop and
+then move on to the next bit of code.
+If, if the, if the difference
+is greater than my tolerance,
+then I set x0 to be
+equal to the new value.
+And then I, I run the loop again,
+I calculate a new estimate and
+I check to see if,
+if the difference is small.
+So, this is a common type of
+formulation in in many types of
+optimization algorithms, for
+example, if you're trying to find
+the solution to some set of equations, or
+you're trying to maximize the function,
+often you'll iterate over and over again.
+And and you'll stop when the,
+when the estimates that you're
+calculating are getting closer and
+closer together, because that's usually
+a sign that you're kind of converging to
+whatever the minimum or ma, or
+maximum of the objective function is.
+So this is a, in theory this is
+a perfectly reasonable construction.
+You want to keep recycling through the
+algorithm until the two values are close.
+So there's one problem which is that first
+of all requires an algorithm that is
+guaranteed to converge and not necessarily
+every algorithm has that property.
+Second of all, als, it doe, it, it does
+depend a little bit on the tolerance of
+the re, the loop will run longer if the
+tolerance is smaller, generally speaking.
+And because it's hard to predict
+how how long this loop will run.
+It can be a little bit dangerous
+because it's a little bit
+because it's unpredictable, it, it,
+it could theoretically run forever, and
+you have no gar, way to guarantee that
+the program will stop at some point.
+So this construct,
+although it's theoretically
+kind of the right thing to do
+it's usually not a good idea.
+It's better, probably be better
+off to use a for loop that has a,
+has a hard limit on the number of
+iterations that it's allowed to run.
+That way, if you have a problem with
+your algorithm, it will eventually reach
+the hard limit and stop and, and you will
+know that the reason it stopped is because
+it didn't converge and then maybe you can
+try to fix something about the algorithm.
+But with a repeat type of approach if your
+algorithm is not converging you won't
+have any warning it will just
+be running a really long time.
+The last control structure element
+I want to talk about is next and
+then there's also return.
+Next is basically used in any
+time of looping construct when
+you want to skip an iteration.
+So here I've got a basic four loop which
+is going to run for 100 iterations.
+And then but the idea is I want to
+skip the first 20 iterations and then
+only kind of execute some code when it's,
+when it offer iterations 20 through 100.
+So here I've got a basic,
+I've got a very simple if condition.
+So if i is less than or
+equal to 20 I'm just going to skip, so
+I hit, I use the next expression, and
+it will skip everything else in the,
+in the four loop and go and iterate again.
+So once i gets beyond 20 then of course
+the expression i let's less than or
+equal to 20 will be false.
+And so it won't execute the next, it will
+go into whatever the body of the code for
+the for loop is.
+so, so next is another, is a way to
+skip an iteration in, in a loop.
+And of course break is a way to
+execute the, exit the loop entirely.
+The return function is,
+is another function that can use the exit,
+exit a loop and
+it's primarily used to exit a function.
+So it will, it will exit the entire
+function and return a value
+that you pass it, so we will talk more
+about return when we talk about functions.
+but, it's something that can break that it
+can interrupt the flow of a program too.
+So, that's control structures for
+now so the basic summary is that
+control structures like if, while and
+for that can allow you to control
+the flow of an R, of an R program.
+Generally speaking while there
+are construct, constructs that kind of
+allow you to execute infinite loops you
+generally want to be on the look out for
+these kinds of things and
+to avoid them if possible.
+Even if they are kind of theoretically
+correct because they can lead to
+kind of some unpredictable
+behavior in programs.
+And the other key thing
+I have mentioned yet
+is the, the control measures that I've
+mentioned here are primarily useful for
+writing programs and
+think I mentioned that in the beginning.
+But for command line and interactive work
+there are other types of looping type
+functions that we can use, they
+generally have the word apply in them.
+And they can be a lot more useful for for
+command line interactive work when you're
+exploring data and things like that,
+not writing programs although they can
+be very useful in writing programs too.
+So I'll talk about apply functions
+except in a separate of videos.
+

@@ -1,0 +1,158 @@
+mapply is a loop function that tries, is a
+multivariate version
+of the kind of lapply and sapply functions
+that you've seen previously.
+And the idea is that it applies a
+function in parallel over a set of
+different arguments.
+So one thing we have noticed about
+the previous functions, lapply, sapply,
+tapply, is that,
+they have only, they only apply a function
+over the elements of a single object.
+So, for example, if you think about
+lapply,
+the input to lapply was a list.
+A single list, that is.
+And then the function was applied over the
+elements of that list.
+So, what happens if you have two lists
+that you want to apply a function over?
+And so, and suppose you have two lists,
+and
+the elements of the first list go into one
+argument of the function, and the elements
+of the
+second list go into another argument of
+the function.
+So lapply and sapply can't really be used
+for that purpose.
+So one way to do that is just to write
+a for loop, where the for loop will index
+the elements
+of each of the different lists, and then
+you can
+pass a function to each of those elements
+of the list.
+Another way to do that though is with
+mapply, where mapply can take multiple
+list arguments and
+then apply a function to the, to the
+elements of those, of the multiple lists,
+in parallel.
+So the function arguments for mapply are a
+little bit different, just because it has
+to allow for the possibility of a variable
+number of arguments.
+So here, the first argument to mapply is
+the function that you want to apply.
+And the function that you're going to pass
+to mapply
+has to have, the number of arguments that
+the function
+takes has to be at least as many as the
+number of lists that you're going to pass
+to mapply.
+So the list that, the things that will be
+coerced to
+a list, will be passed through the dot dot
+dot argument.
+And so if you have three lists, you'll
+pass three objects and
+then your function has to take at least
+three arguments to it.
+So, the more args, argument is just if you
+have
+more arguments and you need to pass to
+your function.
+And a simplified argument is similar to
+the simplify arguments
+that you saw in sapply and also in in
+tapply.
+So, here, for example, I'm creating a list
+here, and
+the list has, I'm going to repeat 1 four
+times, the
+integer 1 four times, I'm going to repeat
+2 three times,
+I'm going to repeat 3 two times, and
+repeat 4 just once.
+So it's a little bit tedious to have to
+type something to do, even
+though this is a fairly artificial
+example,
+but with mapply, it's actually quite
+simple.
+I can just do mapply rep, so, rep is the
+repeat
+function And then, repeat, it has two
+arguments, so, the first set
+of arguments is going to be 1 through 4,
+and the second set of arguments is
+going to be 4 through 1, and you can see
+that in list above here.
+The first argument was 1, 2, 3, and 4, and
+the second argument was 4, 3, 2, and 1.
+So, that's, so those are the two sets
+of arguments that I'm going to pass to
+mapply.
+And you can see that when I do that, I get
+my list of four 1s,
+three 2s, two 3s and one 4, just like the
+list that I have above here.
+So mapply is, can be used to apply a
+function to multiple sets of arguments.
+So, here's just another very simple
+function.
+It just generates some random normal
+noise.
+And these, and, see, the rnorm, the, the,
+I'm sorry, the function has three
+arguments the,
+the number of observations the value of
+the
+mean, and the value of the standard
+deviation.
+So, if I just apply noise to, with a
+single set of arguments, 5, 1 and 2.
+I get 5 random normal variables with the
+mean 1 and standard variation 2.
+However, this function doesn't work
+really correctly if I pass it a vector of
+arguments.
+So, now what's happening is, I get a
+vector of 5, here.
+When I pass it 1 through 5 and 1 through
+5.
+But, really what I want to happen is to
+have one, one random normal with mean 1,
+two random
+normals with mean 2, three random normals
+with mean
+3, etc, and then five random normals with
+mean 5.
+And, so that's what I get here, when I use
+the mapply function onto the and if I
+vectorize this noise function I give it,
+you know, three sets of arguments, so it's
+1 through 5, 1 through 5, and then 2.
+So I, I'm always going to fix the standard
+deviation to be 2, but
+I'm going to be changing the n and I'm
+going to be changing the mean.
+So now I've got one random variable with a
+mean 1, I got two with
+mean 2, three with mean 3, four with mean
+4 and then five with mean 5.
+So that's how I can instantly
+vectorize a function that doesn't allow
+for vector arguments.
+So this is the same as, as I were to
+manually type out a list with these five
+different function calls.
+So this way, it's, it's nice to be able to
+instantly, kind of, create a
+function that doesn't allow for vector
+inputs and
+to and to kind of instantly vectorize it.
+

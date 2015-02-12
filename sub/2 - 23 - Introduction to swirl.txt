@@ -1,0 +1,46 @@
+Hi, everyone.
+I just want to introduce a experimental
+feature that
+we've, that we've developed for the R
+programming class.
+It's called Statistics with Interactive R
+Learning or SWIRL for short.
+And it's, and it was developed by Nick
+Carchedi, who's
+a student here at the Johns Hopkins
+department of bio-statistics.
+This is a system that allows you to kind
+of interactively learn R at your own pace.
+And it will walk you through a, a bunch of
+lessons about different
+aspects of the R language and you can kind
+of practice as you go.
+So, rather than kind of watching a lecture
+and then,
+you know, doing an assignment and kind of
+doing things
+piece by piece, you can actually work on R
+right
+in the R console in, in a kind of guided
+way.
+Rather than kind of just figuring things
+out on your own.
+So, I think this, the SWIRL modules are
+really helpful
+and I encourage you to try to walk through
+them.
+If you decide to complete them you'll get
+you'll
+get a little extra credit through the
+programming assignment.
+But the, the modules are absolutely not
+required.
+They are totally optional.
+And so, you don't have to worry about
+doing them.
+You can still do perfectly well in the
+class without doing the SWIRL modules.
+Nevertheless, I encourage you to try it
+out.
+I think it'll be a lot of fun.
+

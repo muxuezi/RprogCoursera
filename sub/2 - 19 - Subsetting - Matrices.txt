@@ -1,0 +1,84 @@
+Matrices can be subsetted, in the kind
+of the, the way that you would expect.
+So the first index is going to be, the,
+the row index, the second index is
+going to be the column index, and
+we can use numbers for this too.
+So, so for example, x is a matrix, it's
+a two by three matrix with the numbers one
+through six in it, if I take x with the,
+with the [1, 2] that gives me
+the first row second column, and so that's
+going to be the, the number three, and
+then the, the second row first column
+is going to be the number two.
+You don't have to always specify both
+indices when subsetting a matrix, So for
+example if I say x bracket 1, comma and
+then blank for the second index,
+that's in, that notation indicates that
+I want the first row of the matrix,
+in which case the,
+this is a vector one, three, five.
+If I wanted the second column of the
+matrix I could just leave the first index
+blank and say x bracket and
+then comma two, that gives me
+the second column which is three, four.
+So by default when a single
+element of a matrix is retrieved,
+is returned to vector of length one,
+rather than a one by one matrix.
+So remember I said that before, the si,
+the single square operator always
+returns an object of the same class,
+so, the one that's, that sometimes is
+a little bit unexpected, is that if I
+subset out, a single element of a matrix,
+I don't get back a matrix, what I get back
+is just a vector with that number in it,
+so if I say x, one, two, that gives
+the first row second column of the matrix,
+that's just a number three, and
+what I get back is a number three,
+[COUGH] not a one by one matrix,
+with the number three in it.
+This is usually what you want, although
+sometimes it can cause problems, and so
+you can turn off this default behavior
+by adding an extra argument to
+the subsetting operation,
+which is called drop.
+And the idea is that by default,
+drop is equal to true, and
+it drops the dimension, and so rather than
+getting a two dimensional object back,
+you, you typically get a one
+dimensional object back.
+However if you want to preserve
+the dimensions of the object,
+you can say drop equal to false and
+when I subset out the first row,
+second column, what I get back is a one by
+one matrix with the element three in it.
+Now also when you subset
+a single column or
+a single row, you don't, you, you by
+default, you don't get a matrix back, so
+for example, if I subset out the first
+row here you might think that, well,
+what should be returned, is really a one
+by three matrix where there's one row and
+three columns, and
+the elements are one, three, five.
+Well that's not actually
+what you get back,
+what you get back, is a vector with
+the elements one, three, five.
+Usually this is what you want, and
+it's okay, but if it's not, then you can
+always set the drop equal to false
+argument when you subset the matrix, and
+then you get a one by three matrix with
+the elements one, three, and five in it.
+

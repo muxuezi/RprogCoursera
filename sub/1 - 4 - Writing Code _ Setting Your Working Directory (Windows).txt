@@ -1,0 +1,231 @@
+In this video I want to talk about two
+things.
+How to set your working directory and how
+to edit R code files in Windows.
+So you can see I've got R started up here
+and the first
+thing you're going to want to do is figure
+out what your working directory is.
+Because the working directory is where R
+finds all of
+its files for reading and for writing on
+your computer.
+So you can find out what your working
+directory
+is currently set to be by using the getWD
+function.
+You can see its said to be c colon slash
+user slash rdpeng slash documents.
+This may differ on your computer depending
+on what version of Windows you're using
+and,
+and what hardware you're using but there
+will
+be some directory probably on your c
+drive.
+Now it, the reason why it's important to
+know and to
+set your working directory, is because
+when you read data or when
+you write things out, using functions like
+Read or Write CSV
+they will be read or written to your home,
+your working directory.
+So for example if I do something like
+read.csv I want to the read let's say
+mydata.csv.
+If the file is not in my working directory
+you'll get an error one
+that looks much like this because it can't
+find the file in the working directory.
+So one possibility is that you can, if you
+know where
+this file is, you can move it to your
+working directory.
+Or you can change your working directory
+to be wherever this file happens to be.
+So I can go to the file menu here and
+choose Change dir.
+And I'm going to go into my local disk
+here, go to users, RD Peng.
+And I'll go to my desktop here.
+So now if I type DIR, I'll get a list of
+the files that are on my desktop here.
+You can see that, oh, lo and behold, here
+is my mydata.csv file.
+So now I can see read.csv and then
+mydata.csv.
+You can see that the data will be printed
+to the
+console because now it can find the file
+in my working directory.
+So one nice thing, one thing that I
+suggest that you do for this course is
+perhaps
+create a single directory or single folder
+where you
+can put all of your materials for the
+course.
+And not have to worry about them being
+scattered all over the place.
+Anytime you download something from the
+website or
+create a new file it's probably best to
+store
+it all in one folder so that you don't
+have to be searching all over for it.
+That way you can always set your working
+directory to be that,
+to be that directory and not have to worry
+about changing it.
+So I'm going to minimize R here for a
+second.
+I'm going to create a folder on the
+desktop, called I'll just call it
+Coursera.
+And then I'm going to use this folder for
+everything that I do in this course.
+So if I go back to R here, I can say
+change working directory again, Change
+dir, and go to Local Disk.
+Users RD Peng.
+Now this folder is on my desktop, so
+Desktop, and then it's Coursera here.
+So now if I say getwd and see
+the working directory has changed to this
+Coursera folder.
+So one of the things you're going to have
+to do
+a lot of in the class is to write R code.
+In order to write R code, you'll need to
+be able to use a text editor.
+Luckily R comes with a rudimentary text
+editor
+which will be definitely sufficient for
+this course.
+So you can load up the text editor by
+going to File and saying New Script.
+And this will give you a blank window that
+you can use to write R code.
+So I'm going to write a simple function
+here.
+It's going to be myFunction.
+It's not going to take any arguments.
+And all it's going to do, it's going to
+simulate some normal random variables.
+[BLANK_AUDIO]
+And then it's going to take the mean of
+those guys.
+Alright.
+So this is a simple function.
+Now the question is how do I get this R
+code
+into my R console so that I can actually
+use the function?
+because you'll notice that I go into the R
+console here.
+I type myFunction.
+It's the, I can't find the function
+because I haven't loaded it into R yet.
+If I type LS, you'll see that there's
+nothing in my workspace right now.
+Because I haven't loaded any R code into
+there.
+So how do I get the R code into the R
+console?
+Well there's two ways if you just have a
+little bit of
+code like this function over here, I can
+click into my R editor.
+And just hit Ctrl+A to select all and then
+Ctrl+C to copy.
+Then I click back into the console and I
+can hit Ctrl+V to paste.
+Now I've just pasted the code into R and
+you'll see that if I
+type LS I've got my myFunction there, I
+can execute it by just calling it.
+And you'll see it'll give you the mean of
+100 random normal var random variables.
+If I do it again, it'll give me a slightly
+different number because it'll simulate a
+different set of numbers.
+The other thing you can do is go into my R
+editor and you can go to the File menu.
+Then you click Save As.
+So now if you save you can hit save as you
+can save
+the file into your Coursera folder here
+which I'm going to do right now.
+And you can save it as whatever name you
+want.
+So I'm going to call it my Code.r.
+.r is conventional for the extension.
+So now if I type DIR, excuse me in my
+console window here, you'll see that
+there's a file called mycode.r and you can
+load this into R using the source
+function.
+So I can say mycode, .r.
+And that loads the, all the code that is
+in this file.
+Of course, that's just the myFunction, so
+I haven't done anything new here.
+But let's say I want to add another
+function here.
+We'll say second for my second function.
+And it'll take an argument x.
+And it'll take the x, and it'll add, a
+little bit of noise to it.
+So, with, with the R norm function.
+Okay, so now, I've got two functions here.
+I can save my file with this little disk
+icon.
+Or I can go to file men-, the File menu,
+and hit Save.
+And I'm going to source this file again.
+Now when I type LS, you'll see that I've
+got this second function there, and I type
+second.
+Let's say four.
+I get a number that four plus little bit
+of random noise.
+So if I get four again I'll say the same
+thing will happen.
+I can say four through ten.
+And it'll give me each one of those
+numbers
+with a little bit of random noise added
+on.
+So that's how I edit code and that's how I
+load the code into R.
+Every time you edit your file in the
+editor you have to save it.
+And then if you want that code to be
+available in R you
+have to use the source function to source
+that file back into R.
+You don't have to use a single file.
+You can add a new file.
+So you can say New Script.
+It'll open another window.
+You can save this to be a different file
+if you want
+so that way you can separate
+code for different projects or different
+assignments.
+If you close the file here, you can always
+open it back up again
+by hitting Op, the Open button and you can
+see myCode is right there.
+And if I open it up, you'll see you'll
+have all your code right back there again.
+So that's how you edit code in R there's,
+now there's many other
+text editors that you might see on the web
+that you can download.
+And those are fine to use but they're not
+really necessary.
+The text editor that comes with R should
+be sufficient for this course.
+

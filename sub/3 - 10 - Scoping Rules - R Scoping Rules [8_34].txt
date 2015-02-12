@@ -1,0 +1,287 @@
+Um,why exactly does all this matter?
+So.
+It's not immediately clear.
+No.
+So typically the function is defined the
+global environment so that
+values of the free variables are just
+found in the user's workspace.
+So this is kind of the.
+The right thing to do is kind of what most
+people are expecting.
+If there's no, if, if there's, you can't
+find a value
+inside the function itself, you just look
+in the global environment.
+So this is the, the idea here is that you
+can define things like
+global variables, that will be common to a
+lot of different functions.
+That you might be defining in your
+workspace.
+so, but the key difference in R is
+that you can define functions inside of
+other functions.
+'n so for example a function can return a
+function as the return value.
+So, in most functions they'll return a
+list, or a vector, or a matrix, or
+a data frame or something like that, but
+it is possible for a, for a function
+to return another function and then that,
+if that's
+the case then the, then the function that
+gets returned.
+It was defined inside of another function.
+So, it's an, the environment in which it
+was defined Is not the global environment.
+It's really the, the, the insides of this
+other function.
+So this is when things get interesting and
+this is when
+the scoping rules really have an impact on
+what you can do.
+So, I am going to define a very simple
+function here and often
+these kinds of functions come [UNKNOWN]
+where you might think of constructive
+functions.
+So, the idea that the function is
+constructing another function.
+So, here's what I want to, I want to
+create a function that that defines
+another, called make.power.
+And what make.power takes as input is a
+number n.
+Okay?
+So, and inside the make.power function I
+define
+another function called pow.
+And pow is going to take an argument
+called x.
+And and so what's going to happen is that
+the power function is going to take the,
+then the,
+take the argument X and raise to their
+power N, okay, and so make that power
+returns,
+with a function power as its return value
+and so you see inside the power function X
+is a, X is a function argument but that's
+not a problem, but n is a free variable
+because its not defined inside the power.
+Function.
+However, N is defined inside the
+make.power function and so
+since that's the environment in which the
+pow is defined.
+It will find the value of N.
+The pow, the power function will find the
+value of n inside this, it's other
+environment.
+So what happens is that I can call
+make.power and pass it a number like 3.
+And then, it will return a function, which
+I'll sign to
+be called cube.
+And, similarly, I can pass 2 to make that
+power and create a function that I'll call
+square.
+So, now, when I, when I pass cube, the
+number 3 What is
+it does is it raises 3 to the 3rd power,
+so I get 27.
+If I call square on the number 3, it, it
+raises three to the 2nd power, so it gives
+me 9.
+And so, so, so now, I've cons, I've
+got one function that can, that's capable
+of constructing
+many different types of functions, and by
+raising to pow, to various powers.
+So, how do you know what's in a function's
+environment?
+So you can, you can at the function, so,
+excuse me.
+You can look in the environment in which
+the function was defined, by calling the
+LS function.
+So if I call, if I call LS on On the
+environment for cube.
+You can see that inside the cube function,
+there's,
+there's something, there's an, there's an
+object called N.
+And if I use get on N you'll see that the
+value of N is equal to 3.
+So that's how the power function knows to
+raise
+it to the 3rd, to the 3rd power.
+Excuse me, that's how the cube function
+knows how to, knows
+to raise the argument to the 3rd power
+because it's already defined.
+In it's, in it's, in it's, closure
+environment.
+Similarly the environment for square, you
+can see
+it has the exact same objects in it.
+But now the value of n is equal to 2, in
+the square function.
+So, so, I want to make one brief
+comparison between lexical scoping, which
+is what R
+does, and dynamic scoping, which is what
+maybe
+some other function, some other programing
+languages implement.
+So here I've got, I'm assigning the value
+of Y equal to 10.
+Then create a function F, which takes, as
+an argument, X.
+And then, it assigns, there it assigns Y
+equal to 2, it squares Y and then adds G
+of X.
+So, what's G?
+G is another function, which takes as an
+argument called X, and it multiplies X
+times Y.
+So, in the F function, Y is a free
+variable, and G is also a free variable.
+So, the G function is not defined.
+Inside of F of or, it's, it, of, argument
+to F.
+Then in the G function, then the var-, the
+symbol Y is a free variable.
+And so the question
+is if I call f of 3 what gets returned?
+So with lexical scoping, the value of Y
+and the function G
+is looked up in the environment in which
+the function was defined.
+Which in this case was the global
+environment.
+So that the value of Y and the G function
+is 10.
+So with dynamic scoping the value of Y is
+looked up in
+the environment from which the function
+was called; sometimes called the calling
+environment.
+So in the R the calling environment is
+known as is what's called the parent
+frame.
+In this case the calling environment Y was
+defined to
+be 2 and so the value of Y would be 2.
+So.
+Calling the function F would produce
+different answers depending
+on whether you use lexical scoping or
+dynamic scoping.
+So, the one thing that, that, that will
+make lexical scoping and dynamic scoping
+look the
+same is that when a function is defined
+in the global environment and is
+subsequently called
+from the global environment, then the
+defining environment
+and the calling environment are exactly
+the same
+and so this can sometimes give the
+appearance
+of dynamic scoping even when It doesn't
+exist.
+So here I've got a function called G.
+It takes an argument X.
+It assigns A to be equal to 3.
+And then it adds X plus A plus Y.
+So, in this case, X is a function is a
+formal argument.
+A is a local variable so it's not a
+formal argument, but I defined it inside
+the function.
+Then so, that's okay.
+And then Y is a free variable, okay?
+So if I call G of 2, the function G is
+going to look for the value of Y in the
+global environment.
+If I haven't yet defined Y then there has
+to be an error because it doesn't know
+what
+value to assign to the symbol of Y.
+So that's what I get in this line here.
+Now if I define what Y is, say I assign it
+to be 3, if I call it
+G of 2, then it returns 8 because now it's
+able to find Y in the global environment.
+So even though it looks like the value of
+Y was looked up in the calling
+environment, it's actually the defining
+environment because G
+happened to be defined in the global
+environment
+so, there are a number of other languages
+that support lexical scoping.
+Some examples are things like Scheme,
+Perl, Python, and Common Lisp.
+And of course there's a, a well known
+computer science
+theorem which is that all languages
+eventually converge to Lisp.
+And so it's, it's not a, it's not an
+obscure type of feature.
+It's actually very common in a number of
+other programming languages.
+So, one of the main consequences of
+lexical scoping in R
+is that all the objects have to be stored
+in memory.
+So, if you're working with a programming
+language that has
+very small objects this generally speaking
+not a big problem.
+but.
+Because of nature of the scoping rules and
+because of the complexity of the
+environment and the,
+the way they are all linked together, it's
+difficult
+to implement this type of model outside of
+physical
+memory, and so.
+So the consequence was that, when R was
+originally designed.
+Everything was stored in memory.
+Things are getting complicated now,
+because of very large types of data sets.
+And, being able to read them into R.
+It is a challenge.
+Everything has to be stored in memory.
+Second now, so every function has a
+carrier
+pointer to its respect, to its defining
+environment.
+and, and that defining environment could
+literally be anywhere
+because there could be functions within
+functions and then the,
+and if you do, if one function returns
+another function,
+then there has, there has to be a pointer
+to
+that piece of memory where the defining
+environment is stored.
+And so this makes the model a little bit
+more complex but but, but all the more
+useful.
+So, the, in S plus, which was kind of the
+original implementation of the S language,
+the free variable were always looked up in
+the workspace.
+Everything could be stored on the disk,
+because the
+defining environment of all the functions
+was the same.
+

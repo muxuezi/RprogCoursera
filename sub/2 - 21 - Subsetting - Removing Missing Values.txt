@@ -1,0 +1,125 @@
+Last thing I want to talk about
+is removing missing values or
+NA values from an object.
+This is a very common operation in, in,
+in data analysis because most realistic
+data have lots of missing values.
+And so the way you can do this for,
+of either a vector, or
+a matrix, or a data frame is you want to
+create a logical vector which tells you
+where the NA's are and so
+that you can remove them by sub-setting.
+So here I've got a, a vector x,
+this is a very simple example.
+Which has the numbers 1, 2 and 4 and 5.
+But then there are missing elements
+NA in the third position and
+in the fifth position.
+So what I want to do is I want to get a
+vector back that's just one two four five,
+the non missing values.
+And I want to strip out the missing value
+so I can maybe do some computation.
+So, what I, the first thing I do
+is I use the is.na function to,
+to go through the vector and
+tell me which elements are NA and
+I create a new vector called,
+which I called bad here.
+So, bad is going to be a logical
+vector which tells, which,
+which is true if the element is
+missing and false if it's not missing.
+So, even though I haven't printed it here
+the, the, the bad vector is going to
+be a logical vector that has false,
+false, true, false, true, false.
+Right, because the third and
+the fifth elements are missing.
+So, when I.
+Now that tells me which ones
+are missing but actually I
+don't want the ones that are missing,
+I want the ones that are non missing.
+So I need to take the kind of
+the opposite of bad which I
+can use with the bang operator or
+exclamation point.
+So now I take x single
+bracket bang bad and
+that gives me the good elements
+which are 1, 2, 4 and 5.
+So what if there are a multiple vectors or
+multiple objects and you want to take and
+each one has a kind of missing values in
+slightly different places and you kind of,
+you want to take the subset
+of all the objects that have
+no missing values, all right?
+So here I created an x, a vector called x.
+Which is 1, 2, 4 and 5, and
+missing values scattered about.
+And then y is, is a character vector
+with also some missing values in it.
+So I can use the complete cases
+function on both vectors which will
+give me a vector that tells me which of,
+of, of the two different vectors,
+which ones had were, which, which are,
+which positions are there that
+have both elements non missing.
+So you can see the first two are,
+are both non missing.
+I got 1, 2, in the first one,
+and a, b in the second one.
+The third one's missing,
+the fourth one is non missing the,
+the fifth one is missing and
+the sixth one is non missing.
+So, of, for the both, for
+both vectors x and y,
+I want the first, the second,
+the fourth, and the sixth elements.
+So now when I subset x, I get the good
+elements of that, and when I subset y,
+I also get the good elements of that.
+So that's how I can look
+at multiple objects and
+kind of subset all the missing
+values out to get the good elements.
+You could also remove you can
+also use complete cases to
+remove missing values from data frames.
+So here I've got a simple data frame
+where I'm showing the first six rows.
+As you can see there are six columns to
+this data frame so there's six variables.
+And there's some missing values
+in the ozone variable and
+there's some missing values
+in the solar.r variable.
+And so all I want is the is the, is the,
+are the rows of the data frame where
+all the values are non missing, right?
+So in this simple example,
+the rows that I want are rows 1 through 4.
+So I can use complete cases on air,
+on the airquality data frame.
+And I create a, a logical vector
+that I called good here, so
+the logical vector here tells
+me which rows are complete.
+And then when I subset out
+the air quality matrix take and
+take out the first couple of
+rows you can see that I now,
+that none of the rows have
+any missing values in them.
+So that's subsetting out missing values.
+And there, in complete cases of
+very handy function which is when,
+when you have multiple sets of vectors or
+dat, or large data frames or you want to
+subset all out, all the missing values.
+

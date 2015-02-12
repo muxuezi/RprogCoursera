@@ -1,0 +1,138 @@
+[NOISE] I'm going to continue
+to talk about data types, and
+basic operations in R.
+In particular in this video I'm going to
+talk about subsetting objects in R.
+So there are a couple of different
+operators that you can use,
+to extract subsets of diff, of R objects.
+There's the single bracket.
+Sorry, the single square bracket.
+The double square bracket,
+which we saw in the previous video,
+and there's the dollar sign.
+So the sing, the basic kind of principles
+to remember here is that the single
+square bracket always returns an object
+of the same class as the original.
+So the subset a vector,
+you're going to get back a vector.
+If you subset a list,
+you're going to get back a list.
+Any time you used the single bracket
+operator to subset an object,
+you'll get the same,
+an object of the same class back.
+si, furthermore the single
+bracket operator can be used to
+select more than one element of an object.
+With one ex,
+exception that we'll get to later.
+But double bracket operator is used
+to extract elements of a list or
+a data frame.
+It can only be used to exa,
+extract a single element and.
+Of that object, either the list or
+the data frame.
+And the class of the returned object will
+not necessarily be a list or a data frame.
+So the idea with the double bracket
+operator is that, remember that lists can,
+can, can hold things that
+are of many different classes.
+They don't all have to be the same.
+So, the first element might be a vec
+a numeric vector, the second element might
+be a data frame, the third element
+might be a complex vector, et cetera.
+And so when you use the double bracket
+operator to extract an element of a list,
+the oh, the object that comes back maybe,
+may not be a list, it may be an object
+of a totally different class.
+So that's what the double
+brack operator is useful for.
+The dollar sign is used to extract
+elements of a list, again of a list or
+data frame that have a name.
+Very similar objects can have names and
+the reason,
+one of the reasons you've
+used names in an object is so
+that you can reference elements of
+the object by the different names.
+Otherwise the, the semantics of the dollar
+sign are similar to the double bracket in
+the sense that when you use the dollar
+sign to extract an element of
+an object it may or may not be of
+the same class as the original object.
+So, here is the first,
+the first example, a very simple vector,
+a character vector called x.
+And and
+I'm going to use the single bracket
+operator to extract the first element.
+So here, what I get back is a,
+is another character vector with
+the single element a in it.
+If I, if I use, if I try to
+extract the second element of x,
+what I would get returned back to me is a
+character vector with the element b in it.
+I could also extract
+a sequence of elements so
+if I say, If I, If I want to get
+the first four elements of x I can cre,
+construct the sequence one through
+four and then I get a, b, c, c.
+So in these three examples
+here what I've done is I,
+I, is I subset the vector x using a
+numeric index so the numeric index is one,
+two or the sequence one through four.
+The oth, another type of index that you
+can use is the, is a logical index.
+So, in this next example here, I'm
+going to subset the vector x and I want,
+I only want all the elements were,
+that are greater than or
+equ, sorry,
+that are greater than the letter a, right?
+So, you might,
+it might seem strange to you that
+I'm using the greater than sign
+with letters instead of numbers but
+there is a lexicographical
+ordering to the letters, and
+all the letters that are greater than
+a are letters like b, c, d, e, et cetera.
+So what I get returned to me is
+a character vector that only
+contains the letters
+that are greater than a.
+So, here I've got b, c, c, and d.
+The other thing I can do,
+is I can create a logical vector,
+which here I call u, which is just
+the it's a, it's, it tells it's a true or
+false vector, which tells me,
+which tells me which elements of
+the vector x are greater than a.
+So, if I print out u here I can see that
+the, the first element is equal to a, so
+it's not greater than a.
+Then, the next four are greater than a,
+but then the last element is equal to a,
+so again, that's false.
+And so, I can subset the vector
+x with this u vector, and
+then I get out all the elements
+that are greater than a.
+So there are two types of
+indices that I use here,
+one, the first type
+with the numeric index.
+And the second type was the logical index.
+

@@ -1,0 +1,327 @@
+I want to talk briefly about dates and
+time in R, which is a
+very, is a very special topic and could
+require a lot more time.
+And I have something I need to talk
+a little bit about how R represents dates
+and
+times, and how you can use them in kind
+of ara, arithmetic and data analysis types
+of computations.
+[NOISE] so R has a special way to
+represent dates and times.
+And they're, they're represented using
+special data classes.
+So, in the past,
+we talked about different data types like
+lists.
+And character vectors.
+And, numeric vectors, and so.
+This is just another type of data on top
+of those kinds of classes.
+So dates are represented by the date
+class.
+and, times are represented by two separate
+classes: the POSIXct and the POSIXlt
+class.
+So dates are basically.
+Don't have times attached to them.
+They represent a day, in a year
+in a month.
+And the, kind of, you can figure them in a
+kind of a year, month, day format so for
+example, this date is 1970, January 1st
+and so
+internally the dates are stored as the
+number of days since 1970 January 1st.
+That particular detail is not very
+important but in case you're wondering
+you don't know how they, how the, how R
+actually does calculations
+based on dates.
+Times are stored internally as the number
+of seconds.
+Since 1970, January 1st.
+And so, that's, again, another underlying
+detail.
+That's not very important, but it maybe
+useful to know, sometimes.
+So, the way dates in R, in R work, is you
+can take a character screen.
+Like this following 1970-01-01.
+And convert it into a date, using as.Date
+function.
+That's probably the most common way that
+you'll start
+your, begin working with dates.
+And, you'll notice that if you print out
+this object.
+You'll get something that looks like a
+character string.
+Now it's not actually a character string
+but it will
+print out that way because there's a
+special print method.
+Now if I unclass the object here you'll
+see I get the number 0.
+Remember?
+Because the dates are stored internally as
+the
+number of days since 1970, January 1st and
+since.
+1970 January 1st.
+0 days from that point.
+You'll get 0.
+If I.
+If I input January 2, 1970, then you'll
+see that underline is
+represented as a number 1, because that's
+1 day after 1970 January 1st.
+If you had a.
+If you had a date that was before
+1970 Then, they'd be represented as
+negative numbers.
+so, but that's just for your little
+background.
+You don't, you don't have to worry about
+the underlying representation.
+Ultimately, what you need to know, is that
+dates are stored
+as objects of the date class.
+Times, on the other hand, are represented
+as two possible types.
+One is called POSIXct and the other
+POSIXlt.
+So, POSIX is a family of computing
+standards for how things should be
+done on certain types of computers or how
+data should be represented and
+so there's a there's a family of standards
+for how to represent dates
+and times and pos and so POSIX a that's
+part of the POSIX standard.
+So [COUGH] in the POSIXct class.
+Times are represented at just as very
+large integers.
+And so it's a useful type of class if you
+want to say, store times in
+a data frame or something like because
+it's basically it's like a big integer
+vector.
+POSIXlt stores a time as a list.
+underlying, and so, and it stores a bunch
+of
+other useful information about a given
+time, for example what's
+the day of the week of that time, what's
+the the day of the year, the day of the
+month, or the month itself.
+And there are a number of generic
+functions that operate on both dates and
+times.
+That you can use such as the, so the
+weekdays functions tells you
+what day of the week a given time is or a
+given day is.
+The month function tells you what month
+that date or time is.
+And the quarters functions gives you the
+quarter number.
+So for example, quarter Q1 would be
+January through March, Q2 would be
+April through June, etc.
+like that.
+So, these generic functions operate on, on
+objects of class.
+POSIXct or POSIXlt or date.
+So, so, for example, you can, you can, you
+can coerce things back and forth between
+POSIXlt and POSIXct.
+If you want, using the as.POSIXlt or the
+as.POSIXct function.
+so, for example the Sys.time function
+here,
+just gives you the current time.
+As it's known by the system.
+And you can see that when it prints out,
+it prints out in a year month day format.
+And then an hour minute second format.
+And then the, the timezone, which is
+Eastern Standard Time right now.
+[COUGH] So you can convert this di to a
+POSIXlt using pa, as.POSIXlt.
+And, POSIXlt remember
+underlying is a list.
+So you can look at the names of the
+elements.
+In this list if you unclass it and you can
+see that there's an element called seconds
+that's the seconds
+and the minutes the hours the M days the
+day
+of the month which in this case would be
+23.
+The month is just the month your in so
+that's a January and then the year.
+The weekdays or the day of the week.
+The year, day, which is the day of the
+year.
+And then are we on daylight
+savings or not?
+[NOISE] So, if I extract the sec, seconds
+element of this list, you'll see it's
+11.86.
+And so that, and so this actually gives
+you the seconds in in fractional seconds.
+So, it's 11 seconds and then .86 seconds.
+So, that's, that's the number of seconds
+in the time.
+The POSIXct format you can see is you can
+also get it from
+the sys.time function and you can see that
+if I un-class the POSIXct object.
+I get this very large integer, because
+that's
+just the number of seconds since January
+1, 1970.
+Now if I try to apply the list operator,
+the dollar sign to this object, you
+see I get an error because objects of
+POSIXct don't have these list elements in
+them.
+You want to get those list elements out
+you
+have to convert it to POSIXlt using the
+as.POSIXlt function.
+Then I can get the seconds out.
+In this case it's 11.88 seconds.
+So, finally there's a strptime function
+which converts dates which
+are written in character string format
+into date or time objects.
+Well, in this case it converts into two
+time objects.
+So and they use what are called format
+strings.
+So here I've got a string that says
+January 10th, 2012 and then 10, 40
+meaning hour 10 minute 40 and
+then I have another string that said
+December 9th 2012.
+9, 10.
+So if I want to convert these strings to
+time objects I can use the strptime
+function, what I do is I pass the
+character vector and I pass it a format
+string.
+So in this case I got, and so you'll see
+how these present signs fall by letters.
+And then you can, you can look-up what
+these symbols mean in the help page for
+strptime.
+So present B means the month.
+In an abbreviate [UNKNOWN] name, %d is the
+day.
+Then comma and then %Y is the four-digit
+year.
+Then %H is the hour, sort of like colon
+followed by %M which is the minute.
+And so that's the format.
+Of the, of the times here.
+You can see that after I call [UNKNOWN] I
+print out X, I get
+these time objects that are formatted,
+that
+are printed out in the standard format.
+When I look at the class of this object
+you'll see it's in a POSIXlt format and so
+that's the so you can look at so that's
+the underlying kind of list format here.
+Now I personally can never remember what
+those formatting strings
+are the %B ,%D, %Y I can never remember
+what
+those are and so I always have to look at
+the help page for [UNKNOWN] to remember
+what those details are.
+Now, once you've got data in the date or
+time format, you can, you
+can do operations on them, which can be
+very handy for example, you can you
+can add and subtract dates, you can
+compare dates, you can see is, is
+one date less than another date or are
+these two dates equal to each other?
+So, but the end you need to be
+careful that you can't always mix
+different classes.
+So for here, I have X which is a date
+object, then Y which is a POSIXlt object.
+If I try to subtract the two, you'll,
+you'll get
+an error because they're not the same,
+type of object.
+So I can, can, but if I convert the date
+to a POSIXlt object so I can do as.POSIXlt
+on it, then if I take the difference it'll
+say
+that the, the difference of 356.3 days
+between the two.
+The nice thing about the date and time
+operators is that they keep track
+of very tricky things like leap years,
+leap seconds daylight savings and time
+zones.
+So just, this first example here, you can
+see that so 2012,
+it was a leap year and so there was a
+February 29th.
+And so the difference between March 1st
+and February 28th is actually a difference
+of two days, not a difference of one day
+like it is every other year.
+Similarly
+I could take two times one which is in my,
+X which is in my kind of
+current time and then Y which is in the
+time zone of GMT, so Greenwich Mean Time.
+And take the difference between those.
+So even though it looks like it should be
+a 5-hour difference, it's
+actually only a 1 hour difference because
+of the change in the time zones.
+So one of the advantages of using the date
+time classes
+is that it will automatically take care of
+these kinds of irregularities.
+So that was just a quick sum, kind of
+overview
+of the, the dates and the time classes in
+R.
+So just to summerize there are special
+classes in R that will, that
+represents dates and times that'll allow
+you to do numerical and statistic
+calculations.
+dates, date, class, times use either the
+POSIXct or POSIClt class.
+And then character strings can be coerced
+to either a date
+or a time class, using the strptime
+function or as.Date.as.POSIXlt, and
+POSIX, as.POSIXct.
+The other thing to note, that I haven't
+really talked about here
+is that a lot of the plotting functions,
+will recognize date time objects.
+So when you try to plot An object that,
+that's a date time class.
+It will recognize that object and then
+format the X axis in
+a special way so that it will have a time
+element to it.
+So you might want to try to experiment
+with that a little bit to see how
+plots change when you use a date time
+class.
+

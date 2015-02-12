@@ -1,0 +1,369 @@
+One topic that's important to discuss in R
+is
+a question of, you know, when a function
+sees a
+symbol in its body and it's executing
+inside the R
+environment, how does it assign a value to
+that symbol?
+So for example, take a look at this, this
+function here that I've defined called lm.
+So lm here is a function which takes
+its argument x, and it multiplies it times
+itself.
+So you can think of it as squaring the,
+squaring the input.
+Now, there's already a function in R
+called lm,
+so I've created an, a function here also
+called lm, so when I call lm
+somewhere else in R, maybe in another
+function or something like that
+how does R know what value to assign to
+the symbol lm?
+So it sees the symbol lm, and how does it
+know
+whether to call the function that I just
+defined here or the
+lm function that's in the stats package
+that's
+used to model, you know, to fit linear
+models.
+And so the, the idea that R needs to bind
+a value to a symbol.
+So in this case the, in the previous
+slide, the symbol
+was lm, and it needs to bind a value to
+it.
+And the value is going to be a function of
+some sort.
+It's either going to be my function or
+it's
+going to be the function in the stats
+package.
+And so when r tries to bind a value to a
+symbol what
+it does is, it searches through a
+series of environments to find the
+appropriate value.
+So environments are kind of, you can think
+of them
+as lists of objects and values or symbols
+and values.
+And so, when you're working on the command
+line, and
+you need to retrieve a value of an R
+object basically,
+what happens is, the first thing that
+happens is, you search
+the global environment for a symbol name
+matching the one requested.
+And so for the global environment, it's
+just
+your workspace, and it consists of all the
+things that you've defined or loaded into
+R.
+And so if there's a symbol there that
+matches the name of the one that you're
+requesting
+then it will take that symbol and, and
+then retrieve the value that's associated
+with that symbol.
+So in this case, I've defined lm in my
+global environment.
+And so, because that exists, if I'm
+working the
+command line, when I call lm, it's going
+to
+find that object first.
+So if there, if there's no match in the
+global environment, then what happens is,
+the, R will search the namespaces of each
+of the packages on the search list.
+So if you look at.
+So the search list consists of all the R
+packages that are currently loaded into R.
+And so you'll see that there, there's an
+order to the search list.
+So, and it goes starts at the first
+element, which is the global environment.
+That's number one
+on the search list.
+That's always number one on the search
+list.
+Now, you can see, second on the search
+list is
+the stats package, the graphics package,
+the GR devices package.
+All the way down at the very is the base
+package, okay?
+And so, somewhere in this list of packages
+R
+is going to look for a function called lm.
+And, of course, if it's not in the global
+environment, then it
+will eventually find it in the stats
+package which is the function
+that's used to fit linear models.
+So, as I said before, the global
+environment is always, is equivalent to
+the user's workspace, and it's always the
+first element on the search list.
+And furthermore, the base package is
+always
+the last element on the search list.
+So, clearly because of the way that the
+search process works in terms of going
+down the list of packages, the order of
+the packages in the search list matters.
+And so, and furthermore, users can
+configure
+which packages get loaded when you start
+up.
+And for, and,
+and users can also load packages whenever
+they want.
+So you cannot assume that there's going to
+be a set list of
+packages available or that the packages
+will be in any sort of order.
+So they can be in different orders at any
+time to give
+depending on the user has decided to do in
+a given session.
+And so, when a user loads a package with a
+library function, what happens is,
+the namespace of that package which is the
+environment that has all the name, all the
+symbols, and all those, the values for the
+symbols.
+The namespace of that package gets put in
+the second position of the search list.
+So right behind the global environment.
+And then everything else just kind of get
+pushed down one level.
+So so, and then the search will kind of go
+down, will include that new
+package, including, in addition to all the
+other
+packages that were originally on the
+search list.
+One thing to note is that R
+has separate namespaces for functions and
+non-functions, so it is possible
+to have an object named c somewhere and
+the function name c.
+Of course, in your global environment,
+there can only be one symbol named c.
+But it's possible to have for example, a
+vector named c, and that
+won't necessarily interfere with the
+function
+that already exists that's also named c.
+so, this leads us to the scoping rules for
+R.
+which, which is which I think are the, is
+the
+main feature that makes it different from
+the original S language.
+Since, since most of you probably did not
+use the original S
+language, maybe, this may not, this may be
+something of a moot point.
+But the point is that the, the scoping
+rules
+are, are essentially what makes R
+different from the original.
+So, what are the scoping rules?
+So the scoping rules determine how a value
+is bound to a free variable in a function.
+So if you're in a function there's two
+types of variables.
+There's the, there's the function
+arguments that are passed
+through the definition of the function,
+and then there
+may be other variables or other symbols
+that are
+found in the function that are not
+function arguments.
+And the question is, how do you assign a
+value to those symbols.
+And so R uses what's called lexical
+scoping or static
+scoping, and this is a common alternative
+to something called dynamic scoping.
+And so this is, related to the scoping
+rules is how
+R uses the search list to bind a value to
+a symbol.
+And, and one thing that's nice about
+lexical scoping is that it
+turns out to be particularly useful
+for simplifying things like specifically
+statistical calculations.
+So take a look at the following function.
+So, this function has two formal arguments
+they're
+called x and y.
+And the body of the function, basically it
+squares x
+and it adds the ratio of y divided by z,
+okay?
+So, x is clear, and y is clear, but where
+did z come from, right?
+And so, in this case, x and y are formal
+arguments, but this, the symbol z
+is what's called a free variable, because
+it
+wasn't defined in the function, in the
+function header.
+And so the question is, well, what value
+do we assign to z, assuming that
+values were inputted to the function for x
+and y.
+And so, the scoping rules of a language
+determine how we
+assign a value to something like z, which
+is a free variable.
+So if I were so this, lexical scoping, the
+rules in R, can be summarized by the
+following sentence.
+Which is basically, the values of free
+variables are searched
+for in the environment in which the
+function was defined.
+OK, so, think about that for a second,
+maybe repeat it a few times.
+And so, what's an environment?
+An environment is a collection of
+symbol-value pairs.
+Right?
+So, x is a symbol.
+And 3.14 might be
+its value.
+So every symbol has a value bound to it.
+And, and you can think of everything in R
+as being pairs of symbols and values.
+Right, so, a another symbol might be y,
+and its value is a data frame, for
+example.
+And so every environment which is a
+collection
+of these symbol-value pairs, has a parent
+environment.
+So it's kind of like the, the environment
+that sits
+on top of it would that, that it inherits
+from and
+it's possible for an environment to have
+multiple children.
+So there might be one parent environment
+and many children environment and
+so there's only one environment without a
+parent, and that's the empty environment.
+And so, when, so, R uses a lot of these
+types of environments.
+So you think of the global environment,
+which is
+your workspace that is a set of
+symbol-value pairs, right?
+So you have a bunch of things that you've
+created in your workspace, and they all
+have names.
+And each one
+of those things has an object associated
+with it.
+So they might be a vector of numerics, or
+it might
+be a data frame, or it might be a list, or
+whatever.
+And so there are all kinds of these envir,
+each package has a namespace, and that's
+like an environment.
+It has a bunch of symbols and values
+associated with it.
+And so what the, the key thing in R is
+that if you take a function and
+you associate it with an environment, then
+that
+creates what's called a closure or a
+function closure.
+And these closures are, are key to a
+lot of different types of interesting
+operations in R.
+So, if you, if you're in a function and
+you encounter a free variable in that
+function what happens?
+So, the first thing you look for is the
+function
+in which the environment in which the
+function was defined.
+So for example if the function was
+defined, if I define a function
+in the global environment, then the global
+environment is the
+function's, is the environment in which
+the function was defined.
+So if I see a free variable in this
+function,
+what's going to happen is that if I can't
+figure out
+a value inside the function, then I'm
+going to look
+in the global environment, because that's
+where the function was defined.
+If I can't find something in the global
+environment, then
+the search continues in what's called
+called the parent environment
+of the global environment.
+And so the, what happens in the usual
+case, if
+I define a function in the global
+environment, then the
+function is defined in the global
+environment, and then its
+parent environment is the next thing down
+on the search list.
+So, what happens is that you just go down
+the search
+list until you eventually find the value
+for this free variable.
+Now, it's possible to define a function
+outside of the global environment, and so
+generally
+speaking what happens is that a function
+will look for
+a value in the environment in which it was
+defined.
+And then it's going to look, if it can't
+find
+it there, then it's going to look for the
+parent environment.
+And then if it can't find it there the
+search, it will keep looking at
+the parent environment or the parent etc,
+until
+we hit what's called the top level
+environment.
+The top level environment is usually the
+global environment, however, if the
+function is defined
+in a package, then the top level
+environment is the namespace of that
+package.
+once, if you can't find a value there,
+then once you hit the top level
+environment, the search will continue down
+the search
+list until we have hit the empty
+environment.
+So, after the base package, for example,
+then we hit the empty environment.
+If you can't find a symbol in all these
+environments and we've hit
+the empty environment, then we throw an
+error saying we can't find a value
+for this symbol.
+

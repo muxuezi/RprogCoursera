@@ -1,0 +1,149 @@
+In this lecture we're going to start
+getting into the nitty gritty and
+the details of R.
+In particular I'm going to talk about
+different data types that are used in R
+and some basic operations
+on those data types.
+So first it's important to kind of
+get the language right correctly.
+So all the things that you manipulate in
+R, all the things that we encounter in R,
+are what might be called objects
+objects can be all different kinds,
+can contain all different kinds of data.
+But everything in R, is an object.
+So the R has five basic
+atomic classes of objects.
+So these are kind of
+the very low level or,
+or basic classes of objects and
+they are character, numeric.
+So these are like real numbers or
+decimal numbers.
+integers, complex numbers, and logicals.
+So logicals are just
+true a false type things.
+And so the most basic object
+in R is called a vector.
+And a vector conta-,
+Can contain multiple copies of, for
+example, of a single type of object.
+So you can have a vector of characters or
+a vector of integers, one thing you cannot
+do with a standard vector is have mixed
+types of objects you cannot have a vector
+of characters and numerics, or numerics
+and integers, or integers and logicals.
+It, everything in a vector
+has to be the same class.
+Of course, with any great rule,
+there's always an exception, and
+this, this one is no exception.
+So, in this, with vectors,
+there's one type of vector that
+can have multiple different types of
+classes, and that's called a list.
+So a list is represent as a vector, so
+there's a se, it's a sequence of objects.
+But each element of that
+vector can be a different,
+can be an object of a different class.
+So for example, you can have a list.
+That has a character,
+that has a numeric, it has a logical.
+You can have a list that's inside
+the list and one element of
+the list can be a data frame so,
+any element of the list can be anything.
+And that's an,
+actually why what makes list so useful.
+So the list is the one
+exception to the ot to the.
+General rule that a vectors can only
+contain elements of the same class.
+So you can create an empty
+vector with the vector function.
+And the vector function
+has two basic arguments.
+The first argument is
+the class of the object, so
+the type of object that you
+want to have in the vector.
+And the second argument is
+the length of the vector itself.
+Perhaps the most important type of
+object in R of course is the number.
+So numbers in R are generally treated as
+what are called numeric objectsum, so
+pretty much all numbers are treated as
+double number precision real numbers.
+So, even if you are looking at a number
+that's like one or two, R thinks of those
+numbers as numeric objects there is a way
+to explicitly say you want an integer and
+you can specify the L subs, the L suf,
+the capital L suffix there.
+So for example,
+if you just enter the number 1 in R,
+that gives you a numeric object.
+But entering 1 with a capital L next
+to it explicitly gives you an integer.
+This distinction is not very
+important right now, but,
+it will become important later.
+There's also a special number called inf,
+which stands for
+infinity and, and inf is like a real
+number it can be used in calculations and
+you will get the expected result.
+So, for example, if you take one,
+divide it by zero,
+you'll get infinity and if you take 1 and
+divide it by infinity you'll get zero.
+So, emphasis special number, and
+you can also have minus infinity, too.
+There's another special
+value called NAN or Nan.
+And this represents an undefined value so
+you can name it as not a number.
+So, for example, if you take zero over
+zero that's not a number It's not defined
+so you'll get a Nan back Nan can also
+be thought of as a missing value but
+we'll talk a little bit more about
+missing values a little bit later so
+another thing that, that comes with
+each object in R is an attribute.
+So not every, object in R
+necessarily has attributes, but,
+but they are, but
+attributes can be part of an object in R.
+Some of the most common types of
+attributes that we'll encounter are
+namesor dim names, or, or dimension names.
+A dimension, so
+a matrix will have dimensions for
+example it will have a number of rows and
+a number of columns if you
+have a multidimensional array you'll
+have more than two dimensions.
+The class of the object, so
+every object will have a class.
+So for example,
+numeric objects their class is numeric and
+integer objects, their class is integer.
+Every object also has a length.
+So for a vector it's quite simple
+the length of the object is
+just the number of elements in the vector.
+And then there may be other
+user-defined attributes or
+metadatas which, so these are things
+that you can define separately, for
+an object using various
+attribute functions.
+There is a general function called
+attributes which allows you to set or
+modify the attributes for an R object.
+

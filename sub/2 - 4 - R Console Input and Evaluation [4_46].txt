@@ -1,0 +1,146 @@
+So once we start typing things into the R
+prompt, they we're going to be start,
+we're going to start coding and
+doing calculation.
+So the things that we type into
+the R prompt are called expressions.
+So for example, the symbol,
+which looks like a left-hand arrow and
+is actually the less than symbol,
+followed by a hyphen this is what's
+called the assignment operator.
+The assignment operator is what
+assigns a value to a symbol.
+So, for example, in this first expression
+here the symbol that I'm creating is
+called x, and the value that
+I'm assigning it is call, is 1.
+And thi, so, and I used the assignment
+operator to create that.
+So x is 1, is a, is an R expression.
+And the next expression I'm going to
+print that value so print is a function.
+And I'm passing it the symbol x so
+that when I print out x I get its
+value which, in this case is 1.
+So another thing to think
+about x is also considered a,
+is an R object that is a numeric
+object that has one element.
+So it's really a numeric factor where
+the first element is the number one.
+In the third expression here, you notice,
+I'm just typing X at the prompt and, and,
+and when you hit enter what happens
+is it prints out the value of X.
+So this is called, this is another way to
+print out an object without explicitly
+calling the print function.
+So in the,
+in this expression over here, I'm creating
+a new symbol called message, MS, MSG.
+And I'm assigning it a value
+of the string hello.
+All right?
+So now, this is a character vector.
+And the first element of this
+character vector is the string hello.
+I could add other elements to
+this vector if I wanted to,
+but they would all have to be character.
+So the grammar of the language
+determines whether an expression is
+syntactically correct or not.
+Or whether it's complete.
+So for example by this type x followed
+by the assignment operator and
+I don't have anything else, that's not a,
+that's not a complete expression and so
+when I hit Enter nothing will
+happen because it's waiting for
+the expression to be completed.
+The other thing I've got here
+is this hash symbol here.
+So this hash symbol here it indicates
+that everything to the right of
+that is a comment.
+And so the, the, the, the,
+the R engine will ignore anything that
+happens to the right of that symbol.
+So you can put things like comments or
+notes to yourself in code and
+R will just ignore those comments.
+So once you've typed in
+a syntactically valid and
+complete expression at the prompt
+when you hit enter what happens is
+that the expression is
+evaluated by the R engine.
+And the result of that evaluation
+expression is then returned.
+And so, so
+sometimes when you evaluate an expression,
+nothing happens because there's
+nothing to really show.
+And so, for example,
+in the first expression here when
+I say x is assigned to be five.
+So I'm creating an object called x.
+It's a numeric vector and
+the first element's going to be five.
+Now when I hit enter nothing happens
+because there's really nothing to show.
+And so but now when I hit x and
+I hit enter it prints out the value five,
+so it prints out the value of x.
+So when I hit x, when,
+when I type in x and
+I hit enter, that, and it prints out five,
+that's called autoprinting, and
+so when you just type an object's name and
+hit enter.
+R will by default autoprint
+the value of that object.
+This is the same as calling the print
+function on that object which will
+just print out the value of that object.
+So you can explicitly print an object or
+you can auto print an object.
+So this is,
+this sounds a little complicated but
+it's really just the natural thing to do
+and it is what most people would expect.
+You'll notice that when I
+print out the object x,
+there's a little one in brackets here.
+And you might be wondering what that is.
+So, all that indicates is that, it,
+it's telling you what element
+of the vector is being shown.
+And this will make more sense when
+we have longer vectors to look at.
+But all this is shame, saying is that
+the number five that you're seeing there
+is the first element of the vector.
+So for printing you'll see that here I'm
+creating an x an object called x and
+it's the sequence one to 20, so
+the colon operator here that I've used
+is what's used to create a sequence.
+So, when I say one colon 20,
+that creates a sequence of one, two,
+three, all the way up to 20.
+So, now when I autoprint x in this case,
+you'll see I've got a long,
+much longer vector here.
+In this case, it's an integer vector.
+And you'll see that the first line of
+the printout it has a one next to it,
+because that's the first element.
+And then the, the second line has
+a 16 in brackets because that's,
+the first element of that line is
+the 16th element of this vector.
+So it's all kind of straightforward but
+just that's how the printout works
+

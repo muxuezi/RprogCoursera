@@ -1,0 +1,503 @@
+This video is about how to get help when
+learning to use R and taking this course.
+Because of the, because of the size of the
+course and the number of students that are
+enrolled it's going to be difficult to
+have, to
+be asking lots of questions on a
+one-to-one basis.
+And so we're going to have to resort to a
+few other tools to get questions answered.
+In particular, the discussion boards and
+generally through e-mail.
+And so, there's a certain type of way to
+ask questions that will kind of, that will
+hope
+to maximize the chance of you getting the
+right answer or the answer that you're
+looking for.
+And so at, the main thing to remember is
+that asking questions
+via email is, is a little bit different
+from asking questions in person.
+You don't necessarily know that the people
+on the other
+side, the people that you're asking, for
+example, on the discussion
+board or on a mailing list, have, you
+don't necessarily
+know that they have the same background
+information that you have.
+furthermore, they may not know you
+personally, and so may not know your
+kind of, what you mean when you say
+certain types of things.
+so, that's kind of important to keep in
+mind when you are
+e-mailing questions as opposed to when
+you're talking to someone in person.
+Keep in mind of course that elder people
+are very
+busy and their time is limited and
+although may be willing
+to help you by answering a question, they
+may have only
+a certain amount of time to devote to
+answering that question.
+Now, I am here of course to, a the
+Instructor, to help you in
+all circumstances but furthermore, I may
+not
+be able to answer all possible questions.
+And so you want to, you're going to
+want to, use the
+resource that you have available to you in
+this course.
+So in your search for answers there are a
+variety of things that you
+can do on your own before venturing off to
+other people for the answer.
+So if you are going to be emailing a
+question to a forum or
+to a mailing list, it's importnat that you
+search the archives of that forum for
+the answer.
+So, it's possible, and depending on the
+size of the forum, almost
+very likely that that someone has asked
+the same question that you're asking.
+And if someone else has asked that
+question and it has been
+answered then the answers giong to be in
+the archives for that forum.
+So if the answer's already there you save
+everyone a lot of time, including
+yourself, if you search the archives for
+that forum and just find the answer.
+Of course the web is very large and has
+many answers and your first reaction
+when you have a question is to search the
+web.
+for, given the type of program you're
+using, for example, here we're using R,
+there are many manuals that are available
+and many answers may exists in the manual.
+There's a frequently asked question, a FAQ
+that's
+on the R website that you can look for,
+that contains many questions that are
+commonly, come up
+up on the mailing lists and on the forums.
+Another thing that you might want to try
+to do before you go venturing out
+to ask people the, for the answers, is to
+play around with the problem and
+try to find the answer by inspecting or
+experiment, experimentation.
+So maybe if you have a function that's not
+working right, maybe change the
+inputs and see, see if the outputs change,
+or if the error message changes.
+if, if you're lucky enough to have a
+skilled friend
+who knows something about R, you can ask
+them personally.
+And it will be easier to, it's usually
+easier to ask a person on
+a one-to-one basis than to email a group
+of people in a, in a forum.
+furthermore, then lastly, if you're a
+programmer you
+may be able to find the answers you're
+looking for by reading the source code.
+So, all of the things on the previous
+slide are, are useful
+things to do on your own before venturing
+out to ask people questions.
+However, if you don't find the answer
+it's, it's important to let other
+people know that you did all those other
+things on the previous slide.
+Because if, for example, the answer is in
+the
+documentation, for the program, for
+example, it's in one of
+the R manuals then someone who knows the
+answer
+will usually respond by saying, read the
+documentation or read
+the manual.
+Ad then you've just wasted one round of
+email because they'll have to
+respond saying I did read the manual and I
+didn't find the answer there.
+And so if you, letting people know that
+you've done all, you've done your homework
+and you've,
+you've looked in a variety of places, is
+very useful and it saves a lot of time.
+So here's a just a very simple example of
+what might happen as you're using R.
+So here I'm loading the data sets package.
+And then I'm going to load the air quality
+data set
+from that package.
+And then I'm going to want to run the
+correlation function on this air quality
+data frame.
+So immediately I get an error.
+It says error in core, air quality missing
+observations in cov slash cor.
+So you might be wondering well why am I
+getting this error?
+What does it mean?
+So the first thing you can do is go to
+Google.
+And in many circumstances Google is going
+to be your friend.
+And this is no different when you are
+learning
+a new programming language or when you are
+learning R.
+And so the easiest thing to do is, is to
+take the error message
+that you get and literally cut and paste
+it into the search box for Google.
+When I search on that I get a number
+of results, and particularly this third
+result looks very promising.
+It looks like someone asked this question
+on the R help mailing list and it looks
+like and so maybe, maybe we're clicking
+that
+to see, if someone replied with the
+answer.
+So, when you ask a question on a mailing
+list, so assuming that
+Google wasn't able to help you out you're
+going, if you're going to ask
+a question on a discussion board or on the
+mailing list, there are
+a couple of things you need to think about
+before you ask that question.
+First, is it possible to reproduce your
+problem?
+So, is it, so when, if someone else can
+reproduce your problem, it makes it
+a lot easier for that other person
+to figure out what the solution's going to
+be.
+And so if you can provide some
+code or some very simple example that will
+reproduce your
+problem, this will be enormously useful to
+everyone else involved.
+And if you don't do this typically the
+first response
+you get will be can you please provide a
+reproducable example.
+Second it's important to understand what
+you
+expect the output to be, because if your
+expectation is wrong, then of course your,
+it may or may not be an error depending
+on what your expectation should be.
+So what you expect the output to be will
+indicate kind of how,
+what the nature of the error and what
+needs to be solved.
+And then, given your expectation, you'd to
+say, what do you see instead?
+So what was the thing that was unexpected
+that gave you the question?
+Other information that's important to
+specify when you're asking
+a question, is the version of the product
+you're using.
+For example what version of R are you
+using?
+What version of the R
+packages are you using, if it's specific
+to a given package?
+Because often there may be legitimate bugs
+and versions and older versions of R or R
+packages and that the your problem might
+be
+solvable if you just upgrade to the latest
+version.
+So, if you're using the latest version of
+R it's important to mention that.
+Sometimes it's important to know what
+operating system you're using, so whether
+you're
+using a Mac or Windows or Linux or some
+other Unix machines, it.
+Some problems can be traced
+to the type of operating system that
+you're using.
+And depending on the question that you
+have, there
+may be additional information that you
+need to provide.
+So, when you send an email to a forum or
+to a discussion board.
+It's important to get as much information
+in
+there, as much useful information in there
+as possible.
+And, this includes the subject line for
+the email.
+So there's a couple of examples of subject
+lines that kind of range in usefulness.
+So, that is probably the least useful,
+just says, help, can't fit linear model.
+So, here there's, there's very little
+information here.
+All I know is that there's something,
+there's some problem
+with linear models I don't know anything
+else about what the user's problem is.
+So the second version is is, is much
+better.
+Eh, it tells me that on R version 2.15.0
+the lm() function produces
+the seg fault which meaning that R
+crashes, with a large data frame.
+And it furthermore says I'm using Mac OS
+10 10, 10.6.3.
+So here I've got the operating system, the
+version of the operating system, I've got
+the
+version of R, I've got what function I'm
+using,
+and I've got a summary of what actually
+happened.
+So, just a little bit smarter than that
+would, would just be to
+reformat the message so that I specify
+what version I'm using the function and
+then the version of the operating system
+and then, and then, so that
+gives me the context and after that I can
+say what the problem was.
+In this case it was the seg fault on a
+large data frame.
+So, here the
+important details are right away put into
+the subject header
+before I even get to the body of the
+message.
+So, a couple of things that you definitely
+want to do when you're asking a question
+on a forum or a mailing list first is to
+describe the goal, not the step.
+So, you may have many, many steps that
+you're going
+through and maybe one of those steps is
+causing a problem.
+And it's useful for other people to know
+what your big, what
+the bigger picture is in terms of what
+you're trying to do
+because, for example, they might have a
+better idea about how to
+go about achieving that goal, which may be
+faster or simpler and
+may work around whatever problem you're
+having.
+So describe the ultimate goal and then
+talk about what the problems are.
+And don't just narrow it down to the, to
+the one little step that you're having a
+problem with.
+Be explicit about your questions, so
+remember,
+provide details about what you're trying
+to do.
+And you have to provide the minimum amount
+of information necessary.
+So not the maximum amount of information,
+the minimum amount of information.
+And so it's common
+to see see on some mailing list posts
+that, you know, lots of outputters
+produce, and
+that's not very helpful, because volume
+doesn't really
+help you in terms of diagnosing the
+problem.
+We need to know exactly, to narrow down
+kind of where the problem is going to be.
+So, and of course, a couple things, you
+know, being courteous never hurts anyone.
+And it and promoting civility on mailing
+lists is always a nice thing.
+And if you find the solution later on,
+it's useful for everyone
+else in the community if you follow up
+with the solution and explain
+what the problem was, what the problem was
+and how you solved it.
+A couple things you definitely do not want
+to do when posting to a forum.
+You don't want to claim that you found a
+bug.
+This happens all the time and usually, I'd
+say 99 times out of 100, it's not a bug
+and it's just a misunderstanding about
+what should have
+happened, so a mistake in the expectation
+of the user.
+Groveling as a substitute for doing your
+homework, that's not
+usually looked well upon and you
+definitely shouldn't do that.
+Definitely don't want to
+post homework questions on a mailing list
+or forums and,
+and the reason is because people who write
+the homeworks,
+the homework questions are reading those
+mailing lists and would
+be able to identify all homework questions
+without a doubt.
+So we've seen them all, don't bother
+trying to
+get the answers to your homework on
+mailing lists.
+Don't ever email multiple mailing lists at
+once.
+So this is little bit annoying, because,
+people will be
+subscribed to different mailing lists and
+will be getting your message
+more then one time.
+It's useful to, it's important to figure
+out which mailing list is the most
+appropriate
+mailing list for your question and then
+send
+the message to that mailing list or forum.
+And then lastly, don't ask others to debug
+your code without
+giving some sort of hint as to what the
+problem might be.
+So it's, it's very difficult when a person
+posts a long listing of code
+and says, there is a problem in
+here somewhere, I don't know where, please
+help.
+It's better
+to give to kind of specify where you think
+the problem is
+and what you're trying to do so that
+everyone can save some time.
+So this is just the very brief case study
+on using a recent post to the R-devel
+mailing list.
+R-devel mailing list is an email list for
+people who are doing development work in
+R.
+So either they're developing packages or
+they're
+making modifications to the R source code
+itself.
+And so the subject was, you could see
+from the subject that it's going to be a
+problem.
+The subject is large data set dash
+confused.
+So right away that much information
+here to go on.
+It's not clear what the problem is.
+And the message just says I'm trying to
+load
+a data set into R, but I'm completely
+lost.
+This is probably due to, mostly to the
+fact that I'm on
+a complete R noob, but it's got me stuck
+in a research project.
+So you have to ask yourself, what do I
+know about this persons problem from
+reading this message?
+And the truth is very little.
+And so the response was somewhat
+predictable.
+Basically the
+first person response said, yes you are
+lost.
+And then there is a pointer to the posting
+guide
+which everyone should read before sending
+email through the mailing list.
+And then also a list of manuals.
+And so, here you can see that one round of
+email was immediately
+wasted because probably the answer to the
+question was in one of the manuals.
+And so, and the user didn't specify
+whether he or she had already done that.
+So, in terms of what went wrong with this
+little exchange, first
+of course the question was sent to simply
+the wrong mailing list.
+The R-devel mailing list is for
+development questions and for more
+sophisticated programmers.
+It's not really mailing list for questions
+as this person stated noobs.
+So that question really should have gone
+to the R
+help mailing list where it would have been
+better received.
+However, in addition to that, the email
+subject was very vague.
+It was not clear
+what the problem was.
+The question itself was very vague.
+There was no reproducible example there.
+There was nothing, there's not possible
+for other people who
+were reading the e-mail to reproduce what
+that person's problem was.
+And further, and there was no evidence
+that
+any effort was made to solve the problem.
+So there's no evidence that they searched
+the web or checked the manuals or
+or experimented with the problem or
+anything
+like that or even looked at the forums.
+So the end result was a complete recipe
+for
+disaster and there were, it was likely
+that this
+person did not get the answer to their
+question.
+So, a couple places to turn for this
+course, first
+of all the class discussion board I think
+will be the
+most useful because your fellow students
+can help you out
+there and I can respond to you on the
+discussion board.
+Outside of class there's the R help
+mailing list which I just described.
+And you can post to this mailing list as
+long, and it's useful to
+of course follow all the rules that we
+talked about just now a bit.
+And depending on what other projects you
+might be working on there are other
+project-specific
+mailing lists for other types of software.
+And so this talk was inspired by Eric
+Raymond's
+posting called How to ask questions the
+smart way.
+And I encourage you to read that.
+It's much longer.
+It has a lot of other useful tips.
+

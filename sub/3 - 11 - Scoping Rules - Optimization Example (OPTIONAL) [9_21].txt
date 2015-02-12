@@ -1,0 +1,321 @@
+So far, we've talked about functions and
+the scoping rules in R, and
+you might be wondering why any of this
+information is at all useful.
+So, in addition to just writing regular
+functions
+for manipulating data or for doing
+calculations, there's one
+combination of the scoping rules and
+functions which can
+be very useful in statistics, and that's
+for optimization.
+So there are a few optimization routines
+in R called optim and nlm and another one
+called optimize.
+And they all require that you pass a
+function to those functions, whose
+argument is vector parameters.
+So for example there's going to be some
+function that you want to minimize or
+maximize.
+and, over range of parameters, and
+functions like Optum and lmand take,
+take that kind of objective function, and
+try to find the minimum or the maximum.
+so, the idea is that, but in statistics
+this objective function that we're trying
+to minimize or maximize, just like a log
+likelihood, is going to depend on other
+things,
+besides just the parameters that you're
+maximizing over.
+So, for, in particular, it's going to
+depend on things like data.
+And so, the question is, well, how do you
+specify a function.
+Depend, depends on parameters and data and
+perhaps many, many other things.
+In a clean, way and to, to write it in a,
+in a, in kind of readable
+programming style and make it easier for
+the
+user to kind of use these types of
+functions.
+And so.
+And further more, when you're doing these
+kinds of
+optimizations in many cases it's useful to
+hold certain
+parameters fixed and for example, fix a
+parameter to
+a certain value then optimize over the
+other parameters.
+So, the basic idea with any optimization
+problem in
+r is you can create a contructor function
+which
+constructs the objective function.
+And then once the ob, and the objective
+function idea, that idea is that it would
+have all of the data, and all of the other
+things that it depends on would
+be kind of included in the defining
+environment
+of that function, so that it would kind
+of carry along those other things like
+baggage,
+you know, in its, in its enclosing
+environment.
+And so that way you don't have to
+specify those things every time you call
+the function.
+The only thing that you need to specify is
+the value
+of the parameter.
+So, for here I've got, I've written
+a constructor function that creates a
+negative log-likelihood.
+So just as a note, most of the functions
+in like optim and
+anolam and optimize and, in R, they all
+attempt to minimize functions by default.
+And so when you write your objective
+functions
+if they're designed to be maximized, then
+you
+have to kind of take the, the negative of
+those functions so that you can minimize
+them.
+So another thing is that all
+the code in this example all, will be on
+the website so you can
+take a look at the code and try to run it
+yourself if you want.
+So here I've got a constructor function
+that's making a
+negative log-likelihood because I want
+to minimize the negative log-likelihood
+function.
+So this is my objective function.
+It's going to depend on some data and so
+that's the argument.
+So the data is the first argument to this
+make.makelike function.
+The second argument is a logical vector
+called fixed and
+it determines whether or not I want to
+have, want to fix some of the parameters.
+So, now ins- inside the constructor
+function I have to find another
+function which is it takes an argument
+called p for the parameters.
+And this is going to be the parameter
+vector that I want to optimize over.
+So basically what this function's going to
+do
+is going to return log-likelihood for a
+normal
+distribution and I'm go- I'm going to
+want to
+fit my data to this normal distribution.
+And so we know that
+a normal distribution has two parameters,
+the
+mean, mu, and a standard deviation, sigma.
+So those are going to be the two
+parameters that I want to optimize over.
+And so here I'm just defining, the law of
+likelihood,
+and taking the negative of it, so I can
+minimize it.
+And, what, what the constructor function
+does
+is returns the function as the return
+value.
+[NOISE]
+So, here I'm going to simulate
+some normal random variables, mean 1 and
+vari, and sorry, mean 2.
+And, and then I'm going to make my
+constructor function,
+I'm going to call my constructor function
+with these random variables.
+And create my NLL or Negative Log
+Likelihood function.
+So,when I print out this function here,you
+will see that
+it, I see the body of the function looks
+like
+the code for the normal distribution.Its
+just like in the
+construction function before, but if you
+look at the environment,
+you will see this little tag that at the
+bottom that says environment.
+And that's the enclosing environment for
+this function.
+And so normally because when you define a
+function in the global environment,
+that it would just you, there wouldn't be
+a special environment tag down here.
+However, when you define a function inside
+of another function that and there has
+to be a pointer to the, to that defining
+environment so that R can remember
+kind of what the values of all the free
+parameters are going to be.
+And so, if you look at, this, this is, 0 x
+16 5 b 1 a 4.
+That is the hexadecimal of.
+A number which gives the address of
+where the defining environment is located
+in memory.
+So if you look at the body of the nl
+function here, you'll see
+that pretty much everything here is either
+a local variable or its a param-,
+it comes with a parameter vector p.
+However, there was one argument, th-,
+sorry, there's one variable here, the data
+variable, which is not an argument to the
+function And it's not a
+local variable, so it's a free variable
+but the data come from the make neglog
+like functions or constructor function
+which originally pass the data to that.
+And so the data can be looked up in the
+environment that the function
+is defined and it knows what the data are,
+you don't have to tell
+what the data are it's already fixed in
+the function.
+So if you look at the environment for this
+negative log-likelihood function by
+calling LS, you'll see that the the data
+variables there.
+The fixed variable there which indicates
+which parameter should
+be fixed, and then there's also the params
+variable there.
+So those are all.
+Those three things are all free variables.
+Inside this negative log likelihood
+function,
+but they're defined in the defining
+environment.
+So now I can call optim on my NLL function
+and I'm
+going to pass some initial values for
+musing to zero and sigma to
+one, and it'll run and you'll see that
+when it optimizes the
+function the estimates turn out to be 1.2
+for muand 1.78 for sigma.
+So pretty close to the truth, remember,
+which was one and two.
+Now I could, if I wanted to, I could fix
+sigma
+to be equal to its true value and then
+just optimize
+over mu to get the mean, and so when I
+call make.
+So I need to reconstruct my optim, my
+objective function by calling make.neg log
+like, and here I set the fixed variable to
+be false from U.
+And then two for Sigma.
+So I'm setting Sigma to be equal to two,
+and I'm letting U be three.
+So here.
+Now I can just call, optimize, because
+optimize will minimize the function of
+a single variable only.
+And because I only have a single variable
+in
+this, function, I can use, I can use
+optimize.
+And you can see that it, it, it estimates
+made
+to be about 1.21 so slightly different
+from the previous optimization.
+I can also fix mu to be one and try to
+optimize over over sigma and but in
+order, in order to do that I have to
+construct another function for
+optimization call optimize on that.
+Here I get my f cent of sigma
+to be about 1.8.
+If
+I want, I can plot the likelihood, or the
+log likelihood, and this is very easy
+to do when I have a function that doesn't
+depend on a lot of other parameters.
+So here I'm going to make the neg, the
+negative log likelihood.
+I'm going to fix mu to be equal to one and
+I'm
+going to plot the negative log likelihood
+as a function of sigma.
+And so I construct my function here, in
+LL.
+I I construct a sequence of grid values
+for the X coordinate, and then I
+apply my NLL function to all those grid
+points, and create my Y variable.
+So, now I can just plot this as a, as a, I
+can plot
+the Xs and the Ys and connect the dots
+using the type equal to L.
+Similarly I can plot the negative
+likelihood as a function of the
+mean by fixing sigma to equal to two and
+letting mu vary.
+And similarly, I create another grid of
+points another set of grid points and I
+evaluate at the
+NLL function on those grid points and then
+make a plot.
+So, the nice thing about lexical scoping
+in R is that, if
+you're doing minimization or optimization
+of some sort, you can build these
+objective functions, which contain all the
+necessary data, and all the other
+kind of bells and whistles that are
+required, to evaluate that function.
+Into the closing environment of the
+function.
+So that when you call the objective
+function, you don't need
+to specify the data, and all those other
+things every single time.
+They're kind of built in to the
+environment and
+they'll be automatically looked up in the
+right place.
+So you don't have to carry on these long
+argument lists.
+That in order to evaluate the function
+every single time.
+So this can be very useful for interactive
+work,
+and for exploratory work like for example
+making these plots.
+And this can so the code for these types
+of functions
+can be very simple and kind of clean
+because
+you don't have to carry on these large
+argument lists.
+So just for reference, the main reference
+for this type of Lexical
+Scoping rules of R, is the paper in the
+journal Computation and
+Graphical Statistics called Lexical Scope
+and
+Statistical Computing, and Robert
+Gentleman and
+Ross Ihaka who created R, have some very
+nice examples in this article.
+

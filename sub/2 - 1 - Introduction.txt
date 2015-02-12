@@ -1,0 +1,52 @@
+Hey everyone welcome to R Programming.
+This is the second course in the Data
+Science Specialization and, as
+the title suggests, we will be focusing on
+R as a programming language.
+So in this course, we'll kind of start
+with the basic
+building blocks of R kind of different
+data types in the
+very, kind of low level details and then
+we'll kind of
+move on to writing and formulating our
+programs or our scripts.
+This involves things like control
+structures and writing r
+functions and kind of doing some basic
+operations on data.
+And then, and then we'll talk about kind
+of profiling your code, some of the
+tools for debugging and kind of how to
+work,
+how to work through longer pieces of code.
+And then so after this course is done, I
+think you'll
+have a pretty solid grasp of R as a
+programming language.
+We're not going to cover every last
+feature of the R packages because of
+their and some of the other courses in the
+specialization you'll learn more about,
+for example, how to use the graphics
+system, how to make plots, how
+to use some of the packages for
+things like statistical inference and
+machine learning.
+And so that will be covered in other
+classes.
+So, the pur, purpose of this class is to
+really kind of
+get you into R programming, in
+particularly or if you're not very
+familiar
+with the language and to make sure you
+kind of kind of get a
+hand, get a sense of the on the of the
+nuts and bolts.
+So I hope you enjoy it.
+And I think after this course is done
+you'll be ready to move
+on to a bunch of, to mo, to the other
+courses in the specialization.
+

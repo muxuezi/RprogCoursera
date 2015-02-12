@@ -1,0 +1,69 @@
+So there's a special type of object that
+we haven't talked too much about yet.
+And these are missing values.
+Missing values in R are denoted by either
+NA or NAN which we talked about before.
+NAN is used for
+undefined mathematical operations.
+And NA is pretty much used for
+everything else.
+And so, there's a function in R called
+is.na which is used to test objects to
+see if they are NA.
+To see if they are missing
+values in that object.
+There's another function called is.nan
+which is used to test for NANs.
+So, NA values can have a class, too.
+So you can have missing integer val,
+values or
+you can have missing character values or
+missing numeric values etc.
+And so
+even though it looks like it's all NAs,
+the NAs can have different
+classes potentially.
+And then it's an NA, an NAN value
+is considered to be also NA, so for
+example, an NAN value,
+a NAN value, is missing.
+Is considered to be missing.
+So, but the reverse is not true.
+So an NA value is not necessarily,
+an NAN value.
+I've got a few different types
+of missing values listed here.
+So, here I created a vector x
+which is 1,2, NA, 10, and 3.
+So, now, this is a numeric vector.
+And the NA value in here's going to
+be a numeric missing value.
+So when I call is.na on x,
+what it returns is a, is a logical vector.
+And the logical vector indicates
+whether each element of the vector x
+is missing or not.
+And so, there's only one missing
+element in this vector, and so
+that's the third element.
+So you can see that the,
+that the logical vector that's returned.
+The first two are false,
+the third is true, and the fourth and
+the fifth are false.
+So the, the, the element that's true
+indicated where the missing value is.
+If I call is.man on this vector,
+you'll see that vector that's
+returned is all false.
+Because there aren't any MAN values, or
+their aren't any MAN values in
+this vector so everything's false.
+Of course, if I create a vector that
+has an end, a NAN value and an, and
+an NA value in it.
+You'll see that is.na returns true for
+both of them.
+But is.nan only returns true for
+the for the value that's actually NAN.
+

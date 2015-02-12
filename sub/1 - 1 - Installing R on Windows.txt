@@ -1,0 +1,119 @@
+[BLANK_AUDIO]
+I just wanted to briefly describe how to
+install R for a Windows machine.
+So the first thing you need to do is
+load, launch your web browser, so I'll do
+that here.
+I'm using Chrome, but it doesn't really
+matter.
+And you need to go to the Comprehensive R
+Archive Network or CRAN.
+So I'll just type that in here.
+And you'll see that there's a, at the top,
+there's three options.
+There's Linux, Mac and Windows, so you can
+go to the Mac version here.
+And you want to go, click on the base link
+here.
+[COUGH] And at the very top, you'll see
+download
+R 3.0.3 for Windows, and that's exactly
+what you want.
+So you can just click on this link, and
+the download will start.
+And so, depending on how fast your
+internet
+connection is, this might take a few
+minutes.
+Okay, so the download's finished.
+I'm going to click on this.
+And you'll probably have to click on Yes
+for this.
+And so, you can choose your language here,
+there are a number
+of choices in terms of the translations
+that you can choose from.
+So I'm going to choose English because
+that's my
+language, then you can just click through
+the installer.
+It will kind of walk you through the
+various steps and so
+we'll do that right now, just see what the
+options are.
+So you click on Next, you have to agree to
+the license, which is the gen, GNU General
+Public License, so.
+Feel free to read it and then click on
+Next.
+The use of the default installation
+directory
+is fine so I'm going to go through this.
+The use, the default user installation is
+fine.
+There are other kind of installation
+setups that you can choose from.
+If you know you only, you have a 32 bit
+machine maybe an older machine but you
+could click on that.
+By default it will install both versions,
+so
+you don't really need to worry about that.
+So just click through Next on this one.
+And you can choose to kind of take all the
+defaults, or you can try to customize your
+startup.
+I'm going to customize the startup just so
+you
+can see kind of what the options are here.
+So this option here shows you whether,
+asks
+you whether you want an MDI or SDI
+interface.
+So what that means is basically, do you
+want R to kind of run in one big window.
+With kind of different sub-windows with,
+inside of a big window or
+do you want it to run in kind of like
+separate windows?
+I prefer to use the SDI mode where the, so
+the console will
+be in one window and the kind of graphics
+window will be a separate window.
+I just kind of, I feel like it, I like
+that a little better.
+It's easier to work with so I'm going to
+click on the SDI option.
+And then you can choose how you want to
+look at your help files.
+So the HTML help is a little bit nicer,
+it's prettier to
+read and the plain text help is well, it's
+just plain text.
+So maybe I'll just click on plain text
+just to be different.
+And then you can choose whether want
+Standard or Internet2 internet access.
+This, generally speaking, you should not
+mess with, so you just click on Next.
+You can create a shortcut in the Startup
+me, Start menu, so that's usually a good
+idea.
+And you can usually click choose the
+defaults here in terms of creating a
+desktop icon unless your desktop is very
+cluttered and you want to you know, avoid
+that.
+So these are, these defaults are fine, so
+I'll click on
+Next, and then it will start installing
+the files on your computer.
+So now it's done and we can just click on
+Finish here and, and you've now installed
+R on your computer.
+And so I'll just close this browser here
+and I see you've got, I got a
+desktop icon here, so I'll just double
+click
+on that and there we are, we're running R.
+

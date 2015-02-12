@@ -1,0 +1,22 @@
+So, that's kind of a whirlwind tour of
+the different basic data types in R.
+So far, we've talked about
+the atomic classes in numeric,
+logical, character, integer,
+and complex vectors.
+We talked about how vectors can only
+have elements of the same class and
+the main exception to that is lists which
+can have elements of different classes.
+There are factors which are used for, for
+coding categorical data, with ordered and
+unordered data.
+There are missing values that
+are represented by NAs, and NANs.
+Data frames are used to store tabular data
+or each COM can be of a different class.
+And finally, all our R objects
+can have names which mean usul,
+which can be useful for
+creating self-describing data.
+

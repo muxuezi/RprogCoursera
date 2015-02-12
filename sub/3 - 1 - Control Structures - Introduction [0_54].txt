@@ -1,0 +1,30 @@
+Control structures in R allow you to
+control the flow of an R program.
+And are very similar to the control
+structures that you might see in
+other types of programming languages.
+The basic constructs are things like,
+if else for testing logical conditions.
+The four for
+executing a loop a fixed number of times.
+While executes a loop
+while a condition is true.
+Repeat is a, is a construct
+that allows you to just simp,
+to immediately execute an infinite loop.
+Break allows you to break
+out of any type of loop.
+And next,
+skips to the iteration we will loop and
+return allows you to exit a function.
+So, most of these control structures
+are not things that you use in
+interactive sessions and not like, while
+you are typing at the command line in R.
+These are the kinds of things
+that typically you would use
+when you are writing a R program or
+an R function.
+It's a little bit more
+of a structured format.
+

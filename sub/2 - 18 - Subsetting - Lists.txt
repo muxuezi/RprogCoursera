@@ -1,0 +1,152 @@
+So subsetting a list is
+a little bit different.
+Because you can use the double bracket or
+the dollar sign operator.
+You can also use the single
+bracket operator.
+So here I've got a list, the first element
+is called, is a named element called foo.
+That's an ind, and
+it's a sequence 1 through 4.
+And the second element is named bar,
+and it's the number 0.6.
+So this is a list of two elements in it.
+I can extract the first element by
+using the single square bracket.
+And I get, when I, remember the single
+square bracket always returns the element
+that's the same class as the original.
+So if x is a list, than x bracket
+1 is going to be a list too.
+So what I get back is a list
+that has element call foo,
+which is a sequence 1 through 4.
+Now if I use, so if I use the double
+bracket then if I said x double bracket 1,
+what I get back is just a sequence,
+1 through 4.
+So, so the difference here is that in the
+first example, I got a list that contained
+the sequence 1 through 4, and in the
+second example, I got just the sequence.
+That's the difference between the single
+bracket and the double bracket operator.
+In the next example here
+I'm using a dollar sign.
+And so I'm saying, x dollar bar.
+And that what that mean is that,
+that gives me that element that
+is associated with the name bar.
+So in that case it's the,
+it's a single number 0.6.
+I can also use the double bracket
+operator and pass in a string.
+So x double bracket quote bar is
+the same as doing as x dollar bar and
+it just gives me 0.6.
+If I use the single bracket with the name,
+I can say x bracket quote bar, that gives
+me a list with the element bar in it.
+So remember, because the single
+bracket always returns a list if I'm
+going to subset a list.
+So the nice thing about being able
+to subset an element using its name,
+is that you don't have to
+remember where it is in the list.
+So if I couldn't remember whether
+bar was the first element or
+was the second element,
+I don't have to remember whether, what,
+where it is in order to
+use the numeric index.
+I can just use its name,
+and then I don't have to,
+then it will automatically extract that,
+extract that element from the list.
+If you want to extract multiple
+elements of a list then you need to
+use the single bracket operator.
+So for example, if I want the third,
+the first and the third element here,
+in which case, which is the foo and
+the baz element, I can pass a,
+a vector, a 1, 3, the numeric vector 1,
+3 to x using the single bracket operator.
+And that returns to me a list with
+the elements foo and the elements baz.
+So that's how I extract
+multiple elements of a list.
+There's, you cannot use
+the double bracket or
+the dollar sign operators when you only
+extract multiple elements of a list.
+The nice thing about the double bracket
+operator, which is different from
+the dollar sign, is that you can use
+the double bracket operator to, to,
+to index it a list,
+where the index itself was computed.
+So, notice that when I used
+the dollar sign before, I had to,
+I actually typed out the word bar.
+I had to type out the name of the object.
+Sometimes the name of,
+sorry the name of the element.
+But sometimes the name of the element is
+actually the result of some computation.
+So for example here I've got a list
+with three elements, foo, bar, and baz.
+And then I create a variable called
+name which is actually the string foo.
+So if I use the double bracket
+operator on this variable here.
+Notice that the there's no element in
+the list that has the name, name in it.
+But there is an element in the list
+that has the name foo in it.
+So now when I, when I pass this
+variable called name into the double
+bracket operator, it returns me the,
+the element that was associated with foo.
+because that's what the value
+of the name variable is.
+So if I can,
+if I compute the index that I want to use,
+then I have to use
+the double bracket operator.
+If I use the dollar sign,
+then it's going to literally look for
+an element of the list that's,
+that has the word name associated with it,
+and that of course doesn't
+exist in this list.
+So to use the dollar sign I
+need to use a literal symbol.
+Now, the double bracket operator
+can take an integer sequence in as,
+rather than a single number, and
+the way you can think of this is that
+it kind of recurses into the list.
+So if you look at this
+current list I've got here,
+with the first element a is another
+list which has elements 10, 12 and 14.
+So suppose I wanted to
+extract the number 14.
+Well, that's really the third
+element of the first element, right?
+So it's the third element of the list,
+which happens to be the first
+element of the other list.
+And so I can extract the 1,
+3 element term by passing the vector 1,
+3 to it to the x list using
+the double bracket operator.
+And that's equivalent to kind of doing
+this double sub-setting of one and three.
+I can also extract the first element
+of the second element by use,
+by passing the integer
+vector 2,1 to get 3.14
+

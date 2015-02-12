@@ -1,0 +1,106 @@
+[BLANK_AUDIO]
+Tapply is a very useful function and it's
+used
+to apply a function over subsets of a
+vector.
+So the idea is basically, imagine you have
+a vector
+usually it's going to to be numbers, so a
+numeric vector.
+And there are, there are pieces of this
+vector that you want to calculate a
+summary statistic over.
+So and so you, you're going to have to
+have another variable
+or another object which identifies which
+element of this, of your numeric
+vector belongs to which group.
+The idea is that for each group in the
+numeric vector you're going to
+calculate a summary statistic like a mean,
+or a standard deviation, or whatever.
+So the basic idea behind tapply is that
+the first
+argument is a numeric vector or a vector
+of some sort.
+The second argument is, is another vector
+of the same length which identifies which
+group
+each element of the numeric vector is in.
+So for example, suppose there are two
+groups
+suppose you have men and women, for
+example, in
+two groups, and maybe the first 50
+observations
+are men and the second 50 observations are
+women.
+Then you need to have a factor variable
+which indicates, you
+know, which, which observations are men
+and which, which are women.
+And so if you want to take the, the, the
+mean of the numeric
+factor within men or within women, then
+you can use tapply to do this.
+So
+FUN is the function that you want to apply
+and so this is going to be the same as
+before.
+It's going to be the, either a function or
+you can pass in an ano-, an anonymous
+function.
+And then the dot, dot, dot contains the
+other arguments that may go to this
+function.
+And then the simplify argument indicates
+whether you want to simplify
+the argu-, simplify the results, kind of
+like the sapply simplification.
+So, here's a very simple example.
+I'm simulating
+a vector of normal random variables and
+uniform random variables and, and there's
+ten normals, ten uniforms, then ten
+normals that have a mean of one.
+So you can think of this vector as having
+three groups.
+So then I'm going to create another factor
+variable using the gl
+function, and its going to be, this factor
+variable going to have three levels.
+And each level is going to be repeated ten
+times.
+So when I print out the factor variable
+here, you can see that there's ten ones,
+ten twos, and there's ten threes.
+So each, so that the factor variable
+indicates
+kind of which group the, the observation
+is in.
+So now I can, I can, tapply on x, pass it
+the factor variable f in the mean
+function, that allows me to take the mean
+of each group of numbers in, in x.
+[BLANK_AUDIO]
+If you don't simplify the result, then
+what you get back is going to be a list.
+So so tapply applied for the same numeric
+vector and factor as on the previous
+slide.
+I want to calculate the mean and say
+simplify equals false then I get back
+a list with three elements and e in each
+element is the mean of that subgroup.
+I, I can pass at slightly more complicated
+summary statistics.
+So here, instead of calculating the mean,
+which, which
+returns one number I'm going to calculate
+the range of observations.
+So this gives me the min and the max of
+the observations within that subset of the
+vector x, and so here I'm getting a list
+where each element is a vector of length
+2.
+

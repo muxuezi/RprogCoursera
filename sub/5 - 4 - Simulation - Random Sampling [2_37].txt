@@ -1,0 +1,81 @@
+So, the last function I want to
+talk about is the sample function.
+And the way, and the sample function
+allows you to draw randomly from a,
+a specific set of objects
+that you specify.
+So if you give it a vector of numbers,
+it allows you to draw a random
+sample from that vector of numbers.
+And so you can kind of create any
+arbitrary distribution that you want,
+by specifying a vector of objects and
+then sampling from it.
+So here for example, I'm going to
+sample from the integers one to ten.
+So I pass the vector of
+integers of one through ten.
+And I tell it that I want to
+sample randomly four of them,
+without replacement.
+So so I'm just choosing four random
+entries from one to ten, and
+here I get 3, 4, 5, 7.
+If I do it again, I get 3, 9, 8, 5.
+So in this, ex, example, I,
+I will, I won't get repeated numbers,
+because I'm not sampling with replacement.
+I don't have to just sample numbers,
+I can sample letters if I wanted to,
+so here I'm taking the letters.
+A through z, and I'm just going to sample
+five of them without replacement, and
+I just get q, b, e, x and p.
+now, what happens if I
+don't specify anything,
+I just give it the vector of objects.
+So here I'm [INAUDIBLE] passing sample
+the vector one through ten, and if I
+don't specify anything else, what it does,
+is it gives me a permutation of those.
+So here the vector one through ten
+is just permuted in a random order.
+If I call it again I get a,
+I get yet another permutation.
+So lastly, if I want to sample from one
+through ten but with replacement, I can
+specify the replace equals true argument,
+so now I'm sampling one through ten,
+I'm getting a vector of ten numbers
+from the vector one through ten, but
+because it's with replacement,
+I can get repeats.
+So, you can see I got eight,
+three times and I got nine multiple times.
+So, that's how you
+sample with replacement.
+So, that's a very quick summary
+of the simulation functions in r.
+You can draw random samples from
+specific probability distributions with
+the R functions.
+So r norm, r plus I'm sorry,
+r poiss, r binom we saw already.
+All the standard distributions
+are going to be built in that you ha,
+have, probably you will need.
+Things like the Normal, the Poisson and
+the Binomial, the Exponential, Gamma, etc.
+All those functions are built in.
+And you can use the corresponding
+r functions to simulate from them.
+The sample function can be used to draw
+random samples from arbitrary vectors,
+if you want to kind of create
+your own distribution here.
+And it's very important to, to remember
+to set the random number generator seed,
+anytime you simulate data in r,
+so that you can reproduce the results
+that you got, at a later date.
+

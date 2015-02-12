@@ -1,0 +1,53 @@
+R objects can also have names.
+So this not true for just data frames.
+It's true for all r objects.
+And this can be very useful for writing
+readable code and self describing objects.
+So for example, I'm creating a vector
+that's an integer sequence 1, 2,
+3 and by default, there's no name.
+So when I call the names function on x,
+it gives me a null value.
+However, I can, I can give a name
+to each element of the vector x.
+So for example, if I,
+I can say the first element's called food,
+the second element's called bar, and
+the third element's called norf.
+So now when I print out my x vector,
+I get a vector 1, 2, 3 but
+then each one has a name over it,
+which is the name I just specified.
+And so
+when I call the names function I get the,
+the names that are associated with each
+element of the vector foo, bar, and norf.
+Lists can also have names.
+And so for example here I'm creating
+a list with the list function
+where the first element is called a,
+the second element is called b, and
+the third element is called c.
+And so when I print out the list, it
+prints out the names of each element and
+the values associated with those names.
+Finally matrices can have names.
+These are called dim names.
+So here I created a matrix
+from the sequence 1 to 4.
+It's a two by two matrix.
+And so the, when, when I use the dim
+names function I pass it a list.
+Excuse me, I assign it a list.
+Where the first element of the list is
+the, is the vector of row names and
+the second element of the list
+is a vector of column names.
+So here I want to name the rows a and b,
+and I want to name the columns c and d.
+So that's what I passed to
+the dim names function.
+And now when I print out my matrix
+I can see that the row names and
+the column names are labeled as I wanted.
+

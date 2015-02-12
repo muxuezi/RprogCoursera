@@ -1,0 +1,186 @@
+So the c function is another function that
+can be used to create vectors of objects,
+and you can think of c as standing for
+concatenate because it can be used to
+kind of concatenate things together.
+So, for example, I can create an object
+called x by concatenating 0.5 and 0.6 and
+that will give me a numeric vector of
+lenght 2 for the first element is .5 and
+the second element is .6.
+In the second example here, I've got
+a logical vector, we are concatenating
+through true and false, so shorthand for
+true and false, you can use t and
+f, capital T and capital F, so
+these 2 lines give you the same objectum,
+you can create a character vector by
+concatenating a bunch of characters.
+You can create integer vector by creating
+a sequence with colon operator, and
+you can also create a vector of complex
+numbers where the i is a special symbol,
+which indicates the imaginary
+part of the complex number.
+So using the vector function
+you can also create,
+a vector of a certain type and
+a certain length.
+So here, I'm going to create
+a numeric vector of length 10.
+And by default it will initialize
+the vector, with a default value for
+numeric vectors the default value is zero.
+So what happens if you take
+a vect you create a vector and
+you mix tow different types of objects and
+so the general it that is that r.
+Will kind of create the least common
+denominator vector so, will not give you
+an error but what will happen is that
+it will coerce the vector to be the,
+the class that's kind of
+the least common denominator.
+So here, in the first example, I've got
+in trouble concatenating number 1.7 and
+letter a, so clearly these are not in
+the same class one is numeric, and
+the other is character.
+So the least common denominator here,
+is going to be character.
+And so we're, so what you're going to
+get is that y is going to be
+a character vector, where the first
+element is going to be the string 1.7 and
+the second element's going to be the, the
+letter A so in the second example here,
+I've got concatenating true, which is
+a logical, and a two, which is numeric.
+And so what's going to happen here is that
+you're going to get a numeric vector and
+the true is going to be
+converted into a number.
+And so how's that happen, so and
+the, and by the convention in R
+true is represented as the number one and
+false is represented as the number zero.
+And so what you're going to get here,
+is a vector 1,2.
+Lastly this last example here I
+am calculating the letter A, and
+the logical true and so
+here the least common denominator
+is again going to be character.
+And so the vector that you end up with is
+a vector where the first element is A and
+the second element is the string true,
+so T R U E.
+It's not going to be illogical so
+you need to be a little bit aware, of the
+types of coercion that can occur in our,
+when you mix different types
+of elements in a vector.
+And because you won't get an error,
+but, but
+the coercion will happen
+behind the scenes.
+that, in the previous slide we talked
+about kind of a implicit coercion that
+occurs behind the scenes, but
+you can explicitly coerce objects from one
+class to another using functions
+that usually start with the word as.
+So for example, if you want to convert
+something to a numeric you can use
+the function called as.numeric.
+If you want to convert something
+into character you can use
+the function as.character now if you
+apply these functions, so if you apply
+as.numeric to a numeric vector nothing
+will happen so, here in this example I'm
+starting off by creating an object called
+x which is a sequence of zero to six.
+So this is going to, this is an integer
+sequence as you could see when I
+call class on the object but
+I convert it into a numeric sequence.
+And so I can call as.numeric on x,
+and you can see that it prints out 0,
+1, through 6,
+which look like an integer object but
+it's actually going to be numeric or
+I can convert it into a logical and so
+I can say as.logical on it,
+and what happens?
+Well, as you can see,
+the convention is that 0 is false.
+And any number that's greater than zero
+is going to be true so here I've got a,
+when I convert to logical I get false and
+then everything else is true when I call
+as.character on X it takes all the numbers
+and, and converts them into characters.
+So now I've got the string zero,
+the string one, two ect and finally when,
+if I call as.complex this is fairly
+straightforward because you can all it
+does is says that you have a complex
+number where all the imaginary components
+are zero, now coercion we'll
+notice always doesn't work.
+And when it doesn't work you
+get what are called NA values.
+So non sensical coercion
+will result in NAs.
+So for example if I take the vector ABC.
+And call as.numeric.
+Well there's really no way to
+convert the letters a, b, and
+c to numerical variables so
+what you get is a vector of NAs and
+plus a warning similarly if you call
+as.logical on x, you're going to get
+a vector of NAs The next data type
+I'm going to talk about is the list.
+Now I mentioned lists a little bit
+earlier in this lecture and the idea is
+that they're, they're like a vector except
+that every element of a list could be a,
+an object of a different class and so
+that makes lists very, very handy for
+kind of carrying around
+different types of data.
+And they're very useful in R and
+they become very common especially when in
+conjunction with other types of functions
+that we're going to learn about.
+So here I'm creating a list called x
+by using the list function which is a,
+which can be used to construct the list.
+And the first element is a numeric value,
+numeric object of one.
+The second element is a character,
+letter a.
+Third is illogical and
+the fourth is a complex number.
+So this is not a problem with lists and
+when I autoprint the list you'll see that
+it prints out a little bit differently It
+doesn't print out like a vector
+because every element is different.
+So you can see that in the double brackets
+here so the, the elements are indexed by
+double brackets so
+the first element is the vector 1.
+The second element is a vector with A.
+The third element is a vector with true
+and the fourth element is a vector.
+With the complex number 1 + (4i).
+So lists are indexed you'll notice that
+el, elements of a list will have double
+brackets around them elements of other
+vectors just have the single brackets, so
+that's one way to separate a list
+from other types of vectors
+

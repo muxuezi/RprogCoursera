@@ -1,0 +1,332 @@
+Coding standards in R are really important
+becasue they help you, make your code
+readable and allow you and other people to
+understand what's going on in your code.
+Now, of course, just like it is with any
+other, style whether it comes, when you,
+you know, whether
+it's your clothing or whatever it is, it's
+difficult
+to get everyone to agree on one set of
+ideas.
+But I think there are a couple of very
+basic, kind
+of minimal standards that are important
+when you're coding in R.
+Alright, so I'm just going to talk a
+little bit about some of
+the coding standards, that I think are
+important to, when you're writing
+R code, and I think will help make your
+code more readable
+and more usable by others if that's what
+you're trying to, to achieve.
+So, the first principle that I think is
+very
+important in pretty much any programming
+language, not just
+R, is that you should always write your
+code
+using a text editor and save as a text
+file.
+Okay, so, a text
+file is a kind of basic standard.
+It usually doesn't have any sort of
+formatting or any
+sort of, kind of special, appearance, it's
+just text, right?
+And usually, typically, typically it's
+going to be
+ASCII text, but if you're, on, in places
+outside the US or the UK using non-English
+languages there may be other standard text
+formats.
+But the basic idea is that a text format,
+can be read by pretty much any
+basic editing program.
+These days, you know, when you're writing
+something there's a
+lot different of tools that you can use to
+write.
+If you're writing a book, or or a webpage
+or something like that, there's
+all kinds of different tools that you can
+use to write, to write those things.
+But you're, when you're writing code, you
+should always try to
+use a text editor, because that's like
+kind of like the, the
+kind of least common denominator, and it
+makes it so that
+everyone will be able to access your code
+and improve upon it.
+The second principle is, which is very
+important for readability, is to indent
+your code.
+So indenting is something that's often
+hotly debated in lots of mailing lists
+and other types of discussion groups in
+terms of how much indenting is
+appropriate.
+Now I'm not going to talk about that
+although I do have some recommendations.
+But I think the most important thing
+is that you understand why indenting is
+important.
+So indenting is the idea that different
+blocks of code
+should be spaced over to the right a
+little bit more
+than other blocks of code so you can see
+kind of how the
+control flow how the flow of the program
+goes based on the indenting alone.
+So coupled with indenting, is the third
+principle which I think
+is very simple which is, limit the width
+of your code.
+So you have indenting it's possible to
+kind of
+indent off to the right forever so you
+need
+to limit on the right hand side how wide
+your code is going to be and usually this
+is
+kind of determined by the number of
+columns of text.
+And so one possibility is you limit your
+text to about 80 columns of
+text and then and so that your, the width
+of your code never exceeds that.
+So, let's take a look for, at a quick
+example here.
+So here you can see I've got R Studio
+open, here
+with a simple code file with some R code
+in it.
+And, first of all, let me just mention
+that
+the editor in R Studio is a text editor.
+So it
+will always save the R files that you
+write as text format files.
+So, so we've already got that kind of
+handled.
+But you can see the indenting scheme here
+is equal to one space.
+So every indent is one space.
+And you can see that all the code is
+kind of mashed together here on the left
+hand side.
+It's difficult to tell kind of where the
+if blocks are.
+Where the else blocks are.
+Where does the function kind of end and
+begin?
+And so the indenting scheme kind of makes
+the code not
+very readable in this case.
+So we can change the indenting in R
+Studio.
+If we just go up to the Preferences menu
+here.
+And go to Code Editing.
+And let me just change it to four.
+And you can see that the column, the
+margin column is set to
+80 characters, so it will show you the
+margin when you've reached 80 characters.
+And so I'm going to select all here with
+Cmd+A, and then Cmd+I to indent it.
+So now you can see that the
+indenting is a little bit nicer now.
+You can see, kind of, where the function
+begins and ends, you can see where the
+if blocks start and end, and the, kind
+of, structure of the program is much more
+obvious.
+So, I'm going to change this one more time
+though and my, because my personal
+preference for indenting is to use eight
+spaces,
+so I'm going to change this to eight.
+Hit OK, and select all.
+Cmd+I.
+And now you can see,
+I prefer the eight spaces just because it
+really makes the structure of the code
+very obvious.
+And the spacing is nice and clear.
+And it makes the code very readable in
+general.
+So you can see that indenting is very
+important.
+And the biggest problem you might have is,
+with the, with, with too little indenting.
+If you don't indent at all or if you only
+use
+a very small amount the code becomes
+kind of very mashed together.
+So I recommend at least four
+spaces for an indent and I'm pref, I
+prefer, you know, eight spaces for an
+indent, just
+because it makes the code much more
+readable
+and spaces it out much nice, much more
+nicely.
+One of the advantages of having something
+like an
+eight space indent, is coupled with an 80
+character margin
+on the right hand side, is that it forces
+you
+to think about your code in a slightly
+different way.
+So for example, if you have eight space
+indents, if you're going to have a
+for-loop, nested within
+another for-loop within another for-loop,
+every time you nest another
+for-loop, for example, you have to indent
+over eight spaces.
+And by the time you get to maybe your
+fourth nested for-loop you're
+pretty much hitting the right hand column
+at the 80 column margin, right?
+And so the nice thing about the eight
+space
+indent, coupled with the 80 column margin,
+is that it
+prevents you from kind of writing very
+basic, making very
+kind of fundamental, kind of mistakes
+with, with code readability.
+So, for example, with an eight space
+indent and 80 column
+margin, you might not be able to do
+feasibly more than
+two nested for loops, and, but I think
+that's really the,
+kind of, the boundary of what is readable
+in terms of code.
+Typically except for some special cases, a
+three, you
+know, a three nested or four nested four
+loop is
+difficult to read, and it's probably
+better off, you
+know, splitting off into separate
+functions or something like that.
+So a good indenting policy not only
+makes the code more readable, but it
+actually can force you
+to think about writing your code in a
+slightly different way.
+And so that's a really nice advantage of,
+of having a logical
+indenting policy with, coupled with a, you
+know, a right-hand side restriction.
+Alright.
+So the last thing I want to talk about is
+to limit the length of your functions.
+Alright so, functions in R can, can
+theoretically go on for quite
+a long time and of course just like in any
+other language but
+just like in any other language I think
+that the, the logical thing
+to do with a function is limit it to
+kind of one basic activity.
+So for example, if you're function's named
+read the data.
+Then your function should simply read the
+data, it should not read
+the data, process it, fit a model, and
+then print some output, alright?
+So you should, the logical kind of steps
+like
+that, should, should probably be spit,
+split, into separate functions.
+There are a couple of advantages to doing
+this.
+First of all, it's nice to be able to
+have a function written on a single page
+of code,
+so you don't have to scroll endlessly to
+see,
+you know, where all the code for this
+function goes.
+If you could put all the function, the
+entire function on like one screen of the
+editor, then you can look at the whole
+function and see what it does all at once.
+Another advantage of splitting up your
+code into logical sections,
+to logical functions, is that if you use
+functions like traceback,
+or the profiler, or the debugger, these
+often tell you, you know,
+where in the function call stack you are
+when a problem occurs.
+And if you have multiple functions that
+are all logically divided
+in to separate pieces then when a bug
+occurs and you know
+that it occurs in a certain type of
+function or a certain
+function then you know kind of where to go
+fix things, right?
+So if you have, but if just have a single
+function that just goes
+on forever and a bug occurs then the only
+thing that the debugger or
+the traceback or the profiler can tell you
+is that there's a problem in this one
+function.
+But it, it doesn't, it, it's difficult to
+tell you where exactly the problem occurs.
+So splitting up your functions has a
+secondary benefit, which
+is that it can help you in debugging and
+profiling.
+So limiting the size of your functions is
+very useful for readability and for, kind
+of, debugging.
+Of course, it's easy to go overboard and
+having, you know, a hundred different
+three-line functions.
+So that's not really what
+you want to do.
+So you just want to make it so that the,
+the separation of different functions
+into, is logical, and that each function
+kind of does, does one thing in
+particular.
+So those are my basic guidelines for
+writing code in R.
+There are, of course, many other things
+that you might be able to think about.
+But then we start bordering into areas
+that
+we might, we might kind of disagree on.
+And so I'm not going to talk about too
+much more
+in terms of coding standards, but the
+basic ideas are always
+use a text editor, always indent your
+code, I'd say at least four spaces.
+Limit on the right hand side how, how wide
+your code can be.
+And and always limit the size of your
+functions, so that you
+can, so that they're, kind of grouped into
+logical pieces of your program.
+So with those four things, I think you'll,
+your, your code will be much more
+readable.
+It'll be readable to you, it'll be
+readable to others, and it'll make kind
+of writing R code much more useful to
+everyone.
+

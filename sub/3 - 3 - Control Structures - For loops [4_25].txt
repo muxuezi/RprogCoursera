@@ -1,0 +1,132 @@
+So the next contract is a for loop.
+So this is probably the most
+common type of loop oper,
+operator that you're going to use in r.
+The basic idea is that you have a loop
+index which is typically called i,
+but if you have many loops you
+might say j, k, l, et cetera.
+And a loop index is going to go from,
+it's going to cover a sequence
+of numbers typically in.
+integers.
+So for example here I've got a for loop.
+And it's looping over
+the numbers 1 through 10.
+So I've created the sequence of
+colon operator 1 through 10.
+And this for loop is not doing
+anything particularly interesting,
+it's just printing out the numbers so
+printing out i at each iteration.
+After the loop is finished it continues
+on to the next block of code.
+So there's different ways to use a for
+loop and the r
+is pretty flexible in how you can kind of
+index the different type of r objects.
+So here I've created a vector a character
+with the letters a b c d in it.
+And all these four loops are equivalent.
+So for example, in the first one, I kind
+of done what you might commonly see in
+other languages like C
+that have four looping.
+Here I have an indexed i that I
+sequenced through 1 through 4,
+I create an imager sequence.
+Then I print the i'th element of x,
+each time.
+So here this loop just prints out a,
+b, c, d.
+Another thing I could do is use the seek
+along function, so seek_along what
+it does is it takes a vector as an input
+and it creates an integer sequence that's.
+That's equal to the length of that vector.
+So this is a vector of length 4, so
+it's going to create an integer
+sequence 1 through 4.
+It's exactly the same as, as the previous
+sequence where I've got the sequence 1:4.
+However, here I generate the sequence
+based on the length of the variable x.
+So now I'm, my index serial i
+is going through this sequence.
+It's printing out the i filament of x and
+exactly the same behavior occurs.
+I print out a, b, c and d.
+The third example here, I'm,
+I've got a different index variable,
+I'm calling it letter, and the index
+variable is actually going to be index,
+is going to be taking values
+from the vector itself.
+So there's no reason why the index
+variable has to be an integer.
+It can take elements from
+any arbitrary vector.
+So now the for loop is going through
+this vector of letters, a,b,c,d.
+An it's just going to print out the letter
+itself, so now I'm printing out the index
+variable, which happens to be equal
+to the letters in the vector.
+And so these three for
+loops are exactly the same so far.
+The last version here is, is the,
+is the same as the first one except I
+haven't included the curly braces,
+and so for a single expression if you.
+If the for loop only has a single
+expression in this body you can
+omit the curly braces and
+put everything on one line,
+which maybe useful sometimes because
+it's a little bit more compact.
+But it's not my particular style.
+For for loops, I generally like
+to put the curly braces in,
+regardless of how many
+elements are in the body.
+For loops can be nested so you can have
+a for loop inside of a for loop, so
+the common thing for example, and and is,
+is with a matrix that has two dimensions
+and then you might want to loop over
+the rows and then loop over the columns.
+So here the outer loop the ought with the
+i index is seek, is looping over the rose.
+And I'm using a function that's called
+seek_lense, so, the idea is that,
+it takes, in, seek_lense takes an integer,
+which in this case happens to
+be the number of rows in x, and then it
+creates an integer sequence out of that.
+So this particular matrix has two rows, so
+it's going to create
+the sequence of 1 to 2.
+For example, similarly the the nested loop
+with the j index is using the number of
+columns to create a sequence so
+this matrix has three columns, and so
+the seek_Lense function is going to
+create an integer sequence 1 through 3.
+So the, so this doubling nested for
+loop, is basically printing out
+all the elements of the matrix.
+So one thing to be careful with,
+with nested for
+loops is that it's going beyond
+2-to-3 levels, while it's
+theoretically okay in r, it makes reading
+the code a little bit difficult to do.
+And so
+if you're reading code that has three or
+four nested for loops it gets difficult
+to understand what's, what's going on.
+Sometimes that's the logical thing to do,
+but
+many a times there's ways to get around
+that, for example, by using functions.
+

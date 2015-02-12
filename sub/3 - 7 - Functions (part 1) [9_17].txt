@@ -1,0 +1,329 @@
+Functions represent some of the most
+powerful aspects of the R language.
+And they really represent the transition
+of the user
+of R into the kind of programmer of R.
+And the basic idea is that you can type
+the command
+line and kind of explore some data, and
+run some code.
+But eventually you'll probably get to the
+point where
+you need to do something a little bit more
+complex.
+A little bit more than, than can be
+expressed
+in a single line or maybe in two lines.
+And if you have to do this over and over
+again, then you're
+usually going to want to encode this kind
+of functionality in a function.
+I'm going to talk about functions in three
+parts here.
+First I'll talk just about the basics of
+how
+to write functions and how they are
+written, in R.
+Then I'm going to talk a little bit about
+lexical
+scoping and the scoping rules, in, for the
+R language.
+And then last, I'm going to end with a
+little example.
+So, functions in R are created using the
+function directive
+and functions are stored as R objects just
+like anything else.
+So you might have a vector of integers a
+list of
+different things, a data frame, and then
+you have a function.
+So, in particular, R objects, R functions
+are
+R objects that are of the class function,
+okay?
+So, the basic instruction here is that you
+assign
+to some object, here I call it F, the,
+the function directive, which will take
+some
+arguments, and then inside the curly
+braces
+there is R, there is R code, which does
+something that the function does.
+So one nice thing about R is that
+functions
+are con, considered what are called first
+class objects.
+So you can treat a function just like you
+can treat pretty much any other R object.
+So importantly, this means that you can
+pass functions as arguments to other
+functions.
+This is actually
+ver, a very useful feature in statistics.
+And also functions can be nested.
+So you can define a function inside of
+another function, and we'll
+see what the implications of this are we
+talk about lexical scoping.
+So the return value of a function is
+simply the
+very last R expression in the function
+value to be evaluated.
+so, there's no special expression for
+returning something for a function.
+Although, there is a function called
+Return.
+Which we'll talk about in a second.
+So functions have what are called named
+arguments.
+And the named arguments can potentially
+have default values.
+So, a lot of these features are useful for
+when
+you're designing functions that, that may
+be used by other people.
+For example, you may have a function that
+had a lot
+of different arguments so you can tweak a
+lot of different things.
+But most of the time, you don't have to
+change all those different arguments.
+You may only care about one or two.
+So it's useful for some of the arguments
+to have default values.
+So first of all, there's the formal
+arguments, which
+are the arguments that are included in the
+function definition.
+So if you go back to the previous slide
+the formal
+arguments are the ones that are included
+inside this function definition here.
+The formal's function actually will, takes
+a function as an input
+and returns a list of all the formal
+arguments of a function.
+So not every function call in R makes use
+of all the formal arguments.
+So for example, if a, if a function has
+ten different arguments you may
+not, you may not have to specify a value
+for all ten of those arguments.
+So function arguments can be missing or
+they
+may have default values that are used when
+they are not specified by the users.
+So R function arguments can be matched
+positionally or by name.
+So when, this is very, this is key when
+you're writing a function and also when
+you're calling it.
+So for example, take a look at the
+function sd, which calculates the standard
+deviation of, of, of a set of numbers.
+So sd takes a input x, which is the name
+of the argument and which is going to be a
+vector of data.
+And there's a second argument called na.rm
+and this controls whether
+the missing values in the data should be
+removed or not.
+And the default value is for na.rm to be
+equal to false.
+So by default if you have missing data in
+your, in the, in the set of
+numbers for which you want to calculate
+the
+standard deviation the missing values will
+not be included.
+So, here I'm
+simulating some data and I'm just
+simulating a hundred
+normal random variables, and there's no
+missing data here.
+So, if I just calculate sd on the vector
+it'll give me an estimate of the standard
+deviation.
+If I say X equals my data that's the same
+thing.
+So here I've named the argument but I
+haven't but otherwise
+the data are the same so it'll calculate
+the standard deviation.
+In the first example I didn't
+name the argument.
+So it defaulted to passing mydata to be
+the first argument of the function.
+So in the next example here, I'm going to
+name both arguments.
+I'm going to say X equals mydata, and
+na.rm equals false.
+That calculates the same thing as before.
+Now when I name the arguments, I don't
+have to put them in any special order.
+So for example, I could reverse the order
+of the argument here.
+Say na.rm is equals false first, and then
+say x
+equals mydata second, and that will
+produce exactly the same
+results because I've named the arguments.
+Now, what happens if I name one argument
+and don't name the other?
+Well what happens is that the named
+argument is set, and
+you can figure it as being removed from
+the argument list, and
+then any other, any other things that are
+past will be matched
+to the function arguments in the order in
+which they, they come.
+So for example, SD after you remove the
+na.rm
+argument only has one more argument left
+and so mydata
+would be assigned to that argument.
+So all these expressions return the same
+exact value.
+So although it's generally, all these
+expressions are
+equivalent, I don't say recommend all of
+them equally.
+So for example, I don't necessarily
+recommend reversing the order of the
+arguments just because you can even though
+if you name them, it's appropriate.
+so, just, just because that can lead to
+some confusion.
+So positional matching and matching by
+name can be mixed and this
+is quite useful often for functions that
+have very long argument lists.
+And so for example the lm function here
+which
+fits linear models to data has this
+argument list here.
+So the first is the formula, the second is
+the data And then subset, the weights et
+cetera.
+And you see that the first five arguments
+here don't have any default value.
+So, the user has to specify them.
+So the but then the method, the model, the
+X argument, they all have
+default values so if you don't specify
+them they will use those values by
+default.
+And so the following two function calls
+are equivalent.
+I could have specified the data first and
+then the formula and then the model.
+And then, and then, and then the subset
+arguments
+or I could specify the formula first, the
+data second,
+the subset and then say model is equal to
+false.
+Now the reason why the first one is okay
+is
+because I, so I matched the data argument
+by name.
+You can imagine that that's kind of taken
+out of the argument
+list now, then Y till the X doesn't, isn't
+specified by name.
+So it's given to the first argument that
+hasn't already been matched.
+And I, in which case that's the formula.
+Model equal to false, so that's been
+matched by name so
+I can kind of get rid of that from the
+argument list.
+And then 1 through 100 has to be assigned
+to the argument that has not yet already
+been matched.
+So in this case formula was already
+matched, data was already matched.
+And so the next one is subset.
+So 1 to 100 get's assigned to the subset
+argument.
+So this is somewhat a confusing way to
+call lm,
+and I don't recommend that you do it this
+way.
+But, I, I wrote it this way just to
+demonstrate
+how positional matching, and matching by
+name can work together.
+A common usage for lm though is the second
+version here.
+Which say lm Y til the X.
+So there is a formula there.
+And then the next one is mydata, which the
+data set which you're going to grab the
+data from.
+The subset argument and then, so the first
+three arguments,
+you know, are commonly specified, every
+time you call lm.
+But then, the rest you may or may not
+specify and so
+you may, if you just want to specify one
+of the following arguments.
+It's easier just to call it out by name.
+so, most of the time, the named arguments
+are useful in the command line.
+When you have a long argument list and you
+want to use the defaults for everything
+except for one of the arguments, which may
+be in the middle or near the end
+of the list, and you can't usually, you
+know, you can't remember exactly which
+argument it
+is, whether it's the fourth, or the sixth,
+or the tenth argument on the argument
+list.
+And so you just call it by name, and that
+way
+you don't have to remember the order of
+the arguments on
+the argument list.
+Another example where this comes in handy
+is for plotting, because
+mo, many of the plot functions have very
+long argument lists.
+All of which have default values and you
+may only want to tweak one specific
+argument.
+And so it's useful not to have to
+remember, you know, what
+the order of that argument is on the arg,
+on the argument list.
+So function arguments can, can also be
+partially matched
+which is used, mostly useful primarily for
+interactive work,
+not so much for programming.
+But when you call a function, if the
+argument has a very long name
+you can match it partially so you can type
+part of the argument name
+and as long as there's a unique match
+there then it will, the R
+system will match the argument and assign
+the value to, to, to the correct one.
+So the, the, the order of the operations
+that
+R uses, first it'll check for an exact
+match.
+So if you name an argument
+it'll check, check to see if there's
+an argument that, that exactly matches
+that name.
+If there's no exact match it'll look for a
+partial match.
+And then if that doesn't work, it'll look
+for a positional match.
+

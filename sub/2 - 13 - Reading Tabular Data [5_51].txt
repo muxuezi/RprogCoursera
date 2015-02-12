@@ -1,0 +1,183 @@
+This lectures going to talk about
+reading and writing data in R.
+So there's a few different types of
+ways you can do this and I want to talk
+about some of the primary functions
+that use an R to read and write data.
+So there are a few principle functions
+that we're going to talk about for
+reading into R.
+The first two are read.table and read.csv
+and these are for reading tabular data.
+And they are probably the two
+most commonly used functions for
+reading data into R.
+These functions read text files that,
+that contain data that are stored in
+kind of rows and columns type of
+format and return a data frame in R.
+The function read lines is for reading
+lines of a text file so this, this can
+be any type of file really, it just gives
+you text in a, as a character vector in R.
+The source function is important for
+reading R code, so if you have R code, for
+example functions or
+anything written get written to
+a file the source function will
+read all that code into R.
+The dget function is also for
+reading R code files but it's for
+reading R objects that have
+been dparsed into text files.
+We'll talk a little more about this later.
+The low and unserialized functions are for
+reading binary objects into R.
+So the analogous functions for writing
+data are write.table, writeLines, dump,
+dput, save and serialize and those kind
+of pair up with their reading analog.
+So, the read.table function is
+the most commonly used function for
+reading data into R.
+It's important that you know kind of,
+how the arguments work,
+what the arguments are and
+understand what they mean.
+So the first argument is pretty obvious,
+it's name of a file or
+the name of a connection,
+which we'll get to a little bit later.
+Usually you're going to give this a file
+name, it's going to be a string and
+it's going to be a path to
+a certain file in your computer.
+The header is a logical flag indicating
+whether the first line is a header line,
+so if the first line for example it
+has all the variable names in it,
+then that's not really a piece of data,
+that's just a line that has labels on it.
+So you want to tell the read.table
+function whether the first line contains
+the variable names or not or whether
+the line just, right away contains data.
+The sep argument stands for separator.
+it's, it's a string that indicates
+how the columns are separated.
+So for example if you have a file that's
+separated by commas then the separator
+has a comma.
+You may sometimes files are separated
+by semicolons or by tabs or by spaces.
+And so you want to tell read.table
+what the separator is going to be.
+ColClasses is a character vector
+which indi wh, wh, which,
+whose length is the same length as
+the number of columns the data set.
+And the character vector indicates what,
+what is the class of
+each column the data set.
+So, for example, is the,
+if the first column is numeric and
+the second column is logical, and
+the third column is a factor, et cetera.
+And so the colClass is a vector,
+which is not required but it,
+it tells the, it tells read.table what
+the class of the data is for each column.
+End rows is the number of rows in
+the data set, this is not required but
+it it can be used.
+Comment.char is the character string that
+indicates what's the comments character So
+the default, for example, is the pound
+symbol or the sharp symbol and anything
+after, anything to the right of that
+symbol is ignored the comment character.
+So you can specify other characters to
+be comment characters, and the lines,
+lines of the file that begin with that
+comment character will be ignored.
+Skip is the number of lines
+to skip from the beginning.
+So sometimes there may be some header
+information or some non-data region at
+the beginning of the file, and
+you want to skip right over that.
+And so you can tell the read.table
+function to skip the say the first ten
+lines of the first 100 lines and
+then only start reading data after that.
+Last argument is strings as
+factors this defaults to true.
+And the idea is that it,
+the question is whether you want to
+encode character variables as factors.
+So by default.
+Anytime our read.table encounters
+a column of data that looks like
+it's a character variable,
+it will call, it will assume that what,
+what you mean to read in,
+is a factor variable.
+If you don't me,
+mean to read this in as a factor variable,
+then you can set strings
+as factors equal to false.
+So for small and
+kind of moderately sized data sets it has
+computers are going to get better and
+better everyday, the definition of
+small and moderate is kind of growing.
+But you can use read.table
+usually without specifying any of
+the other arguments besides the file name.
+So you can say read.table on, say foo dot
+text so this is just the name of the file,
+and it will automatically take care of
+figuring out, you know, what the c,
+classes of the different columns are,
+it'll figure out how many rows there are,
+et cetera.
+So you don't have to specify any of that
+information if you don't feel like it.
+And, and then, and then, this will return
+an object here ca, that I call data, and
+that would be a data frame.
+So it'll automatically skip any lines and
+begin with the comment symbol.
+It will figure out how many
+rows there are and, agai,
+and again it'll figure out what type of
+variable is in each column of the table.
+So, tell it you can, that you can tell R
+all these things and if you want to and
+the reason you might do that is to make
+it run faster and more efficiently.
+So with small and moderate size datasets
+its really not much advantage to doing
+that because because it'll be pretty
+fast and pretty efficient as it is.
+The read.csv function is identical
+to read.table, except for
+the key differences that the, the default
+separator for the read.csv function is
+the comma, whereas the default
+separator for read.table is the space.
+So parti, so read.csv is useful for
+reading csv files,
+this, this can usually,
+this stands for comma separated value.
+It's usually something that you
+get from a spreadsheet program,
+like Microsoft Excel or
+something similar to that.
+So csv is a very common format
+that most spreadsheet types of
+programs will understand.
+The other thing that read.csv specifies
+is that it always specified header to
+be equal to true.
+

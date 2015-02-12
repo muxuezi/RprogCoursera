@@ -1,0 +1,138 @@
+So factor is a special type of vector,
+which is used to create,
+to represent categorical data.
+So, and there's two types of factor,
+there is unordered or ordered, so
+you can think of this as being,
+as storing data that are.
+Have labels that are categorical but
+have no ordering, so for
+example male and female.
+Or you can have ordered factors which
+might represent things that are ranked.
+So they have an order but they're
+not numerical for example you know,
+in many universities you'll have assistant
+professors, associates professors, and
+full professors.
+Those are categorical but they're ordered.
+So one, you can think of a factor
+as an integer vector where
+each integer has a label.
+So for example, you might, you can think
+of it as a vector as one two three,
+where one represents you know,
+high, for example high value and
+two represents a medium value and
+three represents a low value.
+So you might have a, a variable
+that's called high, medium and low.
+And underlying in R is represented
+by the numbers one, two, and three.
+so, factors are important because they're
+treated specially by modeling functions
+like lm and
+glm which we'll talk about later.
+But these are functions for,
+for, for fitting linear models.
+And factors are with labels generally
+speaking are better than using
+simple integer vectors because the factors
+are, what are called self describing.
+So having a variable that has
+values male and female is more
+descriptive than having a variable that
+just, that just has ones and twos.
+So for example,
+in many data sets you'll find that a var,
+there will be a variable that's coded
+as one and two and it's, and it's not.
+Easy to know whether that variable is
+really a numeric variable that only
+takes values one and two, but the problem
+is that's not something that's coded in
+the data set, so it's hard to tell.
+If you use a factor variable then
+the coding for the labels is all,
+is kind of built into the variable and
+it's much easier to understand.
+So factors can be created
+with the factor function, and
+the input into the factor
+function is a character vector.
+So here, I'm just creating a simple factor
+with the which has what, two levels, and
+the levels are yes and no.
+And so x is a factor, you can see what,
+it prints out a little bit
+differently from a character vector,
+in the sense that it prints up the value,
+yes, yes, no, yes, no.
+And then it has a separate attribute
+which is called the levels.
+And so the levels of this
+factor are no and yes, okay.
+So there's only two levels.
+I can, I can call table on this factor and
+it will give me a frequency count of
+how many of each level there are.
+So for example,
+it'll tell me there are two nodes.
+And there's three yeses.
+Now, the un-class function strips
+out the class for fa, for a vector.
+So for example, I can,
+if I call un-class on x it'll,
+it'll kind of bring it down to an integer
+vector, and you can see that underlying.
+The factors represent as 22121 so,
+yes, it's coded as two and
+no, it's coded as one.
+Now it's not really essential for
+you to know this because you can
+just treat the factor as being a vector of
+yeses and nos but it's used sometimes it's
+it's useful just to know under, underneath
+kind of how factors are represented by R.
+And so you see, it's really
+an integer vector with the attribute,
+the levels attribute of no and yes.
+The order of the levels in the factor,
+can be set using the levels
+argument in factors.
+So for ex, and sometimes this is important
+because in modeling functions and
+when you include a factor variable this,
+this,
+sometimes it's important to know
+what the baseline level is.
+And so the baseline level is just
+the first level in the factor, and
+the way this is determined
+by NR is critical.
+It's determined using alphabetical order,
+so for
+example, if I create a factor variable.
+With the, with the elements yes and
+no, then the base line level with be
+the first level that's encountered and
+because no comes before yes in
+the alphabet then no will be the base line
+level and yes will be the second level.
+Now this may not be something
+that you want you might want for
+example a yes to be
+the base line level and
+no to be the second level and then in
+that case you have explicitly tell r.
+That yes is going to
+be the first level and
+you can view that using the levels
+argument to the factor function.
+So now when I print out the x object you
+see that the elements are still the same,
+still yes yes no, yes no.
+But the levels attribute is reversed.
+because yes is the first level and
+no is the second level.
+

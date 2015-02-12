@@ -1,0 +1,372 @@
+The profiler in R is a really handy tool
+for when
+you're developing larger programs or, or
+doing really big data analyses.
+and, and you're basically, essentially
+running R code that's taking a
+lot of time, or longer than, you know,
+than you want to wait.
+And of course that's all relative
+depending
+on kind of what you're working on and
+what,
+maybe there are some other things that you
+can do in, while you're running a program.
+But if something's taking a long time the
+profiler is a really
+handy tool to figure out exactly why it's
+taking so much time
+and how to, and to suggest kind of
+strategies for fixing your problem.
+So I'm going to talk a little bit about
+using the R profiler and
+our, and, and kind of talking about when
+you might need to use it.
+There're also some other tools that I'll
+talk about that'll
+help you kind of time your programs, time
+your functions,
+and, and so the conjunction of, of the
+profile with
+these other tools, is a really handy
+toolbox for figuring
+out how to optimize your software.
+So, the first question you want to ask
+yourself
+is, you know, is your code actually
+running slowly?
+And sometimes you can solve this problem
+by just you
+know, running your program then going and
+doing something else.
+But sometimes that's not an option and you
+need your program to really run quickly.
+And so profiling is a general, is a
+systematic way to examine
+how much time is being spent in various
+parts of your program.
+And it's particularly useful when you're
+trying
+to optimize your code, you're trying to
+squeeze, you know,
+a lot of efficiency out of some code, And,
+and
+a lot of times when you first start
+writing code
+it, it, it runs fine, you know, when
+you're running
+it once, and maybe you're running a small
+piece of,
+of, of a function or a small piece of a
+larger program, and it looks great when
+you're running it,
+it seems to run very quickly when you're
+doing it.
+But then sometimes these pieces get
+embedded in a much larger program.
+It may be a larger
+program is running your piece a thousand
+times
+or five thousand times, or even ten
+thousand times.
+And then your one little piece, which was
+running great when you were running
+it, is kind of slowing down everything
+else because it's being run ten thousand
+times.
+And so now you need to make it a
+lot faster because it's being iterated
+over a lot.
+And so it, if profiling can come into play
+when, for example if you you have a piece
+of code that runs great, but then when it
+gets embedded in a larger piece it starts,
+it, it,
+the, the it, it's speed becomes much more
+noticeable.
+So in general when it comes to optimizing
+your code,
+the, the general rule is that you
+shouldn't do it.
+And what I mean by that is that you
+shouldn't think about it at first.
+It should and, the first thing that you,
+you
+should think about, is is that, is kind of
+how, how
+to get the code to run, how to make it
+readable, how to make sure that other
+people can understand
+what you're doing.
+And because, and one of the reasons is
+that it's often difficult
+to understand, where exactly your program
+is spending all of it's time.
+And in order for you to speed up your
+program, you
+need to be able to know where it's
+spending it's time.
+And so this can't be done without any kind
+of, it's difficult
+to do this, I should say, without a formal
+performance analysis or profiling.
+And and so the basic idea is you should
+always design your code first, and make
+it so it's understandable and and then
+after
+you've got something working, then try to
+optimize it.
+and, and then the famous phrase is, you
+know, premature optimization is the root
+of all evil.
+If you try to optimize first the chances
+are that you'll introduce bugs before you
+even have a, get a chance to kind of get
+things working in the first place.
+Once you've decided that you want to
+optimize your code,
+though, you should, you know, act like a
+scientist.
+Just like you would in any other context,
+you should collect some data.
+Alright, so if you have a sense of, of
+where
+your program is kind of being bogged down
+or where it's spending
+all it's time, you should collect the data
+to figure it
+out, and the way you collect the data is
+by profiling.
+[BLANK_AUDIO]
+So, the first tool I'm going to talk about
+is actually not
+the profiler it's a very simple function
+called system.time in R.
+And what system.time does is it takes an
+arbitrary R expression and evaluates that
+expression and then tells you the amount
+of time it took to evaluate that
+expression.
+Now this expression could be very simple
+like a single function call, or
+could be very complicated if it have to be
+wrapped in curly braces.
+So, it could actually be a very long
+expression if you wanted to be.
+So, the basic idea is that you take this
+expression and it gives
+you the time in seconds, that was, that
+was needed to execute the expression.
+If there's an error, you know, in the code
+while the
+expression's being evaluated, then you'll
+get the time until the error occured.
+now, there's two very important notions of
+time
+when you're exe, executing expression on,
+on the computer.
+The first is called the user time and this
+is the
+amount of time that's charged to the CPU
+or CPUs for this, for running this
+expression.
+Okay, so this is the kind of time the
+computer experiences, roughly speaking.
+The elapsed time is sometimes called the
+wall clock time
+and this is the amount of time that you
+experience.
+It's alright, so the, the, so even though
+you're the user you're not the user time,
+you, you experience the elapsed time.
+And so the two different notions
+of time can kind of different importance
+depending on what you care about.
+So usually the user time and the elapsed
+time are relatively
+close, because the amount of time that the
+computer spends to do
+using, you know, executing your fu, your
+function or expression, is roughly
+equal to the amount of time you spend
+waiting for it, right.
+These are for standard kind of computing
+types of tasks.
+however, there are times when the elapsed
+time will
+be greater than the user time, and there
+will
+be times when the elapsed time is smaller
+than the user time.
+So in the ca, the elapsed time can be
+greater than the user time, so that means
+that you spend kind of more time waiting
+around than
+the, the computer actually spent you know,
+dealing with
+your code and the reason, if, and the idea
+that the c, the computer may spend a lot
+of time reading around for other things to
+happen,
+things that are maybe external to the
+program itself.
+And, and so the CPU doesn't actually spend
+a lot of time working on your code, it
+may be spending a lot of time on
+other things that are going on in the
+background.
+If the elapsed time is smaller than the
+user time this most commonly occurs if
+your machine has multiple cores or
+processor and
+is capab, and is capable of exploiting
+them.
+So this, so most of the computers these
+days, have at least
+two, or four cores or multi core machines
+and so this is
+a very common situation.
+However, it's not always that the compute,
+the program that you're running
+will be all to kind of exploit the use of
+multiple cores.
+In particular, R, the basic R program does
+not use multiple cores as of yet.
+However, it often links to libraries that
+do use multiple cores, and
+the most common one would be the linear
+algebra type of library.
+So if you're doing something like
+regression,
+or a lot, a lot of these prediction
+routines or, or matrix computations, these
+all involve linear algebra libraries.
+And many of these libraries have been
+optimized to use multiple cores.
+And so they're, they're called
+multi-threaded
+BLAS libraries or, for the basic linear
+algebra standard libraries, subroutines
+libraries and on
+the MAC sometimes called vecLib or
+Accelerate.
+There are more general libraries like
+ATLAS
+for AMD machines, there's ACML or ACML,
+and
+for INTEL machines there's MKL.
+There's also parallel processing
+libraries, for
+example the parallel package which doesn't
+use, which can use multiple cores but it
+can also use multiple computers.
+And so this will, will lead to,
+potentially
+lead to a program that takes more user
+time than it does elapse time, and I'll
+give an example of how this will work.
+So, one example when elapsed time will be
+bigger than
+the user time, is if you read something
+from the web.
+So here I'm just using the read lines
+function to read a web page
+off off, off, off a remote server.
+And you can see the elapsed time is about
+0.4 seconds but the user time is about
+0.004 seconds.
+So the CPU actually doesn't spend a lot of
+time running
+this code because the chunk of the time is
+just spent
+waiting for the network to, or waiting for
+the data to
+kind of go over the network and to come
+back to your computer.
+And so waiting for the, the network to
+kind
+of deal with the data coming, going there
+and
+coming back, is not really part of your
+program,
+is part of a different thing the computer
+is doing,
+and so the, the amount of time executing
+your program,
+in the case just the readLines function,
+is relatively small.
+And the second example, this is where the
+elapsed time is less than the
+user time, I've created a simple function
+which creates which creates a hilbert type
+matrix.
+And I calculate the singular value
+decomposition
+of this ma, matrix with the svd.
+So the svd function makes use of
+the accelerate fr framework on the Mac
+and, which is a multi-threaded linear
+algebra library.
+And so it can take advantage of, of the
+two different cores of this computer that
+I'm using.
+And so you can see that the user time was
+roughly almost double of the elapsed time.
+So the elapsed time was about 0.7 seconds
+and the user time was about 1.6 seconds.
+And the pa, and the reason is because the
+the underlying linear algebra library
+split
+the computation across the two cores.
+And so you can think about of it is, but
+basically the elapsed
+time was multiplied times two, because it
+was being executed on two different CPUs.
+So the amount of time that the user, the
+CPU spent working on your program
+was actually more than the amount of time
+that you spent waiting for it to
+come back.
+You can time longer expressions by just
+wrapping
+everything in curly, a set of curly
+braces.
+So here I've got a four loop
+here that's just generating some random
+normal variables.
+And you can wrap that whole thing in curly
+braces and call system time around it.
+And you can see that here this is
+a very simple expression, it's not multi
+threaded,
+there's no network activity, and so the
+user's
+time and the elapsed time are basically
+the same.
+So, this is sometimes a really handy
+function if you just want to take
+a little bit, a little piece of code,
+figure out how long it takes to
+run it and, and may kind of go through a
+program, maybe, expression by
+expression or line by line to see which
+parts are taking a lot of time.
+Now the part of problem with system time
+is
+that it assumes that you know where to
+look.
+Assumes that you know where the problem is
+and
+that you can call system time on a given
+expression.
+And so, this may be useful for smaller
+programs for less complicated programs
+where you have a very good sense of, kind
+of where the bottlenecks are.
+But the question's you know what if you
+don't know where to start.
+What if you don't know where the problems
+might be and where to start looking.
+And so you need another functioner to
+kind of help you along with that.
+

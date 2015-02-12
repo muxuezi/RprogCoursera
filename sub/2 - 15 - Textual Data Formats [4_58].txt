@@ -1,0 +1,150 @@
+There are other types of formats
+that you can save data in
+beyond the tabular format, beyond,
+or the CSV file or text file.
+These are also textual formats, but
+they are a little bit different for,
+from the tabular data that
+we've talked about before.
+And the two main functions for writing
+out data and f, are dumping and dputing.
+So, and, and the idea behind these types
+of formats is they're text formats, but
+they're not really, they're not
+really formatted in a way that's,
+in the same as like a table because they
+contain a little bit more meta-data.
+So data about, for example,
+the type of the data in,
+in each class, object for example.
+So if you, if you dump or
+dput a data frame.
+It will include in the output, that the
+class of each column, of the data frame,
+so that you don't have to
+specify it when you read it in.
+And so the advantage of, of doing, using
+this type of mechanism to store data or
+to read, or to read data,
+is that you don't have,
+it's still a textual format, which can be
+useful, but it also contains metadata, so
+that you don't have to specify it
+every single time you read it in.
+Because that, if you don't, ca,
+if the metadata do not get carried with
+the data set itself, then it, they ca,
+they can get lost if you,
+if they get transferred somewhere else and
+if you don't remember what the metadata
+are, for example the classes of
+the different columns, then you kind of
+have to reconstruct that from scratch.
+So that's one advantage of using,
+using a function like dump or
+dput to, to output data from R.
+And similarly the, the, the,
+the functions for reading data using, fr,
+that haven't been outputted from dump or
+dput are source and, dget.
+So in general, the textual formats
+are very nice formats for storing data
+because, there's a number of different
+types of, different advantages to them.
+First of all, they're editable, so
+you can, if you want to you can edit them.
+I wouldn't say this is something
+that I would advice, but
+because of you wanted
+something that's reproducible.
+But, for example if something gets
+corrupted then you can look at the file
+to see if it's possible to recover it.
+So textual formats can be a little longer
+lived, if you're going to be storing data
+for a long time, sometimes it's useful to,
+if it's possible to use a type of textual
+format so that you can avoid problem,
+potential problems with corruption.
+Textual formats can also work better
+if you're using like a version control
+program, like subversion or git, where
+you're tracking changes between documents.
+and, and those types of programs
+tend to be much more useful with
+textual data rather than binary data, so
+that you can track changes meaningfully.
+Textual formats adhere to the general
+kind of Unix philosophy, which is to
+store all kinds of data, which generally
+stores all kinds of data in text.
+But the one downside of textual formats is
+that they tend not to be space efficient,
+so they tend to, they tend to
+take up a lot of space, and so,
+it often need to be compressed.
+So, d, the dput function takes
+an arbitrary R object, and
+it will, use, it will take most types of R
+objects except for some more exotic ones,
+and it will create some R code that will
+essentially reconstruct the object in R.
+So here's I'm creating a small data frame,
+it's got two columns, the first column is
+called A the second column is called B,
+and then I'm going to
+dput this data frame.
+And you'll see the out,
+if you discall dput it'll just
+output the results to the console.
+And you can see that
+what I've done is that.
+What it does, it, it's re,
+it's constructed some R code.
+For example, it's creating this list
+that has these two elements in it.
+And you can see that each element
+has has the data that's in it.
+And it has the names embedded here,
+it's got the row names here.
+And it has the class of the object which,
+in this case, is the data frame.
+And so, all the metadata
+here like the row names and
+the names and
+the class are all included in the output.
+Now, of course, you generally don't
+want to print this to the console,
+that's not particularly useful,
+you probably want to save it to a file.
+So you can dput the file to a file and
+then later on, you can read it into R
+using dget, and when you dget the object,
+you will get this object and
+you will see that it's, you have kind of
+reconstructed the object from before.
+So the dput function,
+essentially writes R code, which can
+be used to reconstruct an R object.
+The dump function is
+a lot like dget however,
+the difference is that dget can
+only be used on a single R object.
+Whereas dump can be used on multiple
+R objects and so what you do is what
+you pass a dump is the character vector
+which contains the names of the objects.
+So here I created two
+objects one called x,
+the other called y and
+when I pass the dump.
+Is are the names of those objects?
+The names are X and Y.
+And I give it a file, that I want
+to store the da, the objects in.
+And then I can remove them if I want to,
+but to read those objects back into R,
+I can call the source function on that
+file and you'll see that the Y object and
+the X object have been reconstructed.
+

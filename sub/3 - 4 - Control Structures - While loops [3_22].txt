@@ -1,0 +1,103 @@
+So the while loop is a,
+is the other major looping construct in R.
+And the basic idea is that the while
+takes a logical expression and
+will execute the loop based on
+the value of that logical expression.
+So for example,
+I've got a very simple loop here.
+It initializes a count
+variable equal to 0.
+And then while that count is less
+than 10 it prints out the count and
+then increments the count by 1.
+So, as soon as the, the value of
+count gets to 10 the loop stops and
+then it'll go on to the next body of code.
+So so the, so the while loop makes,
+the while loop is useful because it
+makes things easy to read sometimes.
+It's very obvious here that this
+loop is supposed to stop working or
+stop executing when the value of
+account variable is 10 or more.
+So it makes a little bit more readable.
+How after, however you have to be a little
+bit careful with, with while loops
+because technically speaking they are
+infinite loops while the and there's no.
+You have to make sure that the,
+the condition that stops the loop
+will actually occur,
+otherwise your program will never finish.
+And so in this case,
+it's fairly obvious that the loop
+will eventually stop executing.
+But a much more piece of code it can be
+hard sometimes whether
+the while loop will finish.
+And so often it's safer to
+to use something like a for
+loop that has a hard limit on
+the number of times it can execute.
+So, it's not necessarily saying that
+you should never use a while loop but
+you just have to be careful
+when you do use them.
+So, you can, you can test multiple
+conditions in a while loop or in any type
+of construct, like an if statement, for
+example by using the logical operators.
+So, here I've got a variable z.
+Which is equal,
+which I initialized to the value 5.
+The condition for the while is basically
+while z is greater than equal to 3 and
+is less than or equal to 10.
+So, while it's between the values of 3 and
+10.
+Then what I'm going to do
+is print the value of z.
+I'm going to flip a coin, a fair coin,
+and if the coin is a 1 I'm going
+to add 1 to the my value and
+if it's less than 1, sorry, excuse me,
+if it's, if the coin is equal to 0 or
+any other value for that matter
+I'm going to subtract 1 from z.
+So this,
+I'm sharing a little random lock here, and
+the value of z is going to go up or down
+depending on my little coin flip here.
+So when, so
+here you see it's a little bit harder to
+tell when the while loop will finish.
+Because the,
+the body of the while loop involves ra,
+random random number generation.
+So here the z value's going to zigzag up
+and down until it eventually hits 10 or
+eventually it hits 3 or
+something less than 3.
+And so this, this may be kind of nice, but
+you have to be careful that it
+doesn't go off for too long.
+So, one thing to note, on a more technical
+level is that the conditions in a,
+when r tests the condition in a kind
+of a multi-expression condition here,
+I've got a c who I created because of
+the 3 and z less than of equal to the 10.
+The conditions are always evaluated
+from left to right, so check to see if
+the left's most condition is true and
+then it goes to the next condition.
+So, first, it'll check to see if
+z is greater than or equal to 3.
+If that's true then, if that happens to
+be true, it'll go to the next expression.
+It'll say, it'll check to see if
+z is less than or equal to 10.
+So then, if those are both true, it goes
+onto the next into the body of the loop.
+

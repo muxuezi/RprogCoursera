@@ -1,0 +1,256 @@
+[BLANK_AUDIO]
+The apply function is another loop
+function that's used to
+evaluate a, a function over the margins of
+an array.
+Usu, usually, the function's going to be
+an
+anonymous one, like we showed with lapply
+or it could be a function that already
+exists like the mean, for example.
+It's usually used to apply a function to
+the rows or columns of a matrix.
+Of course, matrices which are two
+dimensional arrays, are going to be
+the most common type of array that we're
+going to use in R.
+But you may have three dimensional arrays
+and such.
+But you, so you can use apply on general
+arrays such
+as taking the average of an array of
+matrices, for example.
+One thing to note, and you may hear this
+out in the wild, occasionally, that apply,
+using apply
+is somehow better than ta, using a for
+loop
+or somehow it's faster than using a for
+loop.
+And that's, generally speaking, not true.
+It was true a long time ago in older
+versions of
+the S language in R but right now, it's
+not true at all.
+The main reason you want to use a function
+like apply is that it involves less
+typing.
+And less, less typing is always better,
+because good programmers are always lazy.
+So, apply is very useful, but in
+particular on
+command line, because on the command line,
+when we're
+interacting with data, we're doing
+exploratory analysis, we want to
+do as little typing as possible because it
+just makes
+our fingers tired.
+So, how does apply work?
+So the first argument acts as an array.
+An array is a vector that has dimensions
+attached to it.
+So a matrix is a two dimensional array,
+for example.
+A margin, which, which we'll get to in a
+second.
+This is a vector, an integer vector that
+indicates which margin should be retained.
+And the last important argument is the
+function that you want to apply to each
+of the margins.
+So, and then the dot dot dot argument are
+other arguments that
+you want to pass, include other arguments
+that you want to pass to the function.
+So here's a matrix that I'm creating, it
+has 20 rows and ten columns.
+so, in, in, in the matrix it's just normal
+random variables that I've generated.
+So when I apply, so what I want to do is,
+I want to take
+this matrix and I want to calculate the
+mean of each column of the matrix.
+So the way I can do this
+is I can apply, use the apply function on
+x.
+I give it the margin, two, and I'll say
+what that means in a second.
+And I pass the function, mean.
+And so what happens is, I get back a
+vector of length
+ten that has the mean of each of the
+columns of the matrix.
+And so the idea is that, so the matrix has
+ten, sorry, it has 20
+rows and ten columns, and so that you can
+think of the matrix as, as, and so
+dimension one has 20 rows and dimension
+two has ten columns.
+So, when you apply the function, mean,
+over the
+matrix, well, the idea is that you want to
+keep the
+second dimension, which is the number of
+columns, and
+you want to collapse the first dimension,
+which is the rows.
+So that, so the idea is that you're taking
+the
+mean across all the rows in each column,
+and then
+you're, and you're essentially limiting
+the, the rows from the
+array, so what you get back is actually
+has the,
+has one of the dimensions has been
+eliminated.
+It's really the first dimension that's
+been eliminated.
+And so you get this number which this
+vector which
+has each of the means for each of the
+columns.
+similarly, you can take the means of all
+the rows of the array.
+And I can, I can call the apply function
+on x.
+I give it the dimens, the margin, one,
+which
+means preserve all the rows, but collapse
+all the columns.
+And then I, I, here I'm calculating the
+sum
+of each the rows, instead of the mean.
+So the, so, I cast the one because it says
+I want to, I, because
+of what I mean is I want to preserve the
+rows and collapse the columns.
+So here, I got a vector of 20, because
+there's 20 rows.
+And each, and inside each and for each
+row, I calculate the sum of that row.
+Now for, for simple operations, like
+calculating the sum,
+or calculating the mean of a column or a
+ma, or, or, of a row there are special
+functions that are highly optimized to do
+this very quickly.
+So for calculating the row sums and
+row means, there's the functions rowSums
+and rowMeans.
+And similarly, there's colSums and
+colMeans, which
+do the same things for the columns.
+These are equivalent to using the apply
+function,
+but they're very much faster than using
+the apply,
+because they're optimized to specifically
+to do those operations.
+So if you want to calculate the sum or the
+mean of
+a, of a column or row of a matrix, use
+those functions instead.
+Now you can, you know, use the
+apply function to apply other types of
+functions.
+For example, suppose you have a matrix.
+Here, I've generated, again, a matrix of
+random
+normal variables, that's 20 rows by 10
+columns.
+And suppose I want to go through each row
+of the
+matrix and calculate the twenty-fifth, and
+the seventy-fifth percentile of that row.
+So, I can apply on x I, I get, I pass the
+margin of one, because it means I want to
+preserve the rows.
+And then I'm going to pass it the quantile
+function.
+Now the quantile function needs, needs,
+the quantiles that you want to calculate.
+So there's no default value for that, so I
+actually have to pass
+it to the quantile function through the
+dot dot dot argument of apply.
+So here, the argument for quarntile is
+called probs.
+And I, and I give it 0.25 and 0.75 meaning
+I want to calculate the
+twenty-fifth percentile and the
+seventy-fifth percentile.
+So what this funct, what this call does
+is, it
+goes through each row of the matrix, and
+for each
+row, it calculates the twenty-fifth and
+seventy-fifth percentile.
+So there's, so for each row, there's
+going to be two numbers that are returned.
+And what apply will do is, it'll create a
+matrix that has two rows, and the number
+of columns is equal to the number of rows
+in this matrix, which happens to be 20.
+So here, I'm going to get a 2 by 20
+matrix, where in each
+column of this return matrix, I've got
+the twenty-fifth and the seventh,
+seventy-fifth percentile
+for the corresponding row.
+So, for example, in the first row, the
+twenty-fifth percentile
+is minus 0.33 and the seventy-fifth
+percentile is mi, is
+0.92 and in the sixteenth row the
+seventy-fifth, the twenty-fifth
+percentile is minus 0.95 and the
+seventy-fifth percentile is 0.88.
+So you see how that works.
+Now, suppose I had more than just a
+matrix.
+Suppose I, I had an array that I want to
+do something with.
+So, the so, here, I'm creating an array
+with, which has normal random variables
+and it has two rows and two columns and
+it's ten and the third dimension is ten.
+I guess I'm not sure what you would call
+that dimension.
+But you can imagine this.
+You can think of this as being, the,
+they're a
+bunch of 2 by 2 matrices that are kind of
+stacked together.
+And the idea is that, you can imagine I
+have a be, a bunch of 2
+by 2 matrices, and I want to take the
+average of those 2 by 2 matrices.
+So, the average of the, of a bunch of 2 by
+2
+matrices is going to be another 2 by 2
+matrix, which is the mean.
+And so, I can call apply on this array...
+And I want to keep the first, and the
+second dimension, but I want to collapse
+the third dimension.
+So here, when I, when I give the margin, I
+give it one
+and two, which I want to preserve, and
+then three is not there,
+which means I want to collapse third
+dimension.
+So here, and then the function I pass it
+is the mean.
+So, what this will do is, it'll take my
+array and it'll
+collapse, it'll average over the third
+dimension and give me the mean matrix.
+Another way that you can do this is to use
+the rowMeans function, so
+even though this is in a matrix, you can
+apply rowMeans to an array.
+And you give it, and you pass the
+argument, dims, equal to two.
+

@@ -1,0 +1,324 @@
+Loop functions are some of the most
+powerful functions in the R language and
+they make it kind of very easy to use,
+especially in an interactive setting.
+The idea behind a loop function is you
+want to
+execute a loop over an object or a set of
+objects in a way that's kind of that does
+a
+lot of work in, in a very small amount of
+space.
+That way, you don't have to type as much
+on the command line.
+Of course, we already learned about loops.
+We know about for loops and while
+loops, things like that, and those are
+all, work very
+well; however, they are com, less compact
+in a certain way.
+So, there are a couple of loop functions
+in R
+and they usually have the word apply in
+them somewhere.
+So some of the key ones are lapply,
+sapply, apply, tapply, mapply and
+the real workhorse function that I, that
+I'd like to talk about here is lapply.
+And the idea behind lapply is
+that you have a list of objects and you
+want to loop over
+the list of objects and apply a function
+to every element of that list.
+And so it's a very general concept.
+And it can be used very powerfully to do a
+lot
+of computations in a few, in just a little
+bit of typing.
+Sapply is a variant of lapply that
+simplifies the results.
+Apply is a function that operates over the
+margins of an array.
+So, this is very useful
+if you want to take summaries of matrices
+or other or, higher dimensional arrays.
+Tapply is short for table apply.
+And, it applies a function over subsets of
+a vector.
+And mapply is a multivariate version of
+real of lapply.
+So I'll go into details about how these
+work in a, in a, in a minute.
+There's also another function called split
+which doesn't actually apply anything to
+objects.
+But it's often useful
+in conjunction with functions like lapply
+or
+sapply because it splits objects into
+sub-pieces.
+So, lapply.
+Lapply takes three arguments.
+Basically the first argument is a list
+which is called X.
+The second argument is a function or the
+name of a function and then
+there are other arguments that are, can be
+passed to the dot dot dot argument.
+And the dot, dot, dot argument is used to
+pass arguments that go with the
+function that you're being, that's being
+applied
+to each of the elements in the list.
+If X is not a list, then you will
+be coerced to a list if possible.
+If it's not possible to coerce the object
+to a list, then you will get an error.
+So the lapply function, you can see, is
+very simple.
+The code for it is right here.
+Basically the func we look for the
+function if it's, if the
+object is not a list then it's coerced to
+a list using
+as.list and then the, the rest of the
+Lapply function is, is,is
+implemented internally in C code to make
+it a little bit faster.
+So the idea with Lapply
+is that you're going to take this list of
+things.
+And remember a list can contain any, any
+number of different types of objects.
+So they could be vectors, or matrices, or
+data frames, or whatever it may be
+and you want to apply a function to each
+one of these elements of the list.
+And that function is going to return
+something.
+It may not be the same thing that it
+originally was on the list.
+So, for example, it may take as an input,
+as a vector, but then it may return
+a scalar as a result.
+So, the function's going to return
+something for every single object in that
+list, and the return values are going to
+be assembled in a new list.
+And that's what lapply is going to return.
+So lapply, it's key to remember, it always
+returns a list.
+What goes in may or may not a list but it
+will be coerced to a list.
+And what comes out will always be a list.
+So here's a simple example.
+I'm creating a list of two elements, the
+first one's called
+A, and it's a sequence from one to five,
+the second
+one is called B, and it's it's ten or more
+random variables.
+So what I, and then, what I want to do is
+I want to loop
+over this lists of two elements and apply
+the mean function to each of those
+elements.
+So you can see that when I call Lapply on
+x and I apply the mean function I get
+another list back, w-, and notice the list
+has
+the same names as the original list, a and
+b.
+But now I've got the mean of the first
+element and the mean
+of the second element.
+And so that's how lapply works.
+Here I've got a slightly more complicated
+list.
+I've got four elements and I've got, I'm
+calling lapply to each
+of those elements and I'm getting the mean
+of each of those elements.
+So, now I've got a list with four
+elements.
+The names are preserved and notice, of
+course, you know, each of the elements of
+the original list was a vector of some, of
+a numeric vector of some sort.
+But what I'm getting back is a vector with
+just
+a single number in it, for each element of
+the list.
+So, here's another way I way to call,
+lapply.
+Here I'm creating a sequence one, of x, 1
+to 4,
+and I'm calling runif, so, which generates
+a uniform random variables,
+to, using a random number generator.
+Now, the first argument to runif, is the
+number
+of uniform random variables that you want
+to generate.
+So if I say runif 1 it's going to generate
+a single random variable.
+If I say runif 2, it's going to generate a
+vector of two random variables.
+So, here I'm applying l, the runif
+function to sequence 1, 2, 3, 4.
+So, what I'm going to get is a list where
+the first element is a single random
+number random uniform.
+The second
+element's going to be a vector of two
+random uniforms.
+The third element's going to be a vector
+of three.
+And the fourth element's going to be a
+vector for random uniforms.
+And so ret, you'll note, if you know the
+runif function, you'll know that
+it has other arguments to it beyond the,
+the number of uniforms to generate.
+But those other arguments have default
+values so I don't need to specify them.
+Now, suppose I want to call the runif
+function on each one of these elements of
+X but I didn't want to just generate
+a uniform between zero and one which is
+default.
+Suppose I want to generate a uniform
+between zero and ten so now I
+need to pass some arguments to the runif
+function which are not the default values.
+In particular I need to change the max
+value.
+So I can do that through with lapply by
+passing these arguments through the dot
+dot dot argument.
+So here I'm calling lapply
+on X, I'm calling the run, I'm passing the
+runif function, but that I'm
+specifying that I want the min to be zero
+and the max to be ten.
+So now when I the, the list that I get out
+of this has random uniforms that are
+between zero and ten.
+So lapply and the associated functions
+make heavy
+use of what, of what are called anonymous
+functions.
+Anonymous functions are functions that
+don't have
+names, so you don't assign them a
+name of some sort but you can kind of
+generate them on the fly.
+So here is a just a quick example, I'm
+going
+to create a list that contains two
+matrices in it.
+The first is a mat, a two by two matrix
+and the second is a three by two matrix.
+So you can see the list here.
+There's two elements.
+They are named A and B.
+And suppose I want to, I want to extract
+the first column from each one of these
+matrices.
+So what I can do is I can call lapply so,
+there's no function that, out there that
+already extracts the first column of a
+matrix but this is easy to do.
+You can just write a function that just
+takes
+the first element, the first column of
+that matrix.
+So here I'm going to call lapply on x.
+And I'm, I'm going to write, I'm going to
+write the
+function right here, so I'm going to say
+function, and
+then I'm, I'm going to give it an
+argument, and
+then given that argument, I extract the
+first column.
+So here, when I call Lapply with this
+function I get
+the first column from A, and the first
+column from B.
+So this function doesn't exist except
+within the context of Lapply,
+and after the Lapply function is finished,
+the function basically goes away.
+So that's an anonymous function, because
+it doesn't have a name and lapply
+and a lot of these other types
+of functions use anonymous functions very
+heavily.
+Because unless there already exists a
+function that does the operation that you
+want to do, you're
+going to have to write the function kind
+of on the spot.
+So sapply is just a variant of lapply and
+all it
+does is it tries to simplify the result of
+lapply if possible.
+So recall that lapply always returns a
+list but sometimes
+you don't want a list, sometimes you just
+want something different.
+So for example, if the, if the result is a
+list where every element is a length
+1 then what sapply will do is it'll return
+a vector of all,of all, of all those
+elements.
+Usually you don't want an
+ele, a list where every, where every
+element is a single number,
+for example, and so sapply will simplify
+that into just a vector.
+if, if the result is a list where every
+element is a vector of the same length.
+For example, if the, if the list comes
+back
+and every element has a length five, for
+example.
+Then what sapply will do it'll, it'll put
+those elements in a
+matrix that's, that's five by however long
+the matrix, the, the list is.
+So that, that's often
+what you want to happen.
+But if it, if it can't figure out how to
+simplify the object when it comes back,
+for example, if
+the object has many different types of
+things that comes
+back then it's just going to then it won't
+do anything.
+It will just return a list.
+So here in this, in this example when I
+called
+lapply and I applied the mean to
+everything what happens
+is that I got a list back that's of length
+four and every element of the list is a
+single number.
+So it would make, it would be a lot nicer
+if I just got
+my list back that was just, I'm sorry, if
+I
+just got a vector back with all these
+numbers in it.
+And that's exactly what sapply does.
+So sapply called on x with the mean
+function
+gives me a vector with four numbers in it.
+Of course, if I called mean on the, on the
+list by itself, that's
+not really going to work because mean is
+not meant to be applied to lists.
+And so you'll get a warning message of n a
+back.
+

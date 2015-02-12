@@ -1,0 +1,279 @@
+I'm going to talk about simulation in this
+lecture.
+Simulation's a very important topic for
+statistics and
+for a number of other applications, so I
+just want to introduce some of the
+functions in
+R that can be useful for doing simulation.
+So, there are a couple of functions that
+are available for simulating numbers or
+variables from given probability
+distributions, probably the
+most important of which is the normal
+distribution.
+And so we can generate variates
+from the normal distribution by specifying
+a mean and a
+standard deviation for that distribution
+and then calling the rnorm function.
+So the rnorm function will simulate normal
+random variables that
+from a distribution has a given mean and
+standard deviation.
+So the, there's a cor, there are
+corresponding functions for the R, for the
+normal
+distribution that can be used to evaluate
+the probability density, to evaluate the
+cumulative distribution
+function and for also for evaluating the
+quantile function.
+So, another function for generating random
+variables is the rpoirs function or the,
+which generates Poisson random variables
+from
+a Poisson distribution with a given rate.
+And so, so there are number of functions
+for generating
+random variables from the, from kind of
+the standard probability distributions.
+And you can use these to do, to run
+simulations.
+So, probability distribution functions ha,
+there
+are basically four functions associated
+with them.
+And so for any given distribution like the
+normal distribution there will be a
+function that
+starts with the d, a function that starts
+with an r, a p, and a q.
+So there'll be four different functions
+for each distribution.
+So we've ready, I've already mentioned
+that there's the rnorm function.
+The rnorm function is for generating the,
+is for random number generation.
+There's a dnorm
+function, which evaluates the density of
+the probability
+dist distribution for given mean and
+standard deviation.
+There's the pnorm function, which
+evaluates the cumulative distribution.
+And there's the qnorm function, which
+evaluates the quantile function.
+So every distribution has these four types
+of functions.
+So for the gamma distribution, there'll be
+a
+dgamma, an rgamma, pgamma, and a qgamma
+function.
+And for the Poisson distribution
+there's the rpoise dpoise ppoise, and
+qpoise functions.
+So working with the normal distribution
+re, requires these four functions.
+So I mentioned there's dnorm, pnorm,
+qnorm, and, and rnorm, and
+you can see they each take a number of
+different parameters.
+All the functions have required that you
+specify the mean and
+the standard deviation, because that's
+what specifies the actual probability
+distribution.
+If you do not specify them, then the
+default values are a
+distribution, a standard normal
+distribution, which
+has mean zero and standard deviation one.
+For the dnorm function the, you wa you can
+evaluate the density.
+And there's an optional, there's a,
+there's an option
+that allows you to evaluate the log of the
+density.
+Most of the time, when you evaluate the
+density function for
+a normal distribution, you're going to
+want to use the log of that value.
+But the default is false.
+For the pnorm function and the qnorm
+function there's
+also an option to evaluate it on a log
+scale.
+but, but, but another option
+is to evaluate, is whether or not you
+want to evaluate the lower tail of the
+distribution.
+So the lower tail, which is the default,
+is the kind, if you think of
+it, if you look at the probability
+distribution
+it's the part that goes to the left.
+It's the lower tail.
+If you want to evaluate the upper tail,
+sometimes you want to do this.
+Then you want to say lower tail equals
+false, and
+that will evaluate the upper tail of the
+distribution.
+And finally for rnorm, there's only
+two parameters, mean and standard
+deviation, and
+an n, which is the number of random
+variables that you want to generate.
+So if n is 100, you'll get a vector of
+100 numbers that are drawn from the, from
+the normal distribution.
+So just to be more explicit, if phi
+is the cumulative distribution function
+for the standard normal
+distribution, then pnorm is equal then to
+phi and
+qnorm is equal then to the inverse of phi.
+So, just to quickly, if you want to
+generate some random normal ren, er,
+variates.
+You can just rnorm and pass in an integer,
+which is the number of variables you want
+to generate.
+So here I'm passing ten.
+And you can see that the vector that's
+produced will be
+random, normal numbers which have mean
+zero and standard deviation one.
+If I wanted to generate a vector that had
+mean 20 and standard
+deviation two, I, I just need to specify
+that explicitly in my call
+to rnorm.
+So here, this vector has a, is, are, ten
+random normal vi, sorry, normal
+random variables and their mean is roughly
+20 and their stand deviation is two.
+So when you, any time you simulate random
+numbers wi, from any distribution
+for any purpose, it's very important that
+you set the random number generator seed.
+And this can be done
+with the set dot seed function.
+So, what's important to know that on
+computers when you generate random
+numbers, the
+numbers are not actually random but they
+appear random and that's the important
+thing.
+And, if so the idea is that if you wanted
+to generate the same set of
+random numbers again, you could if you
+wanted
+to because the numbers are not actually
+random.
+They're called, they're wit, they're what
+are called pseudo random numbers.
+And so here I'm setting the seed to be
+one.
+So the seed can be any integer you want.
+You just pass in an integer, and that's
+the seed.
+So here I'm going to set seed equal to
+one.
+And then I'm going to generate five ra,
+random normal random variables.
+And so here I've got my ran, my five
+normal random variables.
+They have mean zero and standard deviation
+one.
+If I generate another five, you'll see
+that the vector
+is totally different, because it's another
+random sample of five.
+However if I reset the seed to be one,
+and I draw five again, you'll see that
+they're
+exactly the same as the first five that I
+drew.
+So anytime you, so when you set the seed
+it kind
+of sets the, the sequence of random
+variable that's just going to occur.
+And if you reset the seed, you kind of set
+the sequence to go back to
+where you started, and then it will
+continue
+to kind of generate random variables from
+there.
+so, this is important because it allows
+for
+you to reproduce random numbers that you
+generate.
+Now that might sound strange, because why
+would you
+want to, to re, generate the same random
+numbers twice?
+But in many applications you do want to
+generate the same
+random numbers twice so that people can
+reproduce what you've done.
+And particular if there are some errors or
+problems in what you've done, you want to
+be
+able to get, just to kind of go
+back to the exact situation that produced
+those problems.
+So whenever you do a simulation, you
+always want to
+set the random number c, so that you can
+go
+back and get the same results.
+So I've demonstrated how to generate
+normal random variables, but
+of course you can generate
+random variables for other probability
+distributions.
+So the Poisson distribution is of course
+very popular.
+Here I'm generating a ten Poisson random
+variables with the rate of one.
+And and so of course Poisson data are
+going to be integer.
+Here I'm generating a pois, ten Poisson
+random variables at
+the rate of two, so you can see they're
+slightly larger.
+And then here I'm generating ten
+random variables Poisson random variables
+with a, with a rate of 20.
+And so, so for the Poisson distribution,
+the mean is going to be equal to the rate.
+So you can see that roughly in each of
+these three
+cases, the mean is roughly equal to the
+rate that I specified.
+I could also evaluate the cumulative
+distribution function for the Poisson
+distribution.
+So here I'm in this first example I
+want to know
+what is the probability that a Poisson
+random variable is
+less than or equal to two if the rate is
+two.
+And so this is the probability.
+It's 0.67 roughly.
+If I wanted to know what's the probability
+that, that a Poisson random
+variable with rate two is less than four,
+less than or equal to four.
+You can see the probability's getting
+bigger.
+And here I can see the probability that a
+Poisson random variable is less than six.
+Less than or equal to six, and it's very
+close to one.
+So the cumulative distribution allows you
+to, to evaluate these probabilities.
+

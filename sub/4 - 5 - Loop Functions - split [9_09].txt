@@ -1,0 +1,316 @@
+Tapply is useful because it splits up a
+vector into,
+into little pieces and it applies a, a
+summary statistic or
+function to those little pieces, and then
+after it applies
+a function it kind of brings the pieces
+back together again.
+So so split is not a loop function but
+it's a very handy
+function that can be used in conjunction,
+with functions like lapply or sapply.
+And so I just want to mention it here.
+So split takes a vector.
+So it's kind of like tapply, but it, but
+it's like tapply but without applying the
+summary statistics.
+So what it does, is it takes a vector, or
+an object x and it takes a factor
+variable, f.
+Which again identifies levels of a group.
+And then it splits the object x into the
+number of groups that are identified in,
+in factor f.
+So for example, if f has three levels
+identifying three
+groups, then the split function will split
+x, into three groups.
+And so, and then once you've got those
+groups split apart, you can apply,
+you can use lapply, or sapply to apply a
+function to those individual groups.
+So here is, is a simpler example, similar
+to what I had before.
+With tapply example, I've simulated a
+normal 10 normal random variables
+with mean zero, 10 uniforms, and 10
+normal's with mean one.
+And has created my factor variable here.
+And now I'm just going to split the vector
+into three parts.
+Because because the factor variable has
+three levels.
+So now you can see when I split the x
+vector.
+The first, I got a list back and the first
+element is 10 normals, the second element
+is 10 uniforms and the third element,
+which
+gets a little cutoff here is 10 normals
+again.
+So that's what the split function does.
+And now I've got a, so a split always
+returns a list back.
+And so if you want to do something with
+this list, you can use lapply or sapply.
+So, here for example, it is common to use
+the lapply function in conjunction with
+the split function, so
+the idea that you split something that
+lapply function over it.
+Now, this case, this use of lapply and
+split is not necessary, because
+you can use the tapply function which will
+do the same exact thing.
+It's not anymore efficient or any worse to
+do it this
+way but the tapply function is a little
+bit more compact.
+But the nice thing about the split, using
+the split function is
+that it can be used to split much more
+complicated types of objects.
+So for example, here I've got a data frame
+for.
+I'm loading the data sets package and I'm,
+and I'm
+looking at the airquality data frame, from
+the data sets package.
+So, you can see that this is the first six
+rows of the data, of this...
+Data frame I think there's about a hundred
+some rows total in this data frame.
+And you see there are measurements on
+ozone, solar radiation, wind, and
+temperature, and
+then the month and the day within that
+month.
+And so, one thing I might want to do is,
+is calculate for
+example the mean of ozone, solar
+radiation,
+wind and temperature in, within each
+month.
+So, so for in each month, there's you
+know, 30 some observations.
+And I want to calculate the mean within
+each month.
+All right, so how do I do this?
+Well, what I'd like to do is I'd like to
+split the data frame into monthly pieces.
+And then once I've split data frame into
+separate months, I can just calculate the
+means, the column means using either apply
+or call means, on those other variables.
+[SOUND].
+So that's what I've done here.
+What I've done is I split the airquality
+data frame and this,
+and the factor I'm going to use to split
+is the month variable.
+So the month variable technically
+speaking, in the data frame is not
+a factor variable but it can be converted
+into a factor variable,
+because it only takes the values 5, 6, 7,
+8 and 9.
+Basically because the measurements are
+only taken in
+the, kind of, warmer months of the year.
+So here I've split the airquality variable
+according
+to the month variable, and then I'm
+going to apply.
+An anonymous function and the anonymous
+function here, what it does is
+it takes the column means of just the
+ozone, solar radiation and wind.
+So I'm not going to take the mean of
+temperature here.
+So I'm just going to take the column means
+of the,
+those three variables for each month each
+column monthly data frames.
+So here you can see the results.
+You can't see them all but you can see
+most of them into
+lapply is returning a list back, where
+each element of the list is
+a vector of length three which is, which
+is the mean for ozone,
+the mean for solar radiation and the mean
+for wind, within that month.
+As you can see that
+for, for most of the months the ozone
+value is
+NA and that's because when I take the mean
+of that
+column there are, and there are missing
+values in that column
+and I can't take the mean if there are
+missing values.
+So the, the result, when I think the mean
+is that I just get a missing value back.
+So one thing I can do is I can.
+So before I fix the missing value problem,
+I can also call sapply here.
+And the idea is that sapply, instead of
+returning me a list, it will simplify the
+result because each element
+of the returned list has a, has a vector
+of length 3.
+They're all the same length.
+So what I'll do is put, put all these
+numbers into a matrix.
+Where the three rows and in this case 5
+columns.
+So here you can see the monthly means.
+For each of the three variables, in a much
+more
+compact format, it's in a matrix, instead
+of a list.
+Of course I still got NA's for a lot of
+them, because the missing values
+in the original data.
+So one thing I knew is I was going to pass
+the na.rm argument to call
+means that would remove the missing values
+from each column, before its calculating
+the mean.
+And that, now when I call sapply on the
+split list, I can get the, the
+means of the observed values for each of
+the three variables for each of the five
+months.
+So, so split is a very handy function for
+splitting arbitrary
+objects according to the levels of the
+factor and then applying any type of
+function.
+To those split elements of that list.
+And so here I split a data frame, you can
+split
+other lists, you can, and, or other kinds
+of things too.
+[SOUND].
+So the last thing I want to talk about is
+splitting on more than one level.
+So you, in the past couple of examples
+what I've, I've only had a single factor
+variable.
+And I've
+split whatever the object is with a vector
+or a data frame.
+According to the levels of that single
+factor.
+But you might have more than one factor.
+For example, you might have a variable,
+that, you
+know, it's gender, so it has male and
+female.
+And you might have another variable.
+That has, for example, the race.
+And so, you might want to look at
+the combination of the levels within those
+factors.
+And so so here, we've got, I've got f1,
+which is a factor with two levels.
+And so I've simulated
+a normal random variable with 10, with 10
+observations.
+I've got a factor with two levels, and
+each repeated
+five times, and then I've got another
+factor with five levels.
+If repeated two times.
+So there are my kind of two category, two
+group, grouping variables here.
+And I want to look at the kind of
+combination of the two.
+So I can use the interaction function to
+combine all the levels
+of the first one with the, all the levels
+of the second one.
+And so because there are two levels in the
+first
+factor and there is five levels in the
+second factor
+and there is a, the total combination of
+10 different
+levels that you can have when you combine
+the two together.
+So when you see, when I call, when I
+called the
+interaction function I get another factor,
+that kind of concatenates the
+levels of one with the other, and you can
+see that
+it prints out that there is a total of ten
+levels.
+Okay.
+So, what now I can slit my numeric vector
+x according to the two different levels.
+So now, when I Iike, when I use, now one
+thing, when
+I use the split function I don't have to
+use the interaction function.
+I can just pass it a list with the two
+factors and it will
+automatically call the interaction
+function for me,
+and create that 10 level interaction
+factor.
+So I can just pass the list of these two
+factors in it, and you can that, it
+create, it returns
+me a list with the levels of
+the 10 different kind of interaction
+factor levels.
+And then and then, and then the elements
+of
+the numeric factors that are within those
+10 levels.
+Now of course there are, although there
+are 10 levels between
+the two different factors, that we don't
+exactly observe every single combination.
+And so there are some empty levels here
+and you
+can see that some of these levels have
+nothing in them.
+They have zero elements, whereas other
+levels have a number in it.
+And so, so one thing you can do.
+Well first I can, I could take this list
+and, and,
+and lapply or sapply a function over it,
+if I wanted to.
+But, sometimes it's a little bit handy to
+not have to keep these empty levels.
+So, so the split function has an argument
+called drop.
+And if you specify drop equals true, it
+will drop.
+The empty levels, that are created by the
+splitting.
+And, and this can be very handy, when
+you're, you're combining,
+multiple different factors.
+If you're only using a single factor, then
+doesn't, that argument doesn't really
+do anything, because you'll just use all
+the, all the levels but, usually.
+But if you have multiple factors then
+typically you're going to have empty
+levels, just because you don't observe
+every single combination of the two
+factors.
+So, so drop equals true will drop those
+empty levels and then you can have,
+you'll, you'll will be returned a list,
+with
+only the levels, that have observations in
+them.
+[SOUND].
+

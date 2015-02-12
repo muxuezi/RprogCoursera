@@ -1,0 +1,239 @@
+I'm going to talk about two things in this
+video.
+The first thing is how to set your working
+directory.
+And the second thing is how to edit R code
+files using the text editor.
+So, when you start up R you, it's
+important to know what your working
+directory is.
+Because the working directory is where R
+reads and write files to the computer.
+And if you don't know where that directory
+is, then you're not going to be able to,
+find any of the files that you save, or
+any of the data that you write out.
+So when you start up R, you can find out
+what your working directory is by just
+typing the function getwd.
+And you can see that I've loaded up R here
+and it, and it sets my working directory
+to be /Users/rdpeng, which on the Mac is
+just your home directory.
+So this may work but in, if you store all
+your
+files in your home directory but you may
+want to change your working
+directory to be something else if happen
+to store all of your
+data and code files in a different
+directory maybe a sub directory.
+So for example I can go to the Misc
+menu here and just hit, and choose Change
+Working Directory.
+And I can choose one of these directories
+to be my working directory.
+Now before I go, the first thing I want to
+mention actually is, that if you want to
+read a file, then that file has to be
+in your working directory, otherwise
+you'll get an error.
+So for example, suppose I want to read a
+data file
+using read.csv and I want to read the
+mydata.csv file, okay?
+So if this file is in my working directory
+then I'll be
+able to read the data, and it will load it
+into R.
+But if it's not, I'll get an error like
+this,
+because the file can't be found in my
+working directory.
+So one thing I could do is I can change my
+working directory to be, to be wherever
+that file happens to be.
+So I'll choose the class directory here.
+And if I type dir in this directory, it'll
+list all the files in this directory.
+And now you can see, oh mydata.csv is in
+this directory.
+So I'm going to, now I can read the file
+into R by typ,
+using read.csv and now you'll see that the
+data will appear in R.
+So so knowing what your working directory
+is and
+being able to set it is important because
+then
+you'll, it'll give you, it will give you
+access
+to all the files that you need in R.
+In particular, when you save files say
+from the
+web on to your computer, you need to know
+where
+those files are stored on your computer
+and so that
+you can set your working directory to the
+appropriate place.
+Or you can move those files into your
+working directory.
+I recommend for this class that you, that
+you create a specific
+directory for this class and store all the
+files in that class.
+That way you don't have to worry about
+changing directories all the time.
+One thing you can do is maybe just create
+a directory right
+here on your desktop, so I'm going to
+create a directory here called Coursera.
+And now, when I'm in R, I can say Change
+Direc, Change Working Directory here.
+And if I go to my desktop I can choose my
+Coursera folder there.
+And now, when I, when I say getwd, you'll
+see that
+it has set the working directory to be my
+Coursera folder.
+So now if you save files in there, you,
+they will
+be there, then you can, and you can read
+them from R.
+So that may be the be, the easiest thing
+for one to do.
+So the one thing that you're going to have
+to do a lot of in this course
+is to write code in R, and to, and you're
+going to need an editor to do that.
+So one nice thing about R on the Mac is
+that it
+comes with a text editor that you can use
+to edit code files.
+So I can load up the text editor by
+clicking on this little button right here.
+And this gives me an empty file.
+So I'm going to move this over here.
+And you can start editing code right away.
+So I can say, I can create a myfunctions,
+so call it myfunctions,
+and I can, it, it will start indenting
+things.
+So I can say, you know, x is, rnorm, 100.
+And this function, is going to just take
+the mean of x here.
+So, actually, let me just change this to
+y.
+And, and it just returns the mean.
+So it ignores the argument for now.
+So, and then, and then one thing you're
+going to have to
+do is, is figure out how to get this code
+into R.
+So what you'll notice, if I just type my
+function here,
+it's not going to be able to find it
+because the code has not been loaded into
+R.
+If I type ls, you'll see that there are no
+objects in my work space.
+So, the question is, how do I get this
+code that I've written over here, into R?
+Well, the easiest thing you can do, if you
+just have a little
+bit of the code, is just to hit Select
+All, so this is Cmd+A.
+Or you can go to the Edit menu and just
+hit Select All.
+And then Cmd+C copies the code and then I
+can click into my console window over
+here, hit a Cmd+V and and then return and
+it will paste my function into R.
+So now if I type ls you'll see that my
+function is an object in my workspace.
+So I can say myfunction.
+And it will return the mean of a hundred
+random normal
+variables, which is not very interesting,
+but the function does work.
+So the other thing you can do is you can
+save this file.
+I can go to the File menu and I want to
+Save As.
+So I haven't saved this file before, so I
+need to Save As.
+And I'm going to go into my Coursera
+folder and I'm, I'm going to save
+it as myfunction and it is typical to add
+the .r extension for code files.
+And I can hit Save.
+And so now, I want, I can double check my
+working directory, and make sure I'm in
+the right place here.
+Yeah, I'm in the Coursera, working
+directory.
+If I type dir, you'll see that my, the
+myfunction.r file is there now.
+So I can just source the file,
+myfunction.r.
+And it will have the same, it will have
+the same effect as cutting and pasting.
+So I, so I haven't done anything new
+because I already cut and pasted that
+function.
+But one thing I can do, I can write,
+I can write another function here so, say,
+I'll call
+it second to indicate it's the second
+function, and
+it's going to take the input x, oop,
+excuse me.
+And it's going to add a little bit of
+noise to it.
+And that's all it's going to do.
+It's going to return that.
+So so what, now before I do anything, I
+need to,
+now that I've changed the file, I need to
+save it.
+So I can just go to File > Save, or you
+can do Cmd+S.
+And now I can source my, this, this file
+into R again.
+And you'll notice I type ls, I got a, I
+have my second function there.
+So if I type this out, you'll see that's
+the code for it.
+So now I'll say second I say four and I
+return four plus a little bit of noise.
+If I do it again, it'll be four plus a
+little bit of more noise.
+I can give it four through ten and it
+gives me
+each one of those numbers with a little
+bit of noise.
+So that's how I write code in R.
+And that's how I can use the text editor,
+that comes with R.
+If I want to create a new file, I can hit
+this button.
+Again it'll give me a new file that I can,
+you know, save
+this under a different filename if I want
+I'm not going to use that now.
+So I close this window and and that's how
+you
+can use the the text editor in R for the
+Mac.
+The text editor that comes with R is very
+simple but it will definitely be
+sufficient for this class.
+So there's even though there are other
+kind of custom text editors that
+you can, may be able to find on the web
+and download for free.
+You don't have to do that, the text editor
+that comes with R should be sufficient for
+this class.
+

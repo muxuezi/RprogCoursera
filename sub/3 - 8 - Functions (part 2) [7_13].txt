@@ -1,0 +1,262 @@
+So, here's a function with four arguments.
+A, B, C and D.
+So, A has no default value.
+B, C, and D, all have default values.
+And so, when you define a function.
+You want it if both specify the names of
+the arguments.
+And, whether or not any of the arguments
+have default values.
+So null is a common argument.
+Sorry, common value to assign to an
+argument.
+Which mean, which can
+mean a variety of things, but usually
+means that, you know, there's nothing
+there.
+So, one of the key features of the, our
+language is what's called Lazy Evaluation.
+So Lazy Evaluation is a common model in a
+variety of programming languages.
+And the way that it works is all of the
+arguments to a function are only evaluated
+as they're needed.
+And so for example, if you take a look at
+this function over here.
+You can see it takes two arguments a and
+b.
+But the body of the argument only takes
+one thing,
+it takes a and then it squares it and then
+it
+returns it.
+And now recall that in a function, the
+return value whatever the last expression
+is evaluated.
+So there's only one expression in this
+function.
+So that's the last expression.
+And so it's the return value.
+So if I say f(2).
+What happens?
+Well, in R what happens is you get 4
+because 2 squared is 4.
+Now you might be wondering what happens to
+B when I call (f).
+I never specify what the value
+of b is.
+And furthermore, b doesn't have a default
+value.
+And so what happens, what, what happens is
+nothing
+happens because the function f doesn't
+actually use b.
+And so the argument is never evaluated.
+And so, because it's never evaluated,
+there's really no error.
+There's nothing that's going wrong here.
+Now now you might say there, of course,
+well,
+the, the function F is kind of poorly
+defined.
+So why would you give and argument where
+that's never actually evaluated?
+And that's
+a reasonable objection, but in this case,
+the
+only, the, the function will operate
+correctly because
+because it's Because the value of 2, is
+positionally matched to the arg, to the
+argument A.
+Which is then squared.
+Here's another example of a function
+that's
+only slightly more complicated than the
+previous one.
+So this is another function that takes
+arguments a and b,
+but now what the function does is it
+prints out a and
+it prints out b.
+And so, when I call f of 45, look what
+happens.
+I get, well I get an error that says in
+print b, argument b is missing.
+So here, what happened is that it printed
+out 45 because 45
+was matched to the argument a, and so
+there was no error.
+Up until the first line of the function,
+there was no error occurring.
+But then when it got to the second line,
+It had to evaluate the val, the argument
+b.
+And because b had no value assigned to it
+and no default
+value, then an error had to occur.
+So here, but you notice that the error
+only occurs after the 45 was printed out.
+And so the lazy evaluation applies, but
+because
+the argument is only evaluate when it's
+needed.
+Everything else comes before it that's
+valid, it will execute it
+until it hits the, the part that which
+causes an error.
+So there's a special argument, in.
+In our functions which is the dot, dot,
+dot argument.
+And it's used to indicate a variable
+number of
+arguments that can sometimes be passed on
+to other functions.
+So the three dots are often used when
+extending another function and
+you don't want to copy the entire argument
+list of the original function.
+So for example you might want to extend
+the plot function
+and just to have a little bit of a tweak
+or
+to change some of the defaults, for
+example.
+And so for example you might create a
+function that's called my plot.
+And the my plot will replicate some of the
+arguments of the original plot function
+like x and y.
+But it's going to change the default type
+arguments so that instead of creating
+circles for points.
+You want it to create lines.
+So you say type equal to l.
+So, but of course the default plot
+function has many, many other arguments.
+And you want to leave them all ultimately
+the same.
+And so, what you, what you can do is pass
+dot dot dot.
+And then though, that can used to, be used
+to kind of absorb all the other
+arguments in the plot function and then
+what
+happens is I'll take the dot dot dot and
+then pass it down to the original plot
+function, and so all those original
+arguments can be
+preserved then I don't have to retype or
+reconstruct all of those arguments in my
+extended function.
+There is another function.
+And sorry, there's another use of the dot
+dot dot argument, and it's for
+what are called generic functions so that
+extra arguments can be passed to the
+methods.
+So we'll talk a lot about more of
+this later when we talk about object
+oriented programming.
+But the basic idea is that in R there,
+there can be special functions called
+generic functions which
+don't do anything, but what they do is
+they
+dispatch methods to put, according for
+different types of data.
+And so the dot dot dot
+is used very heavily in this type of
+setup.
+lastly, so the dot dot dot argument is, is
+necessary when the
+number of arguments that are passive
+functions cannot be known in advance.
+So one good example of this usage is in
+the paste function.
+So the paste function, what is does it
+paste, it concatenates a set of strings
+together to
+create one string or a vector of strings
+and it can take a variable number of
+arguments.
+So, there is no way for the function to
+note advance how many arguments it's
+going to have to paste together and so the
+first argument for paste is actually dot
+dot dot.
+And therefore you can take a number of
+different
+R objects that are character vectors and
+then, and
+then paste something together using a
+separator and in
+the, which the case the default is the
+space.
+So there are other arguments to face which
+are set to collapse.
+But they come after the dot dot dot
+argument.
+Another function that has the dot dot dot
+as the first
+argument is cat.
+And what cat does similar to paste, it
+puts together, it pastes together a number
+of strings
+then it prints out the, the, the
+concatenated
+string either to a file or to a console.
+So you can see that there are many other
+arguments to cat but the first
+argument is going to be the set of our
+objects that, that are going to be
+concatenated.
+So, one catch with the dot dot dot
+argument is that any arguments
+that appear after three dots on the
+argument list must be named explicitly.
+And furthermore, cannot be partially
+matched.
+So you cannot, you can't use positional
+matching or
+partial matching for arguments that come
+after the three dots.
+because, and this kind of makes sense,
+because otherwise
+there's no way for r to know whether you
+are passing something to the dot dot dot
+or
+whether you are passing something to a
+different argument.
+So if I say
+in the first example here, where I try to
+paste together A
+and B, so A and B are going to the dot dot
+dot
+argument and then I say sep equals colon
+and then which means that
+I want to paste something together by
+separating them into with a colon.
+However, if I try to do partial matching
+with set,
+what happens is that the partial matching
+gets ignored, and so,
+when, when I say paste a b and then s e
+equal to colon, well, the s e is, in
+another circumstance
+might be partially matched.
+But in the pace function, it can't use
+partial batching.
+So it gets, it just ignores that and just
+assumes
+that colon is just another string to be
+pieced together.
+And so then you get the, the string ab:.
+So just be careful when you're using
+functions
+that have dot, dot, dot as an argument.
+That any arguments that appear after the
+three
+dots have to be named explicitly and in
+full.
+

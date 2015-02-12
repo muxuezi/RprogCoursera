@@ -1,0 +1,145 @@
+So there are a variety of ways that
+you can interface between R, R,
+wi, with the outside world.
+And generally speaking there are functions
+that, that are used to kind of open up
+the what are called connections
+to the outside world.
+Usually you want to, the most
+common type of connection is to me,
+is to a file, so for example if you
+want to read a file then you can,
+you can create a file connection,
+you might want to for example o,
+or read a compressed file, or
+that's a slight variation on that.
+And most functions will do this in
+the background without you having to
+know what's going on.
+So for example,
+when you call read.table with it and
+you pass it the name of a file,
+what it does behind the scenes is it
+opens up a file connection to that file,
+and then reads from that file connection.
+The connection can be made to
+other types of objects too.
+For example, you can open a connection
+to a webpage using the URL function.
+And so,
+when you open a connection to a webpage,
+you can read data from that
+webpage using the URL connection.
+And so, the idea behind the connection
+interface is, is that it kind of,
+that it abstracts out.
+The mechanism for connecting to different
+types of objects that are external to R,
+whether they be files, or
+webpages, or whatever.
+So the file function is the function
+that opens a connection to
+a standard uncompressed file.
+So this, this can be useful for
+text files, for, for
+reading in other types of text files.
+Gzfile and bzfile, are used for opening
+connections to compressed data files.
+So gz file i, are, is used for files that
+are compressed with the gzip algorithm and
+bz files used for, is for
+opening connections to files
+compressed with the bzip2 algorithm.
+Files that are compressed with gzip
+usually have a gz extension and
+files compressed with bzip2
+usually have a bz2 extension.
+So the file function
+here has a few arguments,
+the description argument is the name of
+the file and there's a flag that's called,
+that goes to the open argument and
+you have to know what the codes are, but
+basically r is for reading, w is for
+writing, a is for appending, and then rb,
+wb and ab are for reading, writing,
+and appending on binary files.
+The other options for file are not
+particularly important at this time.
+So, connections can be very powerful and
+they can let you navigate files and
+other external objects in a more
+sophisticated way than just,
+like, reading the whole thing,
+for example.
+And generally you don't have to deal with
+the connect interface in many cases, but
+sometimes it's useful.
+So for example, so here I've got
+a simple example or opening a fi, a file
+connection to some file called foo.text,
+I'm going to open it for reading.
+I can call read.csv on the connection, and
+that by default will just read the entire
+file then I can close the connection.
+So that three line process is the same
+as just calling read.csv on the file.
+So in this case there was no need to
+use the connection to read the file.
+However, sometimes a connection can be
+useful if you want to read parts of
+a file.
+So for example,
+here I've got the readLines function
+which just reads lines from a text file.
+And I'm going to open
+up this words.gz file.
+So, this is a file that has words in
+it for it's like a dictionary file.
+And it's compressed using the gz,
+the gzip algorithm.
+So I'm going to be using the gz file
+function to open a connection to that.
+And I'm just going to
+read the first ten lines.
+So now I'm going to re,
+use this connection, and
+to read the first ten lines.
+And here,
+the first ten lines are printed out here
+as you can see these are the first
+top ten words in the file.
+And similarly, write lines is a,
+is a function that can be used to
+write out lines of text to a file.
+And each, and what you do is pass
+write lines of character vector and
+each element of the character vector
+becomes a line in the text file.
+You can also use readLines to read
+elements from a web page, so for example,
+you can use the URL function to
+create a connection to a website, so
+this website here is the Johns Hopkins
+School of Public Health website.
+And I'm going to open
+the connection there for
+reading, and then I'm going to
+read lines from this connection.
+And so and I'm, and then and
+so the lines of text that come
+from the connection are going to be
+stored in this character vector x.
+So when I look at the first
+couple of lines from x you can
+see that it looks like HTML which
+is kind of what you would expect.
+And so the URL function is useful for
+creating a connection to
+a kind of a non file object.
+and then using read.lines is useful to
+read the text from that connection.
+So this is another way to read
+data beyond using functions like
+read.table or read.csv
+

@@ -1,0 +1,369 @@
+In this lecture, I just want to get
+everyone on board with writing
+functions, because functions play a
+critical
+role in any art programming and you
+tend to write a lot of them when you're
+writing doing a
+lot of data analysis or doing a lot of
+kind of statistical analysis.
+And so I just want to make sure that
+everyone can kind of get started writing
+functions and and particularly for those
+who
+are less familiar with programming
+languages in general.
+So this is just going to be about writing
+your first function.
+It's kind of like the hello world so to
+speak of R.
+So the first thing you're going to want to
+do is you
+going to want to write the function in a
+text file, all right.
+It's possible to write functions on the
+command
+line in R, but it usually no preferrable.
+So usually you're going to want to put
+your functions, in a separate file,
+separate from any interactive stuff that
+you're doing in the command line.
+In the future you'll want to put your
+functions in
+an R package, which is a kind of a more
+structured type of kind of, kind of
+environment with
+documentation and everything, but we won't
+talk about that now.
+Right now the first thing you're going to
+want to
+do is put your functions in a text file.
+Okay, so the first thing we're going to
+want to do is open up our studio.
+So lets do that.
+And so you can see here in R Studio
+there's some there's
+some stuff going on here from a previous
+project that I'm working on.
+So you, that may happen to you, and
+generally you
+can either close it or you can just ignore
+it.
+I wanted to create a new R script here, so
+let's create a clean script here to put
+our code into.
+So the first function I'm going to write
+is really simple
+it's just going to take two numbers and
+add them together.
+So this function obviously doesn't have a
+real point to it but it shows you how
+to use the function syntax, how to specify
+the arguments and how to return the value.
+So the function that adds two values I'm
+just going to call it add two.
+And and so you get it you use the function
+directive to start it off.
+Now it's going to take it's going to add
+two values so it has to take
+two arguments so I'm just going call the
+two arguments x and y and then
+I'm going to take the two arguments and
+add them together with the plus operator
+alright x plus y and then I close out the
+function with the curly brace.
+So you can see that I didn't have to
+do anything special to return the value
+that that's the
+sum of the two elements because the or any
+R
+function, the, the function returns
+whatever the last expression was.
+So here there's only really one
+expression.
+So therefore its the last expression and,
+and it equals the sum of x and y.
+So here I can, I can highlight this guy
+and run it
+in the console, and you can see now I've
+got my function here.
+I can say add two, and lets give it say
+three and five and hopefully I get eight.
+Yes that's a good sign.
+So it adds the two numbers together, and
+that's that.
+So it's a very simple function, and and,
+you've now written your first function in
+R.
+S the next function that I want to
+talk about is a little slightly more
+complicated.
+It's going to take a vector of numbers,
+it's going to, it's going to return
+the subset of the vector, that's, that's
+above the vector value of ten.
+So any number that's bigger than ten, it's
+going to return those numbers for you.
+so, let's bring back our original
+function.
+We'll call this one, above ten.
+Just because it gives you any number
+that's above ten.
+snd, it's going to take a vector here,
+we'll call it x,
+you don't have to call it x, I'm just
+calling it that.
+And I like to open and close the curly
+braces right away, just
+so you know where the beginning and the
+end of the function is.
+If you happen to have a lot of code in,
+you know, in, in a single file.
+So the first thing I'm going to want to do
+is I want to construct a logical
+statement that figures out which elements
+of
+this vector x are, are greater than ten.
+All right?
+So I'm going to assign an object.
+I'll call it use because these are, these
+are the numbers that I'm going to use.
+And I'll say x greater than ten.
+All right?
+So this'll return a logical vector, of
+trues and falses
+to indicating which element of x is
+greater than ten.
+And then I'm going to subset the vector x
+with this logical vector.
+So now this function returns, the subset
+of the vector x that is bigger than ten.
+Of course if there are no elements of x
+that are
+bigger than ten, that it will return an
+empty numeric vector.
+Now of course, there's really nothing
+special about the number ten.
+I just kind of made that up, and so you
+may want to created a
+function that allows people to sub, to
+kind of extract the elements of a vector.
+That are above an arbitrary other number,
+right?
+And so, so it could be ten, it could
+be 12, it could be five, it could be
+anything.
+So maybe you'll want to allow the user to
+specify that number.
+So I'll just call, I'll create a new
+function here.
+Call above.
+So it doesn't have the ten encoded in it.
+I'll use the function directive, and I'll
+have a
+second arbitrary called n, which can be
+any number really.
+[SOUND] So let's start it off, we'll get
+the curly braces in there,
+and now I'll create a logical statement
+that x is greater than n.
+Right?
+And then I'll subset the vector x based on
+that logical statement.
+So now if I can source this into R.
+Oops, and I can run my function here.
+So I'll just create a vector.
+Let's say x is one through 20.
+And I'll say above x.
+Oh I, you see, so I didn't specify the
+number n, so it's not going to know
+what to cut it off at, so I need to
+specify the threshold, so let's do ah,12.
+And you can see it returned all the
+numbers that are greater than 12.
+So that's kind of as we expected, and so
+the function appears to be working well.
+Now let's suppose that maybe there is
+something
+special about the number ten, and maybe
+it's
+something that people are going to be
+kind of be
+doing very often and it's a very common
+number.
+So you might you want to specify a default
+argument so you might want to the default
+to
+be ten, so remember when I ran the
+function before and I didn't specify the
+number n.
+It gave me an error or maybe you don't
+want
+people to have to encounter that error,
+and so you'll specify
+a default value n equals ten so people
+don't specify
+the cutoff value n, it will just
+automatically default to ten.
+So now I can run this in R and now if I
+do above, which is x, you see I don't get
+the error anymore.
+It automatically gives you all the numbers
+that are bigger than ten.
+So it's kind of nice in R when you're
+writing functions
+to be able to specify default values like
+this that make the
+life of the user just a little bit easier,
+specially for very
+common cases, where it's not important
+that the user specify an argument.
+So those are some very simple functions,
+in R that can be used
+to kind of process data or make do simple
+calculations, like adding two numbers.
+The next function I want to talk about is,
+is just going to take
+a matrix or a dataframe and calculate the
+mean of each column.
+Right, so this is slightly more
+complicated
+you, you have to take your argument and
+then you have to loop through each column
+to calculate the mean of each one, right.
+So this is going to involve using a
+for-loop
+and, and so we'll talk about it here.
+So let's call this function column mean,
+because that's what it does,
+and I'll use the function directive here,
+now it's going to take an argument.
+I like to call my arguments x, you don't
+have
+to so why don't we just call it y for fun.
+And so y is going to be a data frame or a
+matrix, and we're going to go
+through the columns of this data frame or
+matrix and calculate the mean of each
+column.
+So the first thing I need to figure out is
+how
+many columns does this thing have, and
+that can be easily done.
+I'll call it n c for number of columns and
+we can use the n call function for that.
+That will calculate the number of columns,
+and, and then I need to
+initialize a vector that's going to that's
+going to store the means for each column.
+The length of this vector has to equal the
+number of columns, right.
+So I'll just call it means, and it'll be a
+numeric vector
+equal to the length of the number, equal
+to the number of columns.
+So this is just an empty vector.
+It doesn't, it's going to have, it's
+going to
+be initialized to, to be all zeros.
+But we're going to fill it as we go
+through the column.
+So now we want to for-loop through the
+columns.
+And I'll say i is in and then I'll say one
+through nc.
+So this creates a, an integer vector
+starts
+a one and ends at the number of columns,
+and then I'm going to for-loop through and
+for each
+I, I'm just going to assign to my means
+vector.
+The mean of x bracket I, right.
+Oh sorry that's called y here now.
+And that's it, and then so for I, I
+haven't returned
+anything yet, so right now this function
+doesn't do anything particularly useful.
+But what I want to do is return the vector
+of means and so I'm just going to return
+that.
+And that's, since that's the last
+expression
+in the function that what will get
+returned.
+So I can source this into R,
+and I'll just find some arbitrary dataset.
+We can use the air quality dataset I
+guess.
+I'll just take the column means of that,
+and see how it works.
+Okay, so I, there are six, I think there
+are
+six columns in this dataset, so it gave me
+six means.
+Now you can see that the first two columns
+have NAs.
+And that's because it, if the, if the
+vector has
+an na in it, then you can't calculate the
+mean.
+And so the one thing you might want to do,
+is, by default, is throw
+out all of the missing values and
+just calculate the mean amongst the
+observed values.
+And so, you'll notice that a lot of
+functions have a feature where it's like,
+where they, you can, you can choose
+whether you want to remove the nas or not.
+But let me just add up an argument here,
+it's called [UNKNOWN] na.
+And it will default to true, right.
+And then I'll pass this argument to the
+mean function.
+So the mean has an na.rm argument, and
+I'll pass at this value.
+And so now I can default or remove the
+na's when I, calculate my column mean.
+So sources send to R and with the run in
+the console column mean, and
+so now the default will be now I get my
+means
+for those columns because the default was
+to remove the na's.
+I could say false here, and then my na's
+will come back.
+So I can always choose to kind of go back
+to the old behavior if I wanted to.
+So the last thing you want to do any time
+you're writing a
+function the most important thing of
+course is to save your file.
+So right now this file is unsaved.
+If you don't save it and R Studio crashes
+or something
+happens you'll lose all your work and so
+you want to go
+to the save I meant save as menu, and just
+save
+your file as, you know, functions or
+whatever you want to call it.
+And give it the .r extension, and now
+you're code is saved to a file.
+So that should get you started, just
+writing
+some simple functions in R, for your
+programming
+assignment you'll have to write a few
+functions
+that kind of go through and look at data.
+But I just wanted to get you started
+writing your first
+functions so that you know kind of how the
+directive, the function directive
+works, how the arguments work, and you can
+play around a little
+bit with with more complicated ideas as
+you work through the assignments.
+

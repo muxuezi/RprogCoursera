@@ -1,0 +1,57 @@
+So the first structure is if, so this is
+a, this, the, the if combined with else
+allows you to test logic conditions, and
+to let the r program do something, give,
+whether or not, depending on whether
+that conditions is true or false.
+So if the condition is true then you do
+something else you do something else.
+That's the typical kind of construct.
+The else part is optional, so
+you could just have an if statement
+to do something if something is true.
+But you can have the else part if you
+wanted to do something alternatively.
+If you want to do more, there's more
+than one possible type of condition you
+can tick, you, you want to check.
+You can say if, and then,
+else, if and then, else.
+else, if there can be any number of else,
+if conditions in a constraint like this
+and the else one has to be at the end.
+So there are a couple of different ways
+that you can formulate the if else
+construct in r, it's a little, this is a
+little bit different from other languages.
+Case you haven't seen something like this.
+So the first is pretty standard if x,
+if the con,
+if sorry if the symbol x is greater than
+3 then you select, you set y equal to 10.
+If it's not greater than 3
+then you set y equal to 0.
+So that's inside the if-else construct,
+there's, there's an assignment of y
+to a specific type of value depending
+on what the value of 3, of x if.
+But however in r you can do it
+a different way you can say y is
+equal to the entire if else construct.
+So if x is greater than 3, 10 or
+0 depending on whether that
+conditions true or not.
+So this is a valid formulation also.
+Sometimes it's, it's,
+it's useful to read this type of
+writing because it, it allows you to
+realize that the entire if else construct
+is all about assigning a value to y.
+So as I said before the else clause
+is not really necessary you can
+always test the condition and
+do something and then do nothing if
+that condition happens to be false.
+So you can and you can just test
+multiple conditions in a row if you want
+

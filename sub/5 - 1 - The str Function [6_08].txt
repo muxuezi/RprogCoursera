@@ -1,0 +1,219 @@
+This video is about the most important
+function in all R, the str function.
+This function is really handy.
+It's really useful.
+I use it all the time.
+And you can use it in all kinds of
+situations
+just to help you out, to look at R
+objects.
+So the idea behind the str function is, is
+that it's suppose to compactly display the
+internal structure of an R object, so str,
+str, you can think of as being, meaning
+structure.
+So it's a very
+simple diagnostic function.
+It's very versatile.
+And, the idea's that it's, you can use it
+as, like, an alternative to summary.
+You want to look at an object, and see,
+and see you know, what is it.
+And, what's in it.
+You can use summary which will often be
+very useful.
+But str is another option.
+It's partic, particularly well suited for
+compactly
+displaying large lists which may contain
+nested lists.
+And also
+and, and its goal is to produce roughly
+one line of output per basic object.
+For example so if you give it a simple
+object
+like a vector, it'll give you one line of
+output backup.
+It will print it to the console.
+And so the basic goal of str is to answer
+the question, what's in this object?
+I'm going to start up R here and I'm going
+to
+just give a little demonstration of how
+the str function can work.
+So here, you can apply str to itself and
+see it's a function that takes an object.
+It can take any R object.
+So, so you can apply str to other
+functions.
+So let's say I want to know what the lm
+function does.
+So here, what it gives you it gives
+you the, the function arguments for the lm
+function.
+So just, so here you can see it's a very
+brief summary, you
+know, take the first argument's a formula,
+the second argument's data, et cetera.
+I can look at maybe ls function and it
+gives me, you know, what are the arguments
+for the
+LS function?
+So if you want to look at some data,
+though.
+Let's say I'm going to generate some
+normal random variables here, 100
+of them, let's say mean two variant, and
+standard deviation four.
+Now one thing you can do is, is just do
+summary on x,
+and that will give you like a five number
+summary plus the mean.
+So you get the mean, median that is 25th,
+75th percentiles and the min and the max.
+So that gives you a rough sense of kind of
+what the range is and how
+it varies.
+You can also call str on x and it will
+give you a little bit more information.
+So it'll give you a one line output.
+It tells you that x is a numeric vector.
+There are 100 elements.
+And then, and it'll give you the first
+five numbers in this vector.
+So you can get a sense of kind of what the
+data looked like.
+So you can apply str to other types of
+vectors.
+So here I can create like a factor
+variable.
+So this
+is the factor that has 40 levels and each
+one
+is repeated ten times so if I call str on
+it.
+And it'll give me a one line output again.
+So here, it tells me it's a factor.
+It's got 40 levels.
+The level, the first four of them are
+named 1, 2, 3 and 4.
+So that's not particularly interesting.
+And then here, I've said the first couple
+of elements of
+this factor are all in the, k-, all have
+the label, one.
+You can also call summary on a factor, and
+you
+can see that the output's a little bit
+different.
+And what this does is it, is it gives you
+the number of elements in each of the 40
+different levels.
+So that's another piece of data that's not
+quite as compact of output as str gives
+you.
+So you can use str for other types of data
+types.
+So here, I can, I can load like a data
+frame.
+Here's the airquality data set.
+So, you know, if I look at the airquality
+data
+set, I can use the head function to look
+at the
+first six rows, or I can call str
+to get a little some different output.
+So here, it tells me it's a data frame.
+It tells me that there's a 153
+observations, so 153 rows in this data
+frame
+with, of six variables and then for each
+variable, it, it gives me a little output.
+So it tells me that the name of the first
+variable is Ozone.
+It's an integer.
+Variable and, and here are the first could
+of observations.
+You can see there are some NAs there, so
+that's useful to know.
+The second variable is called Solar.R, and
+it's also an integer, and you can see the,
+the first couple of values.
+So, the Str output here is very useful for
+kind of just getting a quick examination
+of data that you might have in R and what
+the structure of different R objects is.
+We can take this a little bit farther, so
+for example, we could create a little
+matrix here.
+I'm going to put some random normals in
+there.
+That will be a 10 by 10 matrix.
+I'll call str on m.
+See, it will give me a little bit more
+information.
+So now it knows that it's a matrix.
+It'll say that it's a, it's a
+two-dimensional array.
+That it's got 10 rows and 10 columns.
+And here are the first couple of elements.
+So that's going to be the first column
+that you're seeing there.
+So if I, so if I just print out the first
+column here,
+you'll see that it, that's what it's
+giving me in the str output.
+The last thing I'll do here
+is create a little list by using the split
+function and see how
+str can look at the list and give a
+compact summary of it.
+So, I'm just going to take this air
+quality
+data frame And split it by the month.
+So here I go to airquality, going to split
+it by the month variable.
+So now if I call str on S you'll see,
+well there's a little bit of output that
+flies by.
+You see now this is a list, that contains
+five different data
+frames where each data frame corresponds
+to the data for a given month.
+So the months are, the data are only
+collected over
+five different months so that's why
+there's only five elements.
+So here you can see that the month, the
+month five, which is May has
+31 observations on six variables and
+that's a
+little bit of what the data looked like.
+And you'll see for June,
+here, there's 30 observations on six
+variables again, same six variables, of
+course.
+And that's what the data look like there.
+And then for July, the data are here.
+And August and September.
+So you can see the you can have a
+representation
+of this split list that's kind of, that's
+not as compact
+as it was before but it's about as compact
+as you
+can make it and str will provide a very
+nice summary.
+You can take a quick look at the data.
+See if there's any problems.
+See if there's missing values and
+get a sense of what to do next.
+So that's the str function.
+I'll, I'll repeat again, I think it's the
+most useful function
+in all of R and you can use it in all
+cases.
+I encourage you to use it anytime you have
+an R object and, you don't know what's
+there.
+

@@ -1,0 +1,86 @@
+The last data type I'm going to
+talk about here is the data frame.
+The data frame is a key data type used in
+R and it's used to store tabular data.
+So of course, tabular data make up
+a lot of what we use in statistics.
+Of course not all types
+of data are tabular.
+But because so
+much data becomes a tabular form.
+Data frames are very important in R.
+So data frames are basically
+represented as a special type of list,
+where every element of that
+list has the same length.
+Right, so you can think of each column of
+the data frame as an element of the list,
+and of course, in order to be a table,
+every column has to have the same length.
+However, each column doesn't
+have to be the same type.
+So the first column could be numbers,
+the second column could be factor,
+the third column could be integers
+the fourth column could be logicals,
+it doesn't matter what
+the different types are.
+so, unlike matrices where, wh,
+which have to store the same type of
+object in every single element of
+the matrix, data frame can store your
+cla objects of different classes.
+And so, data frames also have
+some special attributes.
+First, the first special
+attribute is called a row name.
+And so
+every row of a data frame has a name.
+And this can be useful for
+kind of annotating the data.
+So for example, each row re, might
+represent a subject enrolled in a study,
+and then the row names would
+be the subject ID for example.
+however, sometimes the row names
+are not interesting, and, and, and
+often you'll just use row names of 1,
+2, 3, et cetera.
+Data frames can be created by calling most
+often calling the read.table, the read.csv
+function and we'll get into that a little
+bit when I talk about reading data into R.
+And you can also create
+a matrix from a data frame by
+calling the data.matrix a function.
+Now, you can't if you have a data frame
+that has many different types of objects,
+and then if you coerce that into a matrix,
+it's going to force so
+each object to be coerced so
+that they're all the same.
+So you may get something
+that's not exactly expected.
+So, data frames can be created
+besides using read.table or
+read.csv, you can use the data.frame
+function and here I've
+created a very simple data frame where
+the first the first column is called,
+is the foo variable, and
+the second column is the bar variable.
+The foo variable is an integer
+sequence from one to four, and
+the bar variable is a logical vector
+with two trues and two falses.
+So when I autoprint the data
+frame out you'll see the,
+it prints out the two columns and here
+the row names since I didn't specify any
+special row names, just defaults to 1,
+2, 3, 4, because there's four rows.
+And then when I call
+the nrow function on x,
+I see that there's four rows in the ncall
+function, shows me that there are two rows
+

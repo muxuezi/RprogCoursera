@@ -1,0 +1,132 @@
+This is just a simple note on vectorized
+operations in R.
+So, vectorized operations, is one of the
+features of the R language
+that make it, that makes it easy to use,
+on the command line.
+It makes very, kind of, nice to write
+code, without
+having to do lots of looping, and things
+like that.
+And so, it's kind of a natural thing to
+have in a computational language.
+Many other types of languages, like MATLAB
+have this kind of feature.
+so, the idea with vectorized operations
+is, is that things can happen in parallel,
+when you, for example want to do a
+computation.
+For example, suppose I got two vectors
+here x and y.
+x is the sequence one through four and y
+is the sequence six through nine.
+And I want to add the two vectors
+together.
+Now, when I say I want to add them, what I
+mean
+is I want to add the first element of x to
+the
+first element of y, the second element of
+x to the second
+element of y, et cetera, the third element
+to the third element.
+So I want to kind of do things in parallel
+like that.
+So, in other languages you might have to
+use a loop to do that,
+so you'd loop through each element and
+kind of add them one by one.
+But in R you can just use the plus to, on
+the two vectors, and
+it'll just add them together so x plus y
+kind of does what you would expect.
+It adds 1 to 6, 2 to 7, 3 to 8, and 4 to
+9, so you get the vector 7, 9, 11, 13.
+similarly, you can use the greater than,
+or
+less than symbols to, give you logical
+vectors.
+For example, x greater than 2.
+So well x is actually a, a vector of 4
+numbers.
+So, which one, so, which number are you
+comparing to 2?
+Well, the, the vectorized operation
+compares all
+the numbers to 2, and it gives you
+a vector of falses and trues depending on
+which numbers happen to be bigger than 2.
+So you can also use greater than equal to,
+and that'll tell you which numbers are
+greater than and
+equal to 2, and the double equals sign,
+tests for equality.
+So it'll take each element of y and test
+to see whether it's equal to 8.
+other, and the other kind of,
+or arithmetic operations like
+multiplication, by
+the asterisk, and division, by the
+solidus, are all vectorized types of
+operation.
+So when you want to multiply or divide,
+add,
+subtract, vectors, you just you can do the
+natural
+thing, just add them together or multiply
+them together, and they will
+be, and they will be the operation will be
+done in parallel.
+Similarly you can do, you can do You can
+add make,
+you can add and subtract, and multiply and
+divide matrices together.
+So it's useful to know this because
+there are different types of mult matrix
+multiplication.
+So I've created two matrices here, x and
+y.
+X is the matrix 1 through 4, it's a two by
+two matrix.
+And y is a, is a matrix that's all tens,
+it's also a two by two matrix.
+So if I just do x times y, this is not a
+mat, matrix multiplication.
+This is an element-wise multiplication.
+So the first, the kind of the 1, 1 element
+of x is multiplied by the 1, 1 element of
+y.
+And the 2,2 element is multiplying the 2,2
+element of, of the other matrix, et
+cetera.
+So, each element is multiplied, together
+in parallel.
+Same when you do division.
+This is not a matrix inverse or something
+like that, this
+is just dividing one matrix, literally
+element by element by another.
+So if you want to do a true matrix
+multiplication, you have
+to use the %*%, that's the symbol for a
+matrix multiplication.
+So when you, so, this is just, that's
+it for vectorized operations for now,
+You'll see these
+a lot more often later on, but the idea,
+but I just wanted to introduce this idea,
+because it makes code easier to write.
+And for those of you who are kind of used
+to other types
+of programming languages, if you've
+programmed
+in languages where you can't do this
+kind of thing, it's sometimes, it's common
+to kind of reflexively go to
+something like a for loop or a while loop
+or whatever it is.
+But in the but in a language like R, you
+can
+just use the vectorized operations to make
+the code a lot simpler.
+

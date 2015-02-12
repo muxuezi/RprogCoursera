@@ -1,0 +1,239 @@
+So with larger data sets of
+beyond the small to moderate,
+then there are a couple of things you
+can do when reading in tabular data.
+That will make your life a lot easier, and
+more importantly it will
+prevent R from totally choking.
+So first you should read the help page for
+read.table.
+In fact,
+you should probably have it memorized.
+There is a lot of key
+hints in that help page.
+Lot of useful information.
+And in my opinion not enough people
+read this help page carefully enough.
+So that they can kind of
+recite in their sleep.
+And if I, so there's a lot of so
+once you've read that you'll see
+there's a lot of important information for
+kind of how to optimize read.table.
+In particular for large data sets.
+And so one of the things
+you're going to want to do
+is to make a very rough calculation.
+Of how much memory you need to store
+the data set you're about to read.
+And so
+that way you can get a sense of well,
+is there enough memory on my
+computer to store this data set?
+Because if you recall correctly,.
+R will have to,
+R is going to store your entire dataset
+in memory unless you do otherwise.
+So when you call read.table or
+read.csv, it's reading your entire
+dataset into the RAM of the computer.
+And so you need to know,
+roughly speaking, how much RAM
+this datasets going to require.
+And we'll talk about how to
+calculate that in a second.
+So another opti,
+easy optimization you can say is if
+there's no comment lines in your file.
+Then just set the comment char to be
+the comment.char is meant to be blank.
+So just an empty quote there.
+The call classes argument
+is actually very important.
+Because it whe, if you don't specify
+it then what R does by default is it
+goes through every column of your dataset.
+And tries to figure out
+what type of data it is.
+Now, that's all fine, well I'm fine
+when the dataset is small to moderate.
+But reading each of these columns and
+trying to figure out what type of data it
+is takes time, it takes memory, and
+it can generally slow things down.
+If you can tell R, what type of data,
+is in each column,
+then R doesn't have to spend the time
+to figure it out on its own.
+And so, it'll, it'll generally
+make read.table run a lot faster.
+So you can save yourself a lot of time.
+So if you, if,
+if you have a few columns in your dataset,
+then then you can usually just say what,
+what the classes are.
+But if you have, or
+if they are all the same, so for
+example if all the columns are numeric.
+You can just say, you can just set
+call classes equal to numeric.
+And if you only sent,
+you give it a single value,
+it will just assume that every
+column has that same value.
+So if you just say numeric it will
+assume that every column is numeric.
+Otherwise what you can do if
+you have a huge data set,
+you can read in maybe the first 100 or
+first 1,000 rows.
+By specifying the nrows argument.
+And then going through each of the looping
+over each of the columns using sapply and
+calling the class function.
+So the class function will give you,
+will tell you what class
+of data is in each column.
+And then you can use this, and
+then you can save, store this information.
+And then read the entire data set after
+by specifying the call classes argument.
+So the n rows argument is
+actually very useful too.
+It doesn't necessarily
+make R run any faster, but
+it does help with memory usage.
+And so, if you can tell R how many
+rows are going to be read in to,
+to the, in to, in to R.
+Then it can calculate the memory
+that's going to be required.
+And not have to kind of
+figure it out on the go.
+So even if you mildly overestimate how
+many rows there are in the data set,
+that's okay.
+Because it won't make a difference, it'll
+still read the correct number of rows.
+So in general, when you're using
+R with large data sets, and
+there's lots of large data
+sets out there nowadays.
+It's useful to have a few things,
+a few bits of information on hand.
+So, for example,
+how much memory does your computer have?
+How much physical RAM is there?
+These days in most computers will have
+on the order of a few gigabytes up
+to many gigabytes of physical RAM.
+What other applications are in use?
+So are there other applications that are
+running on your computer that are eating
+up some processor time or memory?
+If you're on a multi-use system, are there
+other users logged into the system.
+Are they using up some of
+the resources on the computer?
+What is the operating system for
+your computer?
+So, is it a Mac?
+Is it Windows?
+Is it Unix?
+Is it Linux?
+Is it something like that?
+And then,
+also it's useful to know whether the O,
+the operating system that you're
+running is 32-bit or 64-bit.
+On a 64-bit system there,
+there, you'll generally be
+able to access more memory if
+the computer has a lot more memory.
+So if you want to do a rough calculation
+before you read in a table into R,
+using the read.table or
+the read.csv function.
+You can just do a very quick calculation.
+So here is,
+suppose I have a data frame here,
+with 1.5 million rows and 120 columns.
+So this is not a particularly big
+data set but it's reasonable.
+so, suppose that all of the nu,
+all the columns are numeric.
+So, I don't have to worry
+about different types of data.
+They're all, all the columns are numeric.
+The question is how much memory is
+required to store this data frame in
+memory, okay?
+So, I can do a simple calculation.
+So, the num, the number of elements
+in this data, in this data
+frame is going to be 1.5 million times
+120, right, because it's a square object.
+And so that's, so that's the number
+of elements in the data frame.
+Now, if it's a numeric all
+the data are numeric then each
+number requires eight
+bytes of memory to store.
+Because the, because the numbers
+are stored using 64-bit numbers and
+there's eight bits per byte.
+So that's eight bytes of
+memory per numeric object.
+So that's going to,
+so here's the number of bytes, now
+there's two to the 20 bytes per megabyte.
+So I can divide that,
+the number of bytes by 2 to the 20, and
+that's how many megabytes I got.
+So it's got, I've got 1,373.29 megabytes.
+And I can divide that again by 2 to
+the 10 to get the number of gigabytes,
+that's going to be roughly 1.34 gigabytes.
+So the, the raw storage for this data
+frame, is roughly 1.34 gigabytes.
+now, you're actually going to need
+a little bit more memory than that to
+read the data in.
+Because there's a little bit of,
+overhead required for reading the data in.
+And so, and so the rule of thumb,
+is to, is that you're going to need
+almost twice as much memory to read
+this dataset into R using read.table.
+Then the, then the object itself requires.
+So if your computer only has,
+let's say two gigabytes of RAM eh, and
+you're trying to read in
+this 1.34 gigabyte table.
+You might want to think
+twice about trying to do it.
+Because it, you're going to be pushing
+the boundaries of of memory that,
+that is required to read this dataset n.
+Of course, if your computer has like
+four or eight or 16 gigabytes of RAM,
+then you should have no problem in
+terms of the memory requirements.
+It will still take some time just to
+read it in just because it takes time to
+read in all the data, but
+you won't be running out of memory.
+So doing this kind of calculation is
+enormously useful when you're reading in
+large data sets.
+Because it can give you a sense of
+you know do I have enough memory.
+Is the reason, if you grunt any errors,
+you'll know whether the error is because
+of memory, running out of memory or not.
+So I encourage you to do
+this kind of calculation when you're
+going to be reading in large data sets.
+And you, and you, and you know in
+advance kind of how big it's going to be
+

@@ -1,0 +1,238 @@
+so, what are the tools that R comes with
+to help you to debug a program?
+Right, so there are five basic functions
+and a
+few associated ones that I want to talk
+about.
+But the first most basic one is the
+traceback function.
+Okay?
+Now, one thing I want to say, you can get
+pretty far in R without using any of these
+functions.
+I actually, I worked with R for like six
+years and didn't even know these functions
+existed so, and So, I'm, I'm not saying
+that you necessarily have to, that you
+will always be using these functions, but
+they're actually quite handy in some, some
+cases.
+So, the traceback function, what does is
+it
+prints out what's called the function call
+stack.
+So you know, typically when you call a
+function, you call,
+you call the function and that function
+calls another function, and then
+that function calls another function, and
+it's like, and then you're four
+functions deep, and then maybe the error
+happens way down here, right?
+And so,
+traceback just tells you how many function
+calls
+you're in and where the error occurred,
+right?
+And so you can try to identify where
+in the sequence of function calls the
+error occurred.
+Otherwise, all you know is that you called
+one function and then an error occurred.
+But you've no idea, you know, how many
+other functions are called underneath.
+So the traceback function will tell you
+that, and I'll give you an example.
+So the debug function is probably the
+handiest function.
+It, what it does is
+it, as you give it a function as an
+argument, and it flags that function for
+debug mode.
+Okay, what debug means, that anytime you
+execute that function,
+anytime, anywhere even if another function
+calls it, it will, it
+will halt, it will suspend execution of
+the function at the
+first line, and then you can, in what's
+called a browser.
+And I'll show you how this works and then
+you can step through the function
+line by line.
+And then you can see you can execute one
+line,
+one expression at a time, I should say
+inside the function.
+So you can try to pinpoint, okay, if
+there's a specific line of code
+when the error occurs, you'll be able to
+find out which line that is, okay.
+The browser function's relativity to debug
+in the
+sense that you can stick the browser, the
+browser, of, of call to the browser
+function
+anywhere in your code, and then when that,
+when that line of code gets hit, when that
+browser
+call gets hit, the execution of the
+function will suspend, okay?
+And then you can, and then you can go line
+by line from there.
+So sometimes, for example, you don't, the
+debug function by the, will always start
+the, start the debugging, start the
+browser right at the top of the function.
+But sometimes, you kind of want to run
+through the
+beginning and then stop it somewhere in
+the middle.
+And so, so the browser function allows you
+to
+stick the browser call anywhere in your
+code and
+then it will run the function up until
+that point and then suspend it.
+So so that, so there, those two are
+obviously related.
+The trace function allows you to insert
+debugging code
+into a function without actually editing
+the function itself.
+and, and this is handy if you are
+debugging someone else's code.
+Right, so for example, there's code in the
+package or the, and
+you can't easily edit the code in that
+package, or there's code
+in the base R itself or there's you know,
+something like that.
+And you don't want to go and edit that
+code, because you can't find the file, or
+whatever.
+So, you can use the trace function, just
+insert a little snippet of
+code, and using that snippet is just a
+call to the browser function.
+And then and, and then, and then you can
+kind of browse through that function, and
+then you can turn the trace off, and it's,
+and the function's back to normal.
+So that, and then the recover function is
+the
+last function.
+It's actually, I should put it up here,
+it's related to the traceback.
+What recover does, so normally when you
+get an
+error you get, you usually get a message
+saying what
+the error was and then the, and then you
+get, and then the console kind of comes
+back to you.
+And then you can start, you can just
+enter more commands, you can do whatever
+you want.
+But execution of that function stops and
+you get the console back.
+What we were, that's the default behavior.
+You can change that default behavior by,
+by, by creating what's called, or setting
+what's called an error handler.
+And recover is an error handler function
+which means that any time
+you encounter an error, anywhere in a
+function, rather than getting the
+console back the R interpreter will stop
+the execution of that function
+right where the error occurred, and will
+kind of freeze it there.
+And then it will print out the function
+call stack, so you'll see how far deep
+you're
+in, and then you can go, you can kind of
+jump
+around to the different function calls to
+see, and to look around.
+Now you're in the browser, and you can
+look
+around in the different function calls to
+see kind of,
+okay, what happened here, and happened
+here, what did the,
+how did data get corrected here and things
+like that.
+It's a little hard to talk about in the
+abstract so I'll give you the example.
+So there's also, so these functions kind
+of allow you to
+pick apart the kind of the details, the
+lines of code and
+try to figure out, okay, nail down where
+exactly the the bug may be.
+You can also just put things like print,
+and
+cat, statements in your code to print out
+things.
+So if you want to know, well what's the
+value of x at line
+42, you can just print it out, right, and
+then see what it is.
+And you can get a lot of mileage out by
+just putting in print statements.
+The only problem with print statements and
+things like that, is that you often
+you'll put in like a lot of these, it's a
+long piece of code,
+you'll put in like 40 print statements.
+And then you're like, okay, I'm ready to
+go.
+And then I go back through and, like,
+delete all the print statements.
+So that's, that can be a little bit kind
+of
+a pain, but you know, there's nothing
+terribly wrong with it.
+Some people I've, I've, that I've worked
+with are
+actually against, they like, oppose the
+use of debugging tools.
+I've ever software engineer company many
+years ago and there was
+an engineer there who was, he, he was
+opposed to any debugging tools.
+He'd never used a debugger.
+All he did was print and you know, print
+statements basically.
+And because he thought that the use of the
+debugger encouraged bad habits, right?
+So, what do you, and it's true.
+I've seen it happen in other places.
+Where you just write some code.
+I don't care how it's going to work.
+I'm just going to run it.
+If there's a problem, I'll just run it
+through the debugger.
+Right, and I'll just step through line by
+line to find out what the problem was.
+And, and it encourages kind of a sloppy
+code development process because you know
+that if there's a
+problem you can just step through
+execution with the debugger.
+And I have to say, that's probably not a
+good habit to get into.
+It's probably better to think about your
+code, write it in, in a
+kind of intelligent way and then if
+there's a problem resort to the debugger.
+But I use the debugger all the time.
+I use the browser function, I use all
+these functions all the time.
+So maybe I just
+have bad habits but that, that memory is
+burnin'
+my mem, mem, burnin' my brain for some
+reason.
+

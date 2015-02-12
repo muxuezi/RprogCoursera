@@ -1,0 +1,362 @@
+So that's the R Profiler.
+And the R Profiler has a function in R
+that's called Rprof.
+And it, an Rprof is used to start the
+profiler in R.
+One could note is that R must be compiled
+with profiler
+support and so it's not something that's
+going to built in all cases.
+However, and I'd say 99.9% of the cases
+this is the true, this is
+the truth, so mu, you will only, R will
+only be compiled without profiler
+support in some very cer, special
+circumstances.
+And so I wouldn't, the chances are your
+version of R use, it can use the profiler.
+The other function that's useful is the
+summary Rprof
+function, which takes the output from the
+profiler and summarizes
+it in a way that's kind of readable,
+because the
+raw output from the profiler is generally
+not very usable.
+And so the summary Rprof function is very
+important.
+It's important to realize that you should
+not use the system time
+function and the R Profiler function
+together.
+they, these are not really designed to be
+worked together, to be used together.
+So you should always use one or the other
+and not both.
+So the Rprof function keeps track,
+basically what it does is it
+keeps track of the function call stack, at
+regularly sampled intervals, right?
+And so basically it as you're function is
+running, it kind of
+goes it, it, it queries the function call
+stack, so how
+many functions you, functions that call
+other functions that call other functions.
+And it just prints it out.
+Basically, that's all it does is it prints
+out the function call stack at, at very
+quick intervals, so, so that every 0.02
+seconds
+and it prints out the function call stack.
+So first thing you'll notice is that if
+your function takes less
+than 0.02 seconds to run, then this R, the
+profiler will be useless.
+And in general, because it will never
+sample the function call stack.
+And in general if your program is runs
+very quickly, the profiler is not useful.
+Well, and but of course that if your
+program runs very quickly,
+you probably wouldn't think to run the
+profiler in the first place.
+So it's usually not a problem.
+But you really need to use the profiler in
+situations where your code
+is taking much longer on the order, at
+least on the order of seconds.
+So here's just a quick example of the raw
+output that comes
+from the profiler.
+Now you generally speaking you will not
+ever use this output, but
+I thought it might be interesting to look
+at what's going on.
+So you can see that I'm, you, I'm just
+calling the lm
+function, which is kind of a univariate
+outcome and a univariate predictor.
+And, and what happens here, as you can
+see, that
+each line of this output is the function
+call stack.
+So you can see at the very right, is kind
+of the top.
+and, and at the very
+left is kind of the bottom, so to speak.
+And the, so the very right, you can see
+that
+lm was called, and lm called eval, and
+eval called eval.
+So I'm going from right to left here.
+And eval called model frame, which called
+model frame
+default, which called eval again and eval
+in the list.
+So all these functions call each other.
+So you can see that the function calls
+back goes out for the deep.
+As you go further in the evaluation you
+can see
+that that the function calls that changes,
+so at the
+very bottom you can see that lm called
+lm.fit.
+And if you're not familiar with the LM
+function, lm.fit is really
+the workhorse of this function, it does
+all the really kind of computation.
+And so, you, you wouldn't suspect that it
+would
+spend a reasonable amount of time in the
+lm.fit function.
+So, that kind of raw output is not
+particularly easy to read, so we use the
+sumaryRprof
+function to tabulate the Rprof or the
+output
+and calculate how much is spent in which
+function.
+So, the idea is that once you see that the
+function call stack, you know that
+the, that each line of the con, the
+function call stack is separated out by
+0.02 seconds.
+Access the frequency which is sampled.
+So, given that you can calculate how many
+seconds are
+spent in each of the functions, because if
+it appears in the function call
+stack then you're actually spend, then you
+must be spending some time in it.
+So there are two methods for, for
+normalizing
+the data that you get the R Profiler.
+One is called by.total, which divides the
+time spent in
+each function by a total, by the total run
+time.
+And by.self, which does the same thing,
+but at first
+subtracts out time spent in functions
+above in the call stack.
+So, its important to realize that the two
+separate concepts here of kind of,
+by.total and by self.
+The basic idea is that by total, I, I
+mean, the, the normalizing
+by the total amount of time spent in a
+function gives you basically,
+how much time was be, was spent that that
+how many basically, how
+many times that function appeared in the
+calls, in the kind of printout here.
+And so for example, a 100% of your time is
+spent in the top-level
+function, right, so the function that you
+call, suppose it's lm, you spend a
+100% of your time in that function,
+because it was at the top level.
+And so, but the reality is that often
+the top level functions don't really do
+anything with
+that's kind of important, all they do is
+they
+call helper functions that do the real
+work, right?
+So chances are if your function is
+spending
+a lot of time doing something, it's
+spending
+a lot of time in those helper functions
+which is just being called by this top
+function to kind of do, to do all the
+work.
+And so often it's not very interesting to
+know how much is time is spent in
+these top level functions, because that's
+not where
+the, where the real, where the real work
+occurs.
+All right, so you really want to know
+kind of how much time is spent in the
+top level function, but subtracting out
+all
+the low, the functions that it calls
+right?
+So it turns out that it spends a lot of
+time in the
+top level function, but even after you
+subtract out all of the lower level
+functions, then that has something that's
+interesting.
+But most of the time you will notice that
+when you subtract out all the lower level
+functions that get, that get called
+there's very
+little time it spends in the top level
+function.
+And because all the work and all the kind
+of the computations is being done
+at the lower level function, so that's,
+that's
+kind of where you want to focus your
+efforts.
+So, the, the buy.self format is, I, I
+think, the most
+interesting format to use because it tells
+you how much time
+is being spent in a given function, but
+after subtracting out all of the
+other, all of the time spent in, in lower
+level functions that it calls.
+So it gives you I think a more accurate
+picture of, you know, which functions are
+really, are truly
+taking up the most amount of time and
+which functions
+that you might want to target for
+optimization, later on.
+So here's an example of some output in the
+by.total format and you can see very
+clearly at the very top that 100% of the
+time is spent in the lm function.
+So the total time was 7.41 seconds for
+this run.
+And all of it was spent in lm.
+Of course, because lm was the top level
+function.
+But you can see that and so you can
+see that the second place winner was the
+lm.fit function.
+I mentioned lm.fit is where a lot of the
+computation occurs.
+And so that was three and a half seconds,
+so about half of the time in that
+function.
+Now, now you also see that a number of
+functions here model.frame,
+model.frame.default, eval,
+all these functions don't really
+involve computation but there is a
+reasonable amount of
+time spent within those functions, so
+that's kind of interesting.
+Now, I think a more useful output is the
+by.self output which kind of
+subtracts out any lower level function
+calls
+from, so and calculates the amount of
+time spent in a, it's kind of truly spent
+in a given function.
+And here you can see that lm.fit is the
+clear winner, because that's really where
+all the computation occurs.
+In particular, lm.fit calls, calls a four
+trend routine for inverting a matrix.
+And so, that's usually where in most large
+scale regression problems, that's where
+all the computation occurs.
+The next function that takes a lot of time
+ap, ap, apparently, or 11% of the time
+is the as.list function, for the
+as.list.data.frame method.
+It's not immediately clear why so much
+time is being spent in
+this, but, spent in this function,
+but it's maybe something you want to
+investigate.
+Because it maybe something that's not very
+important to the kind of core computation.
+for, and so you can kind of go down the
+list here
+and see how much time is being spent in
+various functions.
+And then you'll see a lot of these
+functions don't directly pertain
+to computation or kind of core
+computation, but they're really more kind
+of pertain to data, formatting of the data
+and things like that.
+The last part of the summaryRprof output
+is
+just the sample interval, so you can see
+how, what, what time interval the sampling
+took
+place for printing out the function call
+stack.
+So you can see, it's 0.02 seconds.
+And the sampling time, which is just the
+total
+amount of time that the expression took to
+run.
+This is the same kind of, this is so this
+is the, I think equivalent to the kind of
+elapse time in the system.time function.
+So that's a quick tour of the R profiler
+in R,
+it's a very handy tool for doing
+performance analysis, R code to
+give you some useful feedback and I find
+often highlights functions that
+you may not have suspected as being
+kind of time hogs or bottlenecks.
+And because they're not really core to the
+kind of, the real computation that you're
+working on.
+So the profiler can be really useful,
+I think for highlighting these kinds of
+situations
+and, and often finding things that you are
+kind of unexpected.
+The summary Rprof function summarizes the
+output from Rprof and
+gives you the percent time spent in in
+each functions.
+And I think the by.self kind of [UNKNOWN]
+normalization is the
+most useful for kind of highlighting
+bottlenecks in your, in your code.
+One of the, one of the implications of
+using the
+profiler is that it's useful to break your
+code into functions.
+So rather than have one massive function,
+it's useful to break your code into kind
+of logical pieces of different functions.
+And so the profiler can use this
+information
+to tell you where the time is being spent.
+So remember the profiler prints, prints
+out the function call stack.
+And if you break your code into mul,
+multiple little functions, the
+function names that you give will kind of
+serve as little identifiers.
+In the function call stack to tell you
+kind of where
+the, where the code is spending the most
+amount of time.
+So that's another little strategy
+that's kind of that's can be useful when
+you're profiling your R code.
+The last thing that's worth learning is
+that if your R code, or any other R code
+call C or Fortran code, this C and Fortran
+code is can, is like a black box.
+It's not profiled.
+You, you won't see any information about
+that code.
+All you will know is that some time is
+spent there, but you won't know any
+details about that.
+So overall I think the profiler is very
+useful.
+I encourage you to use
+it rather than just try to guess at, you
+know, where to optimize your code and, and
+just, the profiler can be used to kind
+of collect data about where time is being
+spent.
+

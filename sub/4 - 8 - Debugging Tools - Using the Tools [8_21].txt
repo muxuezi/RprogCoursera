@@ -1,0 +1,308 @@
+Let's take a look, I'll just give you a
+couple examples and
+then I'll move to the actual [UNKNOWN]
+just so you can see things.
+So here's the mean.
+I took the mean of x, x doesn't exist.
+So if you take the mean of something
+that doesn't exist you're clearly going to
+get an error.
+Here it says so you get the error message
+this is produced by the stop function.
+And I call the traceback.
+It tells me where the error occurs.
+Well the error just occurs like right away
+at the top of the mean function.
+So that, so the function
+mean didn't actually call any other
+functions, right because it
+couldn't because it couldn't figure out,
+it couldn't evaluate your argument.
+And so, that's where the error occurs so,
+you know that may or may not be.
+Many times that's just that is where the
+error will occur at the top level
+function.
+so, that in that case the trace-back's not
+very handy.
+One thing that's useful to, that, that the
+trace-back is useful for,
+is for when you're communicating with
+someone else over email, for example, me.
+And you say, you know I get an error when
+I call, you know, whatever function.
+Its very useful if we just say use the
+trace-back, when I get after I get the
+error.
+And then I can see okay, wha, what was the
+list of function calls, I mean.
+Unless the trace-back looks like this,
+then near dud bug, but
+when you're communicating with someone
+about an error and a function,
+its very handy just to print out the
+trace-back, so that
+they can seek out where the error occurred
+in the hierarchy
+of functions.
+You have to call traceback immediately
+after the error occurs.
+If you execute some other code and
+then call traceback it's not going to
+work, right?
+Because the traceback will only give you
+the most recent error.
+If you execute another function and
+there's no error well then there's
+no traceback to give because there's no
+error in the, in the next.
+ex, execution.
+So you have to you've to call it right
+away.
+Here's a slightly more interesting trace
+back so I
+call it LM, which is the linear modeling
+function.
+I said y tilda x.
+So y tilda x.
+They don't exist.
+And so I'm getting an error that says y
+cannot be found.
+Were to that error occur?
+Well actually it occurred several levels
+deep actually.
+So here I called L M and the L M arrow
+function is a little funky.
+So I don't expect you to understand all
+this but
+L M called e val on what's called a mono
+frame.
+Then that, it's then and then that called
+e val again
+which called the model frame function
+which called the model frame default.
+Model frame is a generic function that
+called a model frame default function.
+Then it called the eval function again on
+this.
+And then, the and at the seventh
+level, here.
+That's where the error occurred.
+Okay.
+So and it basically it occurred because it
+tried to evaluate my formula here.
+Which is y tilda x.
+That's what all e val calls are for.
+And and it couldn't.
+And when it evaluated the formula it
+couldn't find the actual value of y and x.
+So then, that's where the error occurred.
+So printing out something like this can be
+very useful.
+If you're trying to get help from someone
+else and you're,
+and you're, and you're kind of trying to
+debug your function together, okay?
+So so that's
+the traceback, there.
+The debug function doesn't really work
+well in the static format
+like this, but I'll show, I'll just show
+you that, but
+But, basically I could debug the l m, so
+you can
+debug any function, doesn't matter if you
+wrote it or not.
+So I can debug the l m function, and now
+when I call l m y fill
+the x it you get this debugging in and
+I'll give you the the expression that you
+called.
+And I'll first thing it will do is it will
+print out the entire code of the function,
+so this
+is a lot longer than so I just I just put
+I just cut cut it off in
+the middle here but the first thing it
+does
+is it prints out the whole function body
+code okay.
+And then you get this little prompt at the
+bottom here
+the browse [UNKNOWN] so now you're in
+what's called the browser.
+Okay?
+And the browser is just like your r
+workspace, actually.
+you, you can think of it like a work space
+embedded within a work space.
+Right?
+So,
+and but, but the elements of the
+workspace.
+Are, sorry, so the environment of that
+workspace in the browser is your function
+environment.
+So the things that are in your function
+are what are in your environment.
+So at, at the very top of this function
+you just
+actually, there's nothing in your
+environment
+except for the function arguments, right.
+So what are the function arguments?
+Well, the first one is the formula?
+So I have a formula in my environment
+which is this
+y tilda x, but that's it.
+So anyway so now I can well there are
+actually I should say
+there are other arguments so l'm too which
+are default values.
+But they are not, they are not listed
+there, but they do, they also, they,
+I shouldn't say there is more than just a
+formula because there is other arguments.
+So here what I do is I press n for next
+and it runs the first line.
+When I hit
+n and then enter and it runs the first
+line.
+N then enter runs the second line.
+N enter third.
+I just keep hitting n, n, n, so I run, and
+I just
+execute each line until I get to the line
+where the error occurs.
+So when you get to the line where the
+error occurs.
+And you execute it.
+You'll get an error just like you did
+before.
+It's not going to magically fix the
+problem by itself.
+But, at least you'll know where that error
+occurred, okay?
+So and further more, suppose you want
+you can debug functions within the
+debugger, right?
+So, you can I can call, if I want so, I
+can call.
+So this match.call function I just kind of
+stepped right over
+it but I could have gone into this
+function by calling
+debug on match.call before executing it
+and then when this
+got executed I'd be in the third level of
+the browser.
+Ah, so these things can nest and then as
+you go so they come like a stack
+of browser frames right?
+So so you can, you can, you can call the
+debug function on functions.
+While you're, even while you're in the
+debugger.
+And you can step through functions even
+while
+you're kind of debugging your top level
+functions.
+The recover function, so the you can set
+the recover to be this kind of error
+handler by using the options function.
+So you say options error equals recover.
+And,
+and that will set a global option, right?
+So now this will, this will, this behavior
+will curve ever,
+everything you do as long as your r
+session is open.
+As soon as you quit it will go away and
+then if you start
+up R somewhere else it's not going, it's
+not going to save that option.
+So now I'm going to what I'm trying to do
+is
+I'm going to read that csv some file that
+doesn't exist.
+Okay, and then you get an error and
+you get the error message, cannot open the
+connection.
+And you get some warning also.
+And now bu, but instead of getting my
+console back, I get a little menu here.
+And this menu is the function call stack,
+okay.
+So it's the same thing that you would get
+back, if you called trace back after the
+error.
+Right, so reed.csv is that I called,
+remember reed.csv is just a [UNKNOWN] for
+reed.tables.
+So Reed.csv called reed.table and then
+reed.table called the file function,
+because we wanted to create a file
+connection with my file, no such file.
+Right?
+And then when it tried to create that file
+connection.
+Obviously you couldn't find the file, and
+that's where the error occurred, okay?
+So the error occurred at the third level
+in the
+function call stacks, so what you can do,
+is you
+can press a number one, two, three [SOUND]
+and then
+you can kind of browse the environment of
+that function.
+So if I want to see
+okay, what was the read, what was going on
+in read.csv, I can just press
+one here, and then it would show me kind
+of the environment of the read.csv.
+And, and then I can break out of that
+and look at the environment for
+read.table, and et cetera.
+And so you can, if you have a very long
+function call stack, you can kind
+of jump back and forth to see what was
+going on at each, at each function call.
+To to try out a pinpoint kind of where the
+problem occurs.
+Okay.
+Okay.
+So so just to summarize really quickly
+there's, there are
+basically three main indications of some
+sort of problem or condition.
+There's the message warning error and of
+the three
+only the error will stop execution of the
+function.
+When you're analyzing a function that has
+and you think
+has a problem make sure you can reproduce
+that problem.
+And then you make sure you can articulate
+how what do
+your expectations and how'd and what the
+output are that and how the output differs
+from what you were expecting or [LAUGH]
+I'd like to say what you are expecting.
+And so that the, the interactive tools
+trace
+back, debug, browser, trace, and recover
+can be used.
+And it's, and the keyword actually here is
+interactive.
+The, the reason these tools are useful is
+because they are interactive.
+You can kind of do things on the console.
+And of course the debugging tools
+are not a substitute for thinking.
+And so you should always think about
+writing your code before, you know,
+just throwing it to the wind and hoping
+the debugger will catch it.
+

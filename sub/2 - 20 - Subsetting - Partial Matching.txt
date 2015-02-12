@@ -1,0 +1,54 @@
+So partial matching is
+a handy tool which it,
+which it often saves you a lot
+of typing at the command line.
+It's not particularly useful when you're
+pro, when you're writing out programs and
+functions but it's very useful
+when you're kind of working at
+the command like typing
+things as fast as you can.
+So the idea with partial matching is that
+it works with the double bracket and
+the single, and the dollar sign operator.
+So, suppose I have a list x
+which has an element in it
+called aardvark which is
+the sequence 1 through 5.
+And suppose typing out the word aardvark
+every single time is a bit of a pain so
+I'm just going to type the word a.
+Well, the way the dollar sign works by
+default is that it looks for it looks for
+a name in this list,
+that matches the letter a.
+In this case there's only one element.
+And so you get you get the word aardvark.
+And then it gives me the, the el,
+the object associated with aardvark,
+which is the sequence 1 through 5.
+So if I use the double bracket operator
+things are a little bit different.
+So what the double bracket operator
+expects, is that it's going to be,
+that the name that you pass it is
+going to be an exact match for
+one of the names in the list.
+So by default the double bracket operator
+doesn't do partial matching like
+the dollar sign does.
+So now when I pass x double bracket
+a what happens is I get null back,
+because there's no element of
+the list that has the name a.
+But there's a some, a second argument
+that you can pass to the dou,
+double bracket operator,
+which is the exact argument.
+And if you specify that
+exact equals false.
+And then when I pass at x double bracket
+a, it gives me the sequence 1 through 5,
+because that's the one that mat,
+matches the letter a the closest.
+
